@@ -1,0 +1,71 @@
+{
+  "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "jsx": "react", // Опции компилятора TS -> JS
+    "module": "esnext", // Способ компиляции модулей (на выходе)
+    "target": "es5", // В JS какого века компилировать
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "sourceMap": false,
+    // "outDir": "src/js/modules", // Куда выплевывать скомпиленный код
+    "baseUrl": ".",
+    "paths": { // БЕЗ ЭТОГО АЛИАСЫ НЕ РАБОТАЮТ
+      "*": [
+        "node_modules/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@src/*": [
+        "./src/*"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@styles/*": [
+        "./src/shared/styles/*"
+      ],
+      "@type/*": [
+        "./src/shared/types/*"
+      ],
+      "@components/*": [
+        "./src/shared/components/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.module.scss",
+    "src/global.d.ts"
+  ], // Что именно компилировать
+  "exclude": [
+    "node_modules",
+    "**/*.js",
+    "**/*.jsx",
+//    "**/*.test.jsx",
+//    "**/*.test.js",
+//    "**/*.test.ts",
+//    "**/*.test.tsx",
+//    "**/*.spec.tsx",
+//    "**/*.spec.ts"
+  ],
+}
