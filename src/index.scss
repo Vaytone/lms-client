@@ -1,4 +1,10 @@
+@import "@styles/variables";
+@import "@styles/atomic";
+@import "@styles/fonts";
+@import "@styles/lib";
+
 html {
+  font-size: 16px;
 }
 
 body {
@@ -7,6 +13,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: auto;
+  color: $secondary-color;
+  //background-color: $body-color;
 }
 
 code {

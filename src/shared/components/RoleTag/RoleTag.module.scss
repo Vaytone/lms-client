@@ -1,0 +1,32 @@
+@import "@styles/variables";
+
+.RoleTagWrapper {
+  padding: 3px 10px;
+  border-radius: 5px;
+  display: inline-block;
+
+  &--admin {
+    background-color: #5645d8;
+    color: $reverse-text-color;
+  }
+
+  &--guest {
+    background-color: #b0b220;
+    color: $reverse-text-color;
+  }
+
+  &--student {
+    background-color: #49b26a;
+    color: $reverse-text-color;
+  }
+
+  &--watcher {
+    background-color: #c8a048;
+    color: $reverse-text-color;
+  }
+
+  &--owner {
+    background-color: $primary-color;
+    color: $reverse-text-color;
+  }
+}

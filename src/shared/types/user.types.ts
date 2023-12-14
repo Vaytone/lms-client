@@ -7,5 +7,6 @@ export interface User {
   login: string;
   active: boolean;
   closed: boolean;
-  role: RoleEnum
+  role: RoleEnum;
+  token: string;
 }

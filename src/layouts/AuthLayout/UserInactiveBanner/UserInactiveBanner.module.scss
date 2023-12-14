@@ -1,0 +1,48 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.BannerHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BannerWrapper {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #f5f6fa;
+  margin: 30px 15px 0;
+
+  @include for-tablet {
+    margin: 50px 0 0;
+  }
+
+  @include for-desktop {
+    margin: 100px 0 0;
+  }
+}
+
+.BannerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 100%;
+  background-color: $content-color;
+  padding: 30px 20px;
+  border-radius: 5px;
+  max-width: 500px;
+}
+
+.BannerImg {
+  width: 150px;
+  height: 150px;
+}
+
+.BannerTitle {
+  margin: 20px 0 10px;
+}
+
+.BannerText {
+  color: $light-text-color;
+  text-align: center;
+}
