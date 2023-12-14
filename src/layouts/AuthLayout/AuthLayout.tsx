@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { STATIC_HREF } from '@shared/constants/core';
 import { useAppSelector } from '@shared/hooks/redux';
+import UserInactiveBanner from '@src/layouts/AuthLayout/UserInactiveBanner/UserInactiveBanner';
 import styles from './AuthLayout.module.scss';
 
 const AuthLayout: React.FC = () => {
@@ -19,7 +20,8 @@ const AuthLayout: React.FC = () => {
           </p>
         </div>
       </div>
-      <Outlet/>
+      {user && !user.active && <UserInactiveBanner/>}
+      {!user && <Outlet/>}
     </div>
   );
 };

@@ -1,5 +1,7 @@
 {
   "auth": {
+    "accountInactiveText": "Your account has not yet been activated. This means that the functionality of the service is not yet available to you. We look forward to seeing you use it soon! If you want to speed up the activation process, we recommend contacting your organization's representatives.",
+    "accountInactiveTitle": "Account is inactive",
     "confirmPassword": "Confirm password",
     "enterConfirmPassword": "Confirm your password",
     "enterLogin": "Enter login",

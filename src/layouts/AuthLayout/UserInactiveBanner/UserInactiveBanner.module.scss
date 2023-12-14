@@ -1,6 +1,12 @@
 @import "@styles/variables";
 @import "@styles/mixins";
 
+.BannerHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .BannerWrapper {
   padding: 5px;
   border-radius: 5px;
