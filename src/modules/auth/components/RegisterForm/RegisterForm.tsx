@@ -11,9 +11,9 @@ import { useTranslation } from 'react-i18next';
 import RoleTag from '@components/RoleTag/RoleTag';
 import RegisterBanner from '@modules/auth/components/RegisterBanner/RegisterBanner';
 import { RegisterFormProps } from '@modules/auth/components/RegisterForm/types';
-import styles from './RegisterForm.module.scss';
 import { authErrorManager } from '@modules/auth/helper/authErrorManager';
 import { useNavigate } from 'react-router-dom';
+import styles from './RegisterForm.module.scss';
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ code }) => {
   const registerData = useAppSelector((state) => state.auth.registration_data);

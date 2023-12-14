@@ -1,4 +1,3 @@
-import { store } from '@src/store';
 import axios from 'axios';
 import { BASE_URI } from '@shared/constants/core';
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import Input from '@components/ui/Input/Input';
 import Button from '@components/ui/Button/Button';

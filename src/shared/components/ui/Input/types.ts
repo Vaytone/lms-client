@@ -1,6 +1,5 @@
 import DefaultTFuncReturn from 'i18next';
 import { ChangeEvent } from 'react';
-import { UseFormRegister } from 'react-hook-form';
 
 export interface InputProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void,
