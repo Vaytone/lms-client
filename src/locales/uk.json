@@ -1,1 +1,51 @@
-{}
+{
+  "auth": {
+    "confirmPassword": "Підвердження паролю",
+    "enterConfirmPassword": "Підтвердіть пароль",
+    "enterLogin": "Введіть логін",
+    "enterName": "Введіть ім'я",
+    "enterPassword": "Введіть пароль",
+    "enterSurname": "Введіть прізвище",
+    "invalidLinkText": "Упс! Здається, посилання для реєстрації невірне або застаріло. Щоб отримати правильне посилання, будь ласка, зверніться до представників вашої організації для допомоги.",
+    "invalidLinkTitle": "Недійсне посилання",
+    "invalidValue": "Некоректне значення",
+    "login": "Логін",
+    "loginText": "Якщо у вас ще немає облікового запису, будь ласка, зверніться до представників вашої організації, щоб отримати доступ до платформи.",
+    "maxLength": "Не більше {{value}} символів",
+    "minLength": "Щонайменше {{value}} символів",
+    "minNumbers": "Щонайменше {{ value }} цифра(-и)",
+    "minUpperCase": "Щонайменше {{value}} буква в верхньому регістрі",
+    "name": "Ім'я",
+    "organisationInactive": "Ця організація неактивна",
+    "organisationNotFound": "Організацію не знайдено",
+    "password": "Пароль",
+    "passwordDontMatch": "Паролі не співпадають",
+    "registerTextAdminCalendar": "Зручний календар дедлайнів для організації роботи",
+    "registerTextAdminCourse": "Створення інтерактивних курсів для захопливого навчання.",
+    "registerTextAdminMarks": "Моніторинг успішності студентів у реальному часі",
+    "registerTextStudentCourse": "Інтерактивні курси для захопливого навчання",
+    "registerTextStudentProgress": "Трекер прогресу для відстеження успішності",
+    "registerTextStudentRemote": "Мобільний доступ до курсів з будь-якого місця",
+    "registerTextWatcherCourses": "Огляд курсів і програм, які вивчає дитина",
+    "registerTextWatcherMarks": "Моніторинг успішності дитини в реальному часі",
+    "registerTextWatcherSchedule": "Доступ до розкладу занять дитини",
+    "registerTitle": "VAYTONE - Ваш персональний помічник у світі цифрового навчання!",
+    "signIn": "Увійти",
+    "signUp": "Реєстрація ",
+    "surname": "Прізвище",
+    "userAlreadyExist": "Користувач с такими логіном вже існує",
+    "wrongLoginPassword": "Невірний логін або пароль"
+  },
+  "core": {
+    "admin": "Викладач",
+    "student": "Учень",
+    "watcher": "Спостерігач"
+  },
+  "error": {
+    "noAccess": "Доступ обмежено",
+    "somethingWentWrong": "Щось пішло не так!"
+  },
+  "errors": {
+    "requiredFiled": "Обов'язкове поле"
+  }
+}

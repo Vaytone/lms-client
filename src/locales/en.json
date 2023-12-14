@@ -1,1 +1,51 @@
-{}
+{
+  "auth": {
+    "confirmPassword": "Confirm password",
+    "enterConfirmPassword": "Confirm your password",
+    "enterLogin": "Enter login",
+    "enterName": "Enter name",
+    "enterPassword": "Enter password",
+    "enterSurname": "Enter surname",
+    "invalidLinkText": "Oops! It appears that the registration link is incorrect or has expired. To obtain the correct link, please contact representatives of your organization for assistance.",
+    "invalidLinkTitle": "Invalid link",
+    "invalidValue": "Invalid value",
+    "login": "Login",
+    "loginText": " If you don't have an account yet, please contact representatives of your organization to obtain access to the platform.",
+    "maxLength": "Less than {{value}} characters",
+    "minLength": "At least {{value}} characters",
+    "minNumbers": "At least {{value}} number(-s)",
+    "minUpperCase": "At least {{value}} letter in upper case",
+    "name": "First name",
+    "organisationInactive": "This organization is inactive",
+    "organisationNotFound": "Organization not found",
+    "password": "Password",
+    "passwordDontMatch": "Password don't match",
+    "registerTextAdminCalendar": "Convenient deadline calendar for work organization",
+    "registerTextAdminCourse": "Creating interactive courses for engaging learning.",
+    "registerTextAdminMarks": "Real-time student performance monitoring",
+    "registerTextStudentCourse": "Interactive courses for engaging learning",
+    "registerTextStudentProgress": "Progress tracker to monitor success",
+    "registerTextStudentRemote": "Mobile access to courses from anywhere",
+    "registerTextWatcherCourses": "Overview of courses and programs studied by child",
+    "registerTextWatcherMarks": "Real-time monitoring of child's academic performance",
+    "registerTextWatcherSchedule": "Access to child's class schedule",
+    "registerTitle": "VAYTONE - your personal assistant in the world of digital learning!",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "surname": "Surname",
+    "userAlreadyExist": "User with this login already exists",
+    "wrongLoginPassword": "Wrong login or password"
+  },
+  "core": {
+    "admin": "Mentor",
+    "student": "Student",
+    "watcher": "Watcher"
+  },
+  "error": {
+    "noAccess": "Access is restricted",
+    "somethingWentWrong": "Something went wrong!"
+  },
+  "errors": {
+    "requiredFiled": "Required field"
+  }
+}
