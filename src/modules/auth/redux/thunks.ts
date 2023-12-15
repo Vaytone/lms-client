@@ -53,3 +53,15 @@ export const refresh = createAsyncThunk(
     }
   },
 );
+
+export const logout = createAsyncThunk(
+  `${MODULE_NAME}/logout`,
+  async (_, { rejectWithValue }): Promise<ValidateLinkResponse | any> => {
+    try {
+      const response = await axiosPublic.get<User>(AUTH_ROUTES.logout);
+      return response.data;
+    } catch (e: any) {
+      return rejectWithValue(e?.response?.data?.message);
+    }
+  },
+);
