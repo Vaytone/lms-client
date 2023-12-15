@@ -13,6 +13,7 @@
     "invalidValue": "Invalid value",
     "login": "Login",
     "loginText": " If you don't have an account yet, please contact representatives of your organization to obtain access to the platform.",
+    "logout": "Logout",
     "maxLength": "Less than {{value}} characters",
     "minLength": "At least {{value}} characters",
     "minNumbers": "At least {{value}} number(-s)",

@@ -8,6 +8,7 @@ import { loginSchema } from '@modules/auth/validations/login.validation';
 import { login } from '@modules/auth/redux/thunks';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
 import { useTranslation } from 'react-i18next';
+import { authErrorManager } from '@modules/auth/helper/authErrorManager';
 import styles from './LoginForm.module.scss';
 
 const LoginForm: React.FC = () => {
@@ -29,7 +30,11 @@ const LoginForm: React.FC = () => {
   
   const handleSubmitEvent: SubmitHandler<SignInForm> = (data, event) => {
     event.preventDefault();
-    dispatch(login(data));
+    dispatch(login(data))
+      .unwrap()
+      .catch((e) => {
+        authErrorManager(e);
+      });
   };
   
   return (
