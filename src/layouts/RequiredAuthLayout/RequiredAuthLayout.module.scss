@@ -1,0 +1,11 @@
+@import "@styles/variables";
+
+.LayoutWrapper {
+  display: flex;
+}
+
+.ContentWrapper {
+  flex-grow: 1;
+  background-color: $body-color;
+  min-height: 100vh;
+}

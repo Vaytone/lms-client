@@ -1,15 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { CoreState } from '@shared/redux/core/types';
 import { appFirstLoad } from '@shared/redux/core/thunks';
+import { PageEnum } from '@type/page.types';
 
 const initialState: CoreState = {
   isLoading: true,
+  currentPage: PageEnum.Dashboard,
 };
 
 export const coreSlice = createSlice({
-  reducers: {},
   name: 'core',
   initialState,
+  reducers: {
+    setCurrentPage: (state, { payload }) => {
+      state.currentPage = payload;
+    }, 
+  },
   extraReducers: (builder) => {
     builder
       .addCase(appFirstLoad.fulfilled, (state) => {

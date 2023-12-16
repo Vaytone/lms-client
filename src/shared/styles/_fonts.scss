@@ -25,6 +25,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-small-cross:before {
+  content: "\e908";
+}
+.icon-cross:before {
+  content: "\e906";
+}
+.icon-menu:before {
+  content: "\e907";
+}
+.icon-application:before {
+  content: "\e903";
+}
+.icon-course:before {
+  content: "\e905";
+}
+.icon-member-bold:before {
+  content: "\e902";
+}
 .icon-show:before {
   content: "\e900";
 }

@@ -1,5 +1,11 @@
 @import "variables";
 
+@mixin for-mobileL {
+  @media screen and (min-width: 500px) {
+    @content;
+  }
+}
+
 @mixin for-tablet {
   @media screen and (min-width: 744px) {
     @content;
