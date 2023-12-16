@@ -41,6 +41,10 @@
   },
   "core": {
     "admin": "Викладач",
+    "applications": "Заявки",
+    "courses": "Курси",
+    "dashboard": "Головна",
+    "members": "Учасники",
     "student": "Учень",
     "watcher": "Спостерігач"
   },

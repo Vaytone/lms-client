@@ -41,6 +41,10 @@
   },
   "core": {
     "admin": "Mentor",
+    "applications": "Applications",
+    "courses": "Courses",
+    "dashboard": "Dashboard",
+    "members": "Members",
     "student": "Student",
     "watcher": "Watcher"
   },

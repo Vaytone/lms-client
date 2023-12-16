@@ -1,0 +1,36 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.Header {
+  border-bottom: 1px solid $bright-text-color;
+  background-color: $content-color;
+}
+
+.HeaderContent {
+  display: flex;
+  padding: 25px;
+  align-items: center;
+
+  h2 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+.HeaderCloseButton {
+  margin-right: 10px;
+  justify-self: flex-end;
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  border: 1px solid $bright-text-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include for-tablet {
+    display: none;
+  }
+}

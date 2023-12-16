@@ -23,6 +23,7 @@ export const App: React.FC = () => {
         <Routes>
           <Route path='/' element={<RequiredAuthLayout/>}>
             <Route path='/' element={<p>dummy</p>} />
+            <Route path='/members' element={<p>members</p>} />
           </Route>
           <Route path='/' element={<AuthLayout/>}>
             <Route path='/login' element={<LoginPage/>}/>

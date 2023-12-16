@@ -12,7 +12,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const isDev = process.env.NODE_ENV === 'production';
-const isProd = !isDev;
+// const isProd = !isDev;
+const isProd = false;
 
 const optimization = () => {
   const config = {

@@ -1,0 +1,104 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.SidebarWrapper {
+  background-color: $content-color;
+  width: 100vw;
+  position: absolute;
+  padding: 32px;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  border-right: 1px solid $bright-text-color;
+  transition: left 0.2s;
+
+  &--open {
+    left: 0;
+  }
+
+  @include for-mobileL {
+    max-width: 260px;
+  }
+
+  @include for-tablet {
+    left: 0;
+    position: relative;
+  }
+
+
+}
+
+.SidebarLogo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+
+  p {
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+}
+
+.SidebarNavList {
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.SidebarNavItem {
+  margin-bottom: 10px;
+}
+
+.SidebarNav {
+  color: $secondary-bright;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  padding: 12px 22px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #fafafa;
+  }
+
+  &--active {
+    color: $secondary-color;
+    background-color: $body-color;
+
+    &:hover {
+      background-color: $body-color;
+      cursor: default;
+    }
+  }
+
+  span {
+    color: inherit;
+  }
+
+  p {
+    margin: 0 0 0 15px;
+    color: inherit;
+    font-weight: 600;
+  }
+}
+
+.SidebarCloseIcon {
+  justify-self: flex-end;
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  border: 1px solid $bright-text-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include for-tablet {
+    display: none;
+  }
+}
