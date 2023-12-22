@@ -13,6 +13,7 @@ export const coreSlice = createSlice({
   initialState,
   reducers: {
     setCurrentPage: (state, { payload }) => {
+      state.isLoading = false;
       state.currentPage = payload;
     }, 
   },
@@ -23,3 +24,5 @@ export const coreSlice = createSlice({
       });
   },
 });
+
+export const { setCurrentPage } = coreSlice.actions;

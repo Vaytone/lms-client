@@ -40,11 +40,19 @@
     "wrongLoginPassword": "Невірний логін або пароль"
   },
   "core": {
+    "actions": "Дії",
     "admin": "Викладач",
     "applications": "Заявки",
+    "cancel": "Відмінити",
+    "confirm": "Підтвердити",
     "courses": "Курси",
     "dashboard": "Головна",
+    "lastName": "Прізвище",
+    "login": "Логін",
     "members": "Учасники",
+    "name": "Ім'я",
+    "role": "Роль",
+    "search": "Пошук",
     "student": "Учень",
     "watcher": "Спостерігач"
   },
@@ -54,5 +62,10 @@
   },
   "errors": {
     "requiredFiled": "Обов'язкове поле"
+  },
+  "members": {
+    "applicationDate": "Дата заявки",
+    "applicationNotExist": "Такої заявки не існує",
+    "applicationSearch": "Пошук заявок"
   }
 }

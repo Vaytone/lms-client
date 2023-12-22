@@ -56,11 +56,11 @@
     border-color: $primary-active;
   }
 
-  //&::placeholder {
-  //  color: $light-text-color;
-  //  font-size: 16px;
-  //  font-family: $font-family;
-  //}
+  &::placeholder {
+    color: $light-text-color;
+    font-size: 16px;
+    font-family: $font-family;
+  }
 
   &--secured {
     padding: 10px 35px 10px 15px;

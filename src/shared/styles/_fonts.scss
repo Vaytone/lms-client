@@ -25,30 +25,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-small-cross:before {
-  content: "\e908";
+.icon-sort:before {
+  content: "\e90a";
 }
-.icon-cross:before {
-  content: "\e906";
+.icon-search:before {
+  content: "\e90b";
 }
-.icon-menu:before {
-  content: "\e907";
-}
-.icon-application:before {
-  content: "\e903";
-}
-.icon-course:before {
-  content: "\e905";
-}
-.icon-member-bold:before {
-  content: "\e902";
-}
-.icon-show:before {
+.icon-delete:before {
   content: "\e900";
 }
-.icon-hide:before {
+.icon-show:before {
   content: "\e901";
 }
-.icon-check:before {
+.icon-hide:before {
+  content: "\e902";
+}
+.icon-member-bold:before {
+  content: "\e903";
+}
+.icon-application:before {
   content: "\e904";
 }
+.icon-check:before {
+  content: "\e905";
+}
+.icon-course:before {
+  content: "\e906";
+}
+.icon-cross:before {
+  content: "\e907";
+}
+.icon-menu:before {
+  content: "\e908";
+}
+.icon-small-cross:before {
+  content: "\e909";
+}
+

@@ -18,7 +18,7 @@
   letter-spacing: 0.5px;
   text-align: center;
 
-  &:hover {
+  &:not([disabled]):hover {
     cursor: pointer;
     background-color: $primary-hover;
   }
@@ -27,7 +27,7 @@
     background-color: $error-color;
     color: $reverse-text-color;
 
-    &:hover {
+    &:not([disabled]):hover {
       background-color: $error-hover;
     }
   }

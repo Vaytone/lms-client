@@ -1,0 +1,21 @@
+@import "@styles/variables";
+
+.TableWrapper {
+  display: grid;
+  grid-template-columns: auto;
+
+}
+
+.TableContent {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.Table {
+  background-color: $content-color;
+  min-width: 800px;
+  width: 100%;
+  border-collapse: collapse;
+}

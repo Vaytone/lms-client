@@ -1,0 +1,19 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.Controls {
+  background-color: $content-color;
+  padding: 10px 32px 16px;
+  margin-top: -1px;
+  display: flex;
+}
+
+.ControlsSearchWrapper {
+  width: 100%;
+
+  @include for-tablet {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+

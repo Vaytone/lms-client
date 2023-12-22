@@ -6,10 +6,10 @@ import styles from './Loader.module.scss';
 const Loader: FC<LoaderProps> = ({ size }) => (
   <div className={styles.LoaderWrapper}>
     <Oval
-      color='#2C9E95'
+      color='#8a99e6'
       secondaryColor='#333a4a'
-      height={40 || size}
-      width={40 || size}
+      height={size || 40}
+      width={size || 40}
     />
   </div>
 );
