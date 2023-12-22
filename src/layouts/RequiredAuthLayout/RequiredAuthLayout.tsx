@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAppSelector } from '@shared/hooks/redux';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Sidebar from '@components/Sidebar/Sidebar';
 import Header from '@components/Header/Header';
 import styles from './RequiredAuthLayout.module.scss';
@@ -21,7 +21,9 @@ const RequiredAuthLayout: React.FC = () => {
       <Sidebar isOpen={isSidebarOpen} setOpen={setSidebarOpen}/>
       <div className={styles.ContentWrapper}>
         <Header setOpen={setSidebarOpen} isOpen={isSidebarOpen}/>
-        <p>bii</p>
+        <div className={styles.ContentHolder}>
+          <Outlet/>
+        </div>
       </div>
     </div>
   );

@@ -6,22 +6,22 @@
   display: inline-block;
 
   &--admin {
-    background-color: #5645d8;
+    background-color: #8073e1;
     color: $reverse-text-color;
   }
 
   &--guest {
-    background-color: #b0b220;
+    background-color: #cbcc71;
     color: $reverse-text-color;
   }
 
   &--student {
-    background-color: #49b26a;
+    background-color: #77bcc1;
     color: $reverse-text-color;
   }
 
   &--watcher {
-    background-color: #c8a048;
+    background-color: #cab27e;
     color: $reverse-text-color;
   }
 

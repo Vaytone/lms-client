@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppSelector } from '@shared/hooks/redux';
 import { RoleEnum } from '@type/role.types';
 import { Outlet, useNavigate } from 'react-router-dom';
@@ -7,13 +7,15 @@ const OwnerLayout: React.FC = () => {
   const user = useAppSelector((state) => state.auth.user);
   const navigate = useNavigate();
   
-  if (user?.role !== RoleEnum.Owner) {
-    navigate('/');
-  }
+  useEffect(() => {
+    if (user?.role !== RoleEnum.Owner) {
+      navigate('/');
+    }
+  }, []);
   
   return (
     <div>
-      <Outlet/>
+      {user && <Outlet/>}
     </div>
   );
 };

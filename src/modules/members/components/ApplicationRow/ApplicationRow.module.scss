@@ -1,0 +1,83 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.Row {
+  border-bottom: 1px solid $bright-text-color;
+  position: relative;
+  z-index: 1;
+
+  @include for-laptop {
+    &:hover {
+      background-color: #fafafa;
+    }
+  }
+
+  td {
+    padding: 15px;
+    height: 60px;
+
+    p {
+      margin: 0;
+    }
+
+    &:nth-child(3),&:nth-child(4),&:nth-child(5) {
+      p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        word-break: break-all;
+      }
+    }
+
+    &:last-child {
+      padding-right: 30px;
+    }
+  }
+}
+
+.RowLoader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(218, 218, 218, 0.38);
+  z-index: 2;
+}
+
+.ActionRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 100%;
+
+  span {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $reverse-text-color;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  span:first-child {
+    color: $success-disabled;
+
+    &:hover {
+      color: $success-hover;
+    }
+  }
+
+  span:last-child {
+    color: $error-color;
+
+    &:hover {
+      color: $error-hover;
+    }
+  }
+}

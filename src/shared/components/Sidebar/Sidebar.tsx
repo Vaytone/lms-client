@@ -57,26 +57,28 @@ const Sidebar: React.FC<SidebarProps> = ({ setOpen, isOpen }) => {
   
   return (
     <aside className={cn(styles.SidebarWrapper, isOpen && styles.SidebarWrapperOpen)}>
-      <div className={styles.SidebarLogo}>
-        <img src={`${STATIC_HREF}/logo.svg`} alt='logo'/>
-        <p className={styles.AuthLogoText}>
-          VAYTONE LMS
-        </p>
-        <span className={cn('icon-small-cross', styles.SidebarCloseIcon)} onClick={() => setOpen(!isOpen)}/>
-      </div>
-      <ul className={styles.SidebarNavList}>
-        {navArr.map((item) => {
-          return (
-            <li className={styles.SidebarNavItem} key={item.to}>
-              <NavLink to={item.to} className={getLinkClass}>
-                <span className={item.icon}/>
-                <p>{t(item.text)}</p>
-              </NavLink>
-            </li>
-          );
-        })}
-      </ul>
+      <div className={styles.SidebarContent}>
+        <div className={styles.SidebarLogo}>
+          <img src={`${STATIC_HREF}/logo.svg`} alt='logo'/>
+          <p className={styles.AuthLogoText}>
+            VAYTONE LMS
+          </p>
+          <span className={cn('icon-small-cross', styles.SidebarCloseIcon)} onClick={() => setOpen(!isOpen)}/>
+        </div>
+        <ul className={styles.SidebarNavList}>
+          {navArr.map((item) => {
+            return (
+              <li className={styles.SidebarNavItem} key={item.to}>
+                <NavLink to={item.to} className={getLinkClass}>
+                  <span className={item.icon}/>
+                  <p>{t(item.text)}</p>
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
       
+      </div>
     </aside>
   );
 };

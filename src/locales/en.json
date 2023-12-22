@@ -40,11 +40,19 @@
     "wrongLoginPassword": "Wrong login or password"
   },
   "core": {
+    "actions": "Actions",
     "admin": "Mentor",
     "applications": "Applications",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
     "courses": "Courses",
     "dashboard": "Dashboard",
+    "lastName": "Last name",
+    "login": "Login",
     "members": "Members",
+    "name": "First name",
+    "role": "Role",
+    "search": "Search",
     "student": "Student",
     "watcher": "Watcher"
   },
@@ -54,5 +62,10 @@
   },
   "errors": {
     "requiredFiled": "Required field"
+  },
+  "members": {
+    "applicationDate": "Application date",
+    "applicationNotExist": "There is no such application",
+    "applicationSearch": "Search for applications"
   }
 }
