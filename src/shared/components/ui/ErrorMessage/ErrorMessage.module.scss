@@ -7,10 +7,10 @@
 }
 
 .ErrorIcon {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
   position: relative;
   margin-right: 5px;
   background-color: $error-disabled;
@@ -29,6 +29,6 @@
 
 .ErrorText {
   font-size: 13px;
-  color: $error-color;
+  color: $error-disabled;
   margin: 0;
 }

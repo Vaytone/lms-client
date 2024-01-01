@@ -42,22 +42,20 @@ const LoginForm: React.FC = () => {
       <div className={styles.LoginContentWrapper}>
         <h2>{t('auth.signIn')}</h2>
         <form onSubmit={handleSubmit(handleSubmitEvent)}>
+          <Controller
+            name="login"
+            control={control}
+            render={({ field }) => (
+              <Input
+                {...field}
+                label={t('auth.login')}
+                placeholder={t('auth.enterLogin')}
+                isInvalid={Boolean(errors.login)}
+                error={errors?.login?.message}
+              />
+            )}
+          />
           <div className="mb-16">
-            <Controller
-              name="login"
-              control={control}
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  label={t('auth.login')}
-                  placeholder={t('auth.enterLogin')}
-                  isInvalid={Boolean(errors.login)}
-                  error={errors?.login?.message}
-                />
-              )}
-            />
-          </div>
-          <div className="mb-32">
             <Controller
               name="password"
               control={control}

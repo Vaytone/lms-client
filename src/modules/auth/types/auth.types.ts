@@ -23,9 +23,17 @@ export interface SignUpForm {
   lastName: string,
   password: string,
   confirmPassword: string,
+  avatar: File | '',
 }
 
 export interface ValidateLinkResponse {
   role: RoleEnum,
   organisation_name: string,
+}
+
+export enum RegisterStepEnum {
+  Account = 'account',
+  Avatar = 'avatar',
+  Personal = 'personal',
+  Confirm = 'confirm',
 }

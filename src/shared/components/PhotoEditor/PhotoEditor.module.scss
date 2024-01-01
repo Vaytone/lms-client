@@ -1,0 +1,87 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.PhotoEditorBg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.PhotoEditorClose {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 25px;
+  color: $light-text-color;
+  z-index: 100;
+}
+
+.PhotoEditorWrapper {
+  background-color: transparent !important;
+  height: 60%;
+  ////overflow: hidden;
+  top: 20px !important;
+  //max-height: 900px;
+  ////width: 100%;
+  //position: relative;
+  //overflow: unset !important;
+  ////padding: 0 0 10px;
+  ////background-color: $content-color;
+  ////position: relative;
+  ////min-width: 320px;
+  ////border-radius: 5px;
+  //
+  @include for-laptop {
+    top: 60px !important;
+  }
+}
+
+.PhotoMediaWrapper {
+
+  //width: 600px;
+  //height: 600px;
+  //padding: 40px;
+}
+
+.PhotoCropperWrapper {
+  box-shadow: unset !important;
+  color: rgba(0, 0, 0, 0.05) !important;
+  border: 2px solid $reverse-text-color !important;
+  //max-width: 600px;
+  //max-height: 600px;
+}
+
+.PhotoEditorButtons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 10%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  gap: 50px;
+  color: #fff;
+  font-weight: 500;
+
+  span {
+    padding: 15px;
+    cursor: pointer;
+  }
+
+  span:last-child {
+    color: $primary-disabled;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

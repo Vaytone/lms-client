@@ -70,7 +70,9 @@ const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>((pr
           />
         )}
       </div>
-      {showError && <ErrorMessage text={error}/>}
+      <div className={styles.ErrorMessageWrapper}>
+        {showError && <ErrorMessage text={error}/>}
+      </div>
     </div>
   );
 });

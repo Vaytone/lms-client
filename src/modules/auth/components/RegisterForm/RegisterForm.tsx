@@ -1,18 +1,19 @@
-import React from 'react';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { SignUpForm } from '@modules/auth/types/auth.types';
+import React, { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { RegisterStepEnum, SignUpForm } from '@modules/auth/types/auth.types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerSchema } from '@modules/auth/validations/register.validation';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
-import Input from '@components/ui/Input/Input';
-import Button from '@components/ui/Button/Button';
 import { register } from '@modules/auth/redux/thunks';
 import { useTranslation } from 'react-i18next';
-import RoleTag from '@components/RoleTag/RoleTag';
-import RegisterBanner from '@modules/auth/components/RegisterBanner/RegisterBanner';
 import { RegisterFormProps } from '@modules/auth/components/RegisterForm/types';
 import { authErrorManager } from '@modules/auth/helper/authErrorManager';
 import { useNavigate } from 'react-router-dom';
+import RegisterProgressBar from '@modules/auth/components/RegisterProgressBar/RegisterProgressBar';
+import AccountFormStep from '@modules/auth/components/AccountFormStep/AccountFormStep';
+import PersonalFormStep from '@modules/auth/components/PersonalFormStep/PersonalFormStep';
+import AvatarFormStep from '@modules/auth/components/AvatarFormStep/AvatarFormStep';
+import ConfirmFormStep from '@modules/auth/components/ConfirmFormStep/ConfirmFormStep';
 import styles from './RegisterForm.module.scss';
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ code }) => {
@@ -20,7 +21,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ code }) => {
   const {
     control,
     handleSubmit,
+    trigger,
     formState: { errors, isDirty },
+    setValue,
+    getValues,
   } = useForm<SignUpForm>({
     mode: 'all',
     defaultValues: {
@@ -29,9 +33,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ code }) => {
       lastName: '',
       firstName: '',
       confirmPassword: '',
+      avatar: '',
     },
     resolver: yupResolver(registerSchema),
   });
+  const [photoState, setPhotoState] = useState({
+    photo: null,
+    isEditOpen: false,
+  });
+  const [step, setStep] = useState<RegisterStepEnum>(RegisterStepEnum.Account);
   const isLoading = useAppSelector((state) => state.auth.isLoading);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -51,96 +61,52 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ code }) => {
 
   return (
     <div className={styles.RegisterFormWrapper}>
-      <RegisterBanner role={registerData.role}/>
+
       <div className={styles.RegisterContentWrapper}>
         <div className={styles.RegisterTitleWrapper}>
           <h2>{t('auth.signUp')}</h2>
-          <RoleTag role={registerData.role}/>
         </div>
-        <h3 className={styles.RegisterOrganisationName}>{registerData.organisation_name}</h3>
-        <form onSubmit={handleSubmit(handleSubmitEvent)}>
-          <div className="mb-16">
-            <Controller
-              name="firstName"
+        <h3 className={styles.RegisterOrganisationName}>
+          <span>{t(`core.${registerData.role}`)}</span>
+          <span>{` ${t('auth.at')} ${registerData.organisation_name}`}</span>
+        </h3>
+        <RegisterProgressBar step={step}/>
+        <form className={styles.RegisterFormElem} onSubmit={handleSubmit(handleSubmitEvent)}>
+          {step === RegisterStepEnum.Account && (
+            <AccountFormStep
               control={control}
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  label={t('auth.name')}
-                  placeholder={t('auth.enterName')}
-                  isInvalid={Boolean(errors.firstName)}
-                  error={errors?.firstName?.message}
-                />
-              )}
+              errors={errors}
+              setStep={setStep}
+              trigger={trigger}
             />
-          </div>
-          <div className="mb-16">
-            <Controller
-              name="lastName"
+          )}
+          {step === RegisterStepEnum.Personal && (
+            <PersonalFormStep
               control={control}
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  label={t('auth.surname')}
-                  placeholder={t('auth.enterSurname')}
-                  isInvalid={Boolean(errors.lastName)}
-                  error={errors?.lastName?.message}
-                />
-              )}
+              errors={errors}
+              setStep={setStep}
+              trigger={trigger}
             />
-          </div>
-          <div className="mb-16">
-            <Controller
-              name="login"
+          )}
+          {step === RegisterStepEnum.Avatar && (
+            <AvatarFormStep
               control={control}
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  label={t('auth.login')}
-                  placeholder={t('auth.enterLogin')}
-                  isInvalid={Boolean(errors.login)}
-                  error={errors?.login?.message}
-                />
-              )}
+              setStep={setStep}
+              setValue={setValue}
+              getValues={getValues}
+              photoState={photoState}
+              setPhotoState={setPhotoState}
             />
-          </div>
-          <div className="mb-16">
-            <Controller
-              name="password"
-              control={control}
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  label={t('auth.password')}
-                  placeholder={t('auth.enterPassword')}
-                  isInvalid={Boolean(errors.password)}
-                  error={errors?.password?.message}
-                  isSecure
-                />
-              )}
+          )}
+          {step === RegisterStepEnum.Confirm && (
+            <ConfirmFormStep
+              getValues={getValues}
+              setStep={setStep}
+              isDirty={isDirty}
+              errors={errors}
+              isLoading={isLoading}
             />
-          </div>
-          <div className="mb-32">
-            <Controller
-              name="confirmPassword"
-              control={control}
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  label={t('auth.confirmPassword')}
-                  placeholder={t('auth.enterConfirmPassword')}
-                  isInvalid={Boolean(errors.confirmPassword)}
-                  error={errors?.confirmPassword?.message}
-                  isSecure
-                />
-              )}
-            />
-          </div>
-          <Button
-            text={t('auth.signUp')}
-            type="submit"
-            disabled={Boolean(Object.keys(errors).length) || !isDirty || isLoading}
-          />
+          )}
         </form>
       </div>
     </div>

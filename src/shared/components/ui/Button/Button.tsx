@@ -4,11 +4,15 @@ import { ButtonProps } from '@components/ui/Button/types';
 import styles from './Button.module.scss';
 
 const Button: React.FC<ButtonProps> = (
-  { onClick, text, disabled, icon, isDanger, type },
+  { onClick, text, disabled, icon, isDanger, type, styleType },
 ) => {
   return (
     <button
-      className={cn(styles.ButtonElem, isDanger && styles.ButtonElemDanger)}
+      className={cn(
+        styles.ButtonElem,
+        isDanger && styles.ButtonElemDanger,
+        styleType === 'transparent' && styles.ButtonElemTransparent,
+      )}
       disabled={disabled}
       onClick={onClick || null}
       type={type || 'button'}
