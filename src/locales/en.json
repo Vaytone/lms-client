@@ -1,8 +1,13 @@
 {
   "auth": {
+    "account": "Account data",
     "accountInactiveText": "Your account has not yet been activated. This means that the functionality of the service is not yet available to you. We look forward to seeing you use it soon! If you want to speed up the activation process, we recommend contacting your organization's representatives.",
     "accountInactiveTitle": "Account is inactive",
+    "at": "at",
+    "avatar": "Would you like to add an avatar? (unneccecary)",
+    "confirm": "Confirm information",
     "confirmPassword": "Confirm password",
+    "createAccount": "Create",
     "enterConfirmPassword": "Confirm your password",
     "enterLogin": "Enter login",
     "enterName": "Enter name",
@@ -23,6 +28,7 @@
     "organisationNotFound": "Organization not found",
     "password": "Password",
     "passwordDontMatch": "Password don't match",
+    "personal": "Personal information",
     "registerTextAdminCalendar": "Convenient deadline calendar for work organization",
     "registerTextAdminCourse": "Creating interactive courses for engaging learning.",
     "registerTextAdminMarks": "Real-time student performance monitoring",
@@ -40,19 +46,15 @@
     "wrongLoginPassword": "Wrong login or password"
   },
   "core": {
-    "actions": "Actions",
     "admin": "Mentor",
     "applications": "Applications",
+    "back": "Back",
     "cancel": "Cancel",
-    "confirm": "Confirm",
     "courses": "Courses",
     "dashboard": "Dashboard",
-    "lastName": "Last name",
-    "login": "Login",
     "members": "Members",
-    "name": "First name",
-    "role": "Role",
-    "search": "Search",
+    "next": "Next",
+    "savePhoto": "Save photo",
     "student": "Student",
     "watcher": "Watcher"
   },
@@ -62,10 +64,5 @@
   },
   "errors": {
     "requiredFiled": "Required field"
-  },
-  "members": {
-    "applicationDate": "Application date",
-    "applicationNotExist": "There is no such application",
-    "applicationSearch": "Search for applications"
   }
 }

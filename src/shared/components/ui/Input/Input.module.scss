@@ -46,6 +46,7 @@
   padding: 10px 15px;
   font-size: 16px;
   border-radius: 10px;
+  font-family: $font-family;
 
   //&:hover {
   //  border-color: $border-color-hover;
@@ -67,10 +68,10 @@
   }
 
   &--invalid {
-    border-color: $error-color;
+    border-color: $error-disabled;
 
     &:hover {
-      border-color: $error-hover;
+      border-color: $error-disabled;
     }
 
     &:focus {
@@ -78,4 +79,10 @@
       border-color: $error-active;
     }
   }
+}
+
+.ErrorMessageWrapper {
+  height: 22px;
+  display: flex;
+  align-items: center;
 }

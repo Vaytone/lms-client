@@ -23,6 +23,16 @@
     background-color: $primary-hover;
   }
 
+
+  &--transparent {
+    background-color: transparent;
+    color: $light-text-color;
+
+    &:not([disabled]):hover {
+      background-color: $bright-text-color !important;
+    }
+  }
+
   &--danger {
     background-color: $error-color;
     color: $reverse-text-color;

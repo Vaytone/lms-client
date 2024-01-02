@@ -4,7 +4,7 @@
   padding: 5px;
   border-radius: 5px;
   background-color: #f5f6fa;
-  max-width: 720px;
+  max-width: 500px;
   width: 100%;
   margin: 30px 15px 0;
   display: flex;
@@ -19,7 +19,11 @@
     margin: 100px 0 0;
   }
 
+}
 
+.RegisterFormElem {
+  //margin: 25px 0 0;
+  //min-height: 300px;
 }
 
 .RegisterContentWrapper {
@@ -56,9 +60,17 @@
 }
 
 .RegisterOrganisationName {
-  color: $light-text-color;
+  //color: $light-text-color;
   margin: 0 0 10px;
   font-size: 1rem;
   font-weight: 500;
   text-align: center;
+
+  span:first-child {
+    font-weight: 900;
+  }
+
+  span:last-child {
+    color: $light-text-color;
+  }
 }

@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useAppSelector } from '@shared/hooks/redux';
 import { RoleEnum } from '@type/role.types';
-import { SidebarNavList, SidebarProps } from '@components/Sidebar/types';
+import { SidebarNavList } from '@components/Sidebar/types';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { STATIC_HREF } from '@shared/constants/core';
@@ -15,7 +15,7 @@ export const SIDEBAR_ADMIN_LIST: SidebarNavList[] = [
 export const SIDEBAR_OWNER_LIST: SidebarNavList[] = [
   {
     text: 'core.members',
-    icon: 'icon-member-bold',
+    icon: 'icon-profile',
     to: '/members',
   },
   {
@@ -45,40 +45,60 @@ const getUserNavList = (role: string): SidebarNavList[] => {
   }
 };
 
+//
+
 const getLinkClass = ({ isActive }: { isActive: boolean }) => cn(
-  styles.SidebarNav,
-  isActive && styles.SidebarNavActive,
+  styles.SidebarNavItem,
+  isActive && styles.SidebarNavItemActive,
 );
 
-const Sidebar: React.FC<SidebarProps> = ({ setOpen, isOpen }) => {
+const Sidebar: React.FC = () => {
   const user = useAppSelector((state) => state.auth.user);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
   const navArr = useMemo(() => getUserNavList(user?.role), [user]);
   const { t } = useTranslation();
   
+  const handleCloseSidebar = () => {
+    setSidebarOpen(false);
+  };
+  
   return (
-    <aside className={cn(styles.SidebarWrapper, isOpen && styles.SidebarWrapperOpen)}>
-      <div className={styles.SidebarContent}>
-        <div className={styles.SidebarLogo}>
+    <aside className={cn(
+      styles.SidebarWrapper,
+      isSidebarOpen && styles.SidebarWrapperActive,
+    )}
+    >
+      <div className={styles.SidebarHeader}>
+        <NavLink to='/'>
           <img src={`${STATIC_HREF}/logo.svg`} alt='logo'/>
-          <p className={styles.AuthLogoText}>
-            VAYTONE LMS
-          </p>
-          <span className={cn('icon-small-cross', styles.SidebarCloseIcon)} onClick={() => setOpen(!isOpen)}/>
-        </div>
-        <ul className={styles.SidebarNavList}>
-          {navArr.map((item) => {
-            return (
-              <li className={styles.SidebarNavItem} key={item.to}>
-                <NavLink to={item.to} className={getLinkClass}>
-                  <span className={item.icon}/>
-                  <p>{t(item.text)}</p>
-                </NavLink>
-              </li>
-            );
-          })}
-        </ul>
-      
+        </NavLink>
+        <span
+          className={cn(
+            styles.SidebarMenuButton,
+            isSidebarOpen ? 'icon-left' : 'icon-menu',
+            isSidebarOpen && styles.SidebarMenuButtonActive,
+          )}
+          onClick={() => setSidebarOpen(!isSidebarOpen)}
+        />
       </div>
+      <div className={styles.SidebarUser}>
+        {/*<UserDropdown/>*/}
+      </div>
+      <nav className={styles.SidebarNav}>
+        {navArr.map((item) => {
+          return (
+            <NavLink
+              key={`sidebar-${item.text}`}
+              to={item.to}
+              onClick={handleCloseSidebar}
+              className={getLinkClass}
+            >
+              <span className={item.icon} />
+              <p className={styles.SidebarNavText}>{t(item.text)}</p>
+            </NavLink>
+          );
+        })}
+      </nav>
     </aside>
   );
 };

@@ -3,6 +3,7 @@ import { SignInForm, SignUpForm, ValidateLinkResponse } from '@modules/auth/type
 import { axiosPublic } from '@shared/api/api';
 import { AUTH_ROUTES } from '@modules/auth/constants/routes';
 import { User } from '@type/user.types';
+import { getSignUpFormData } from '@modules/auth/helper/register';
 
 const MODULE_NAME = 'auth';
 
@@ -34,8 +35,14 @@ export const register = createAsyncThunk(
   `${MODULE_NAME}/register`,
   async ({ code, values }: {code: string, values: SignUpForm}, { rejectWithValue }): Promise<ValidateLinkResponse | any> => {
     try {
-      const response = await axiosPublic.post<User>(AUTH_ROUTES.register, { ...values, code });
-      return response.data;
+      const formData = getSignUpFormData(values, code);
+      
+      const response = await axiosPublic.postForm(AUTH_ROUTES.register, formData);
+      
+      console.log(response);
+      
+      // const response = await axiosPublic.post<User>(AUTH_ROUTES.register, { ...values, code });
+      // return response.data;
     } catch (e: any) {
       return rejectWithValue(e?.response?.data?.message);
     }

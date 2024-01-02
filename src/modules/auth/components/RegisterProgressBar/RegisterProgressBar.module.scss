@@ -1,0 +1,89 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.RegisterProgressWrapper {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.RegisterProgressList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.RegisterProgressItem {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+
+  &:first-child {
+    flex-grow: 0;
+  }
+}
+
+.RegisterProgressIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $bright-text-color;
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  color: $bright-text-color;
+  font-size: 18px;
+
+
+
+  &--prev {
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+
+  &--active {
+    border-color: $primary-hover;
+    color: $primary-hover;
+    background-color: $primary-bright;
+
+    @include for-laptop {
+      transition: all 0.2s, background-color 0.3s;
+      transition-delay: 0.2s;
+    }
+  }
+}
+
+.RegisterProgressDivider {
+  min-width: 10px;
+  flex-grow: 1;
+  height: 1px;
+  background-color: $bright-text-color;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: $primary-hover;
+
+    @include for-laptop {
+      transition: all 0.2s;
+    }
+  }
+
+  &--active {
+
+    &:before {
+      width: 100%;
+    }
+  }
+}

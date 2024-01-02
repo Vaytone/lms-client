@@ -35,4 +35,5 @@ export const registerSchema = yup.object({
     .matches(NAME_REGEX, t('auth.invalidValue'))
     .min(REGISTER_VALIDATION.minFirstName, t('auth.minLength', { value: REGISTER_VALIDATION.minFirstName }))
     .max(REGISTER_VALIDATION.maxLastName, t('auth.maxLength', { value: REGISTER_VALIDATION.maxLastName })),
+  avatar: yup.mixed(),
 });
