@@ -3,6 +3,7 @@ $primary-hover: #3D53DB;
 $primary-active: #2A3BB7;
 $primary-disabled: #7E95FF;
 $primary-bright: #DCE4FF;
+$primary-brightest: #f2f4ff;
 $success-color: #9CD323;
 $success-hover: #83c755;
 $success-disabled: #b6d572;
@@ -18,13 +19,15 @@ $secondary-bright: #8E92BC;
 $reverse-text-color: #ffffff;
 $body-color: #F5F5F7;
 $content-color: #FFFFFF;
+$content-color-hover: #fbfbfb;
 $modal-bg: rgba(72,82,104,0.6);
+$light-box-shadow: rgba(0, 0, 0, 0.10);
 $border-color: #dee2ed;
 
 $light-text-color: #656566;
 $bright-text-color: #ededed;
 
 $header-height: 60px;
-$sidebar-width: 80px;
+$sidebar-width: 250px;
 
 $font-family: 'Manrope', sans-serif;

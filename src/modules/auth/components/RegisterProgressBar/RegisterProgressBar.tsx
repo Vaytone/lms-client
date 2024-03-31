@@ -12,7 +12,7 @@ const REGISTER_PROGRESS = [
   },
   {
     step: RegisterStepEnum.Personal,
-    icon: 'icon-member-bold',
+    icon: 'icon-profile',
     index: 1,
   },
   {
@@ -40,14 +40,14 @@ const RegisterProgressBar: React.FC<RegisterProgressBarProps> = ({ step }) => {
             <li className={styles.RegisterProgressItem} key={item.step}>
               {index !== 0 && (
                 <div className={cn(
-                  styles.RegisterProgressDivider, 
+                  styles.RegisterProgressDivider,
                   currentStepIndex >= index && styles.RegisterProgressDividerActive,
                 )}
                 />
               )}
               <div>
                 <span className={cn(
-                  item.icon, 
+                  item.icon,
                   styles.RegisterProgressIcon,
                   isActive && styles.RegisterProgressIconActive,
                   currentStepIndex > item.index && styles.RegisterProgressIconPrev,

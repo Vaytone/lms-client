@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { STATIC_HREF } from '@shared/constants/core';
 import cn from 'classnames';
 import styles from './Sidebar.module.scss';
+import UserDropdown from '@components/ui/UserDropdown/UserDropdown';
 
 export const SIDEBAR_ADMIN_LIST: SidebarNavList[] = [
 
@@ -82,7 +83,7 @@ const Sidebar: React.FC = () => {
         />
       </div>
       <div className={styles.SidebarUser}>
-        {/*<UserDropdown/>*/}
+        <UserDropdown/>
       </div>
       <nav className={styles.SidebarNav}>
         {navArr.map((item) => {

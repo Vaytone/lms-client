@@ -26,29 +26,23 @@
 }
 
 
-.icon-top:before {
-  content: "\e911";
+.icon-settings:before {
+  content: "\e908";
 }
-.icon-right:before {
-  content: "\e912";
+.icon-logout:before {
+  content: "\e915";
 }
-.icon-left:before {
-  content: "\e913";
+.icon-right-big:before {
+  content: "\e916";
 }
-.icon-bottom:before {
-  content: "\e914";
+.icon-top-big:before {
+  content: "\e917";
 }
-.icon-application:before {
-  content: "\e905";
+.icon-bottom-big:before {
+  content: "\e918";
 }
-.icon-course:before {
-  content: "\e906";
-}
-.icon-edit:before {
-  content: "\e910";
-}
-.icon-camera:before {
-  content: "\e90f";
+.icon-left-big:before {
+  content: "\e919";
 }
 .icon-avatar:before {
   content: "\e900";
@@ -64,6 +58,12 @@
 }
 .icon-hide:before {
   content: "\e904";
+}
+.icon-application:before {
+  content: "\e905";
+}
+.icon-course:before {
+  content: "\e906";
 }
 .icon-check:before {
   content: "\e907";
@@ -86,6 +86,23 @@
 .icon-profile:before {
   content: "\e90e";
 }
-
+.icon-camera:before {
+  content: "\e90f";
+}
+.icon-edit:before {
+  content: "\e910";
+}
+.icon-top:before {
+  content: "\e911";
+}
+.icon-right:before {
+  content: "\e912";
+}
+.icon-left:before {
+  content: "\e913";
+}
+.icon-bottom:before {
+  content: "\e914";
+}
 
 

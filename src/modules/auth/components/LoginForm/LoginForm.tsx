@@ -65,6 +65,7 @@ const LoginForm: React.FC = () => {
                   label={t('auth.password')}
                   placeholder={t('auth.enterPassword')}
                   isInvalid={Boolean(errors.password)}
+                  isSecure
                   error={errors?.password?.message}
                 />
               )}

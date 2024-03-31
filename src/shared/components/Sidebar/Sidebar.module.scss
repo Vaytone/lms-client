@@ -21,7 +21,7 @@
   @include for-tablet {
     left: 0;
     width: $sidebar-width;
-    padding: 0;
+    padding: 20px 0;
   }
 
 }
@@ -91,7 +91,7 @@
   padding: 0;
 
   @include for-tablet {
-    padding: 10px 0;
+    padding: 10px 20px 10px 0;
   }
 }
 
@@ -99,7 +99,7 @@
   text-decoration: none;
   width: 100%;
   display: flex;
-  align-items: center;
+  //align-items: flex-start;
   padding: 20px 15px;
   color: $secondary-bright;
   border-bottom: 1px solid $border-color;
@@ -125,46 +125,58 @@
     }
   }
 
-  //&:first-child {
-  //  border-top: 1px solid $border-color;
-  //}
+  &--active {
+
+    &:after {
+      background-color: $primary-hover;
+    }
+
+    p {
+      font-weight: 700;
+    }
+  }
 
   @include for-tablet {
-    flex-direction: column;
+    //flex-direction: column;
     align-items: center;
     color: $light-text-color;
     transition: all 0.2s;
-    padding: 5px 0;
+    padding: 10px;
     margin-bottom: 15px;
     border-bottom: unset;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    &:hover {
+      color: $secondary-color;
+      background-color: $primary-brightest;
+    }
+
+    &--active {
+      color: $reverse-text-color;
+      font-weight: 700;
+      background-color: $primary-color;
+
+      &:after {
+        background-color: $primary-color;
+      }
+
+      &:hover {
+        color: $reverse-text-color;
+        background-color: $primary-color;
+
+        &:after {
+          background-color: $primary-color;
+        }
+      }
+    }
 
     &:first-child {
       border-top: unset;
     }
 
-    &:hover {
-      color: $secondary-color;
-
-      &:after {
-        background-color: $primary-bright;
-      }
-    }
-  }
-
-  &--active {
-    color: $secondary-color;
-    font-weight: 600;
-
     &:after {
-      background-color: $primary-color;
-    }
-
-    &:hover {
-      color: $secondary-color;
-
-      &:after {
-        background-color: $primary-color;
-      }
+      display: none;
     }
   }
 
@@ -173,21 +185,22 @@
     margin-right: 10px;
 
     @include for-tablet {
-      margin-right: unset;
-      font-size: 16px;
+      margin-right: 10px;
+      font-size: 20px;
     }
   }
 }
 
 .SidebarNavText {
-  font-size: 18px;
-  margin: 0 0 0 10px;
+  font-size: 1.1em;
+  margin: 0 0 0 5px;
 
   @include for-tablet {
     word-break: break-all;
-    text-align: center;
+    //text-align: center;
     padding: 0 4px;
-    font-size: 12px;
-    margin: 5px 0 0;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin: 0;
   }
 }

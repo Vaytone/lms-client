@@ -2,6 +2,7 @@ import React from 'react';
 import { STATIC_HREF } from '@shared/constants/core';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
+import UserDropdown from '@components/ui/UserDropdown/UserDropdown';
 
 const Header: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const Header: React.FC = () => {
         <img src={`${STATIC_HREF}/logo.svg`} alt='logo'/>
       </NavLink>
       <div className={styles.HeaderContentWrapper}>
-        {/*<UserDropdown/>*/}
+        <UserDropdown/>
       </div>
     </header>
   );

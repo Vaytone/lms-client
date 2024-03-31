@@ -32,6 +32,7 @@ export const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, { payload }) => {
         state.user = payload;
+        state.isLoading = false;
       })
       .addCase(register.rejected, (state) => {
         state.isLoading = false;
