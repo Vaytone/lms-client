@@ -10,4 +10,8 @@ export interface User {
   closed: boolean;
   role: RoleEnum;
   token: string;
+	organisation: {
+		name: string,
+		short_name: string,
+	}
 }

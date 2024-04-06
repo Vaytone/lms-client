@@ -99,7 +99,6 @@
   text-decoration: none;
   width: 100%;
   display: flex;
-  //align-items: flex-start;
   padding: 20px 15px;
   color: $secondary-bright;
   border-bottom: 1px solid $border-color;
@@ -137,7 +136,6 @@
   }
 
   @include for-tablet {
-    //flex-direction: column;
     align-items: center;
     color: $light-text-color;
     transition: all 0.2s;
@@ -153,17 +151,16 @@
     }
 
     &--active {
-      color: $reverse-text-color;
+      color: $secondary-color;
       font-weight: 700;
-      background-color: $primary-color;
+      background-color: $primary-bright;
 
       &:after {
         background-color: $primary-color;
       }
 
       &:hover {
-        color: $reverse-text-color;
-        background-color: $primary-color;
+        background-color: $primary-bright;
 
         &:after {
           background-color: $primary-color;
@@ -192,7 +189,7 @@
 }
 
 .SidebarNavText {
-  font-size: 1.1em;
+  font-size: 1em;
   margin: 0 0 0 5px;
 
   @include for-tablet {

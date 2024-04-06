@@ -53,19 +53,19 @@
     }
   },
   "include": [
-    "./src/**/*",
-    "./src/**/*.module.scss",
-    "./src/global.d.ts"
+    "src/**/*",
+    "src/**/*.module.scss",
+    "src/global.d.ts"
   ], // Что именно компилировать
   "exclude": [
     "node_modules",
     "**/*.js",
     "**/*.jsx",
-    //    "**/*.test.jsx",
-    //    "**/*.test.js",
-    //    "**/*.test.ts",
-    //    "**/*.test.tsx",
-    //    "**/*.spec.tsx",
-    //    "**/*.spec.ts"
+//    "**/*.test.jsx",
+//    "**/*.test.js",
+//    "**/*.test.ts",
+//    "**/*.test.tsx",
+//    "**/*.spec.tsx",
+//    "**/*.spec.ts"
   ],
 }

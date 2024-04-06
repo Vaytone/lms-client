@@ -1,7 +1,7 @@
 import React, { ChangeEvent, forwardRef, memo, useCallback, useId, useState } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { InputProps } from '@components/ui/Input/types';
+import { InputProps } from './types';
 import ErrorMessage from '@components/ui/ErrorMessage/ErrorMessage';
 import styles from './Input.module.scss';
 
