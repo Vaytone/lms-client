@@ -1,28 +1,30 @@
 {
   "compilerOptions": {
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "jsx": "react", // Опции компилятора TS -> JS
-    "module": "esnext", // Способ компиляции модулей (на выходе)
-    "target": "es5", // В JS какого века компилировать
+    "sourceMap": false,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": false,
+    "esModuleInterop": true,
+    "strictNullChecks": false,
+    "outDir": "dist",
+    "noImplicitAny": false,
+    /* Bundler mode */
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "strict": true,
-    "strictNullChecks": false,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+//    "strict": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "sourceMap": false,
-    // "outDir": "src/js/modules", // Куда выплевывать скомпиленный код
-    "baseUrl": ".",
     "paths": { // БЕЗ ЭТОГО АЛИАСЫ НЕ РАБОТАЮТ
-      "*": [
-        "node_modules/*"
-      ],
       "@constants/*": [
         "./src/constants/*"
       ],
@@ -52,20 +54,11 @@
       ]
     }
   },
-  "include": [
-    "./src/**/*",
-    "./src/**/*.module.scss",
-    "./src/global.d.ts"
-  ], // Что именно компилировать
+  "include": ["src", "global.d.ts"],
   "exclude": [
     "node_modules",
     "**/*.js",
     "**/*.jsx",
-    //    "**/*.test.jsx",
-    //    "**/*.test.js",
-    //    "**/*.test.ts",
-    //    "**/*.test.tsx",
-    //    "**/*.spec.tsx",
-    //    "**/*.spec.ts"
   ],
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

@@ -6,7 +6,7 @@ import styles from './UserDropdown.module.scss';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
 import { logout } from '@modules/auth/redux/thunks';
 import { useOutsideClick } from '@shared/hooks/useOutsideClick';
-import { STATIC_HREF } from '@shared/constants/core';
+import { BASE_IMG_URI, STATIC_HREF } from '@shared/constants/core';
 
 const UserDropdown: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
@@ -40,7 +40,7 @@ const UserDropdown: React.FC = () => {
         ref={ref}
       >
         <div className={styles.UserDropDownButton}>
-          <img className={styles.UserAvatar} src={`${STATIC_HREF}/${user?.avatar}`} alt={`${user.firstName} ${user.lastName} avatar`}/>
+          <img className={styles.UserAvatar} src={`${BASE_IMG_URI}/${user?.avatar}`} alt={`${user.firstName} ${user.lastName} avatar`}/>
           <div className={styles.UserContent}>
             <p className={styles.UserFullName}>
               {`${user.firstName} ${user.lastName}`}

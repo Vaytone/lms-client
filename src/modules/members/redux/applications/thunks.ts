@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosPrivate } from '@shared/api/api';
 import { MEMBER_ROUTES } from '@modules/members/constant/routes';
 import { UserApplication } from '@modules/members/types/members.types';
-import { RootState } from '@store/index.ts';
+import { RootState } from '@src/store';
 
 const MODULE_NAME = 'applications';
 
