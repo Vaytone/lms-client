@@ -2,7 +2,7 @@ import React from 'react';
 import Search from '@components/ui/Search/Search';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '@shared/hooks/redux';
-import { getApplications, getApplicationsBySearch } from '@modules/members/redux/applications/thunks';
+import { getApplicationsBySearch } from '@modules/members/redux/applications/thunks';
 import styles from './ApplicationControls.module.scss';
 
 const ApplicationControls: React.FC = () => {

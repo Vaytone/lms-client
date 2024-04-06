@@ -18,6 +18,7 @@ axiosPrivate.interceptors.request.use(
     const user = store.getState().auth.user;
     if (user) {
       if (!config.headers) {
+        // @ts-ignore
         config.headers = {};
       }
       config.headers.Authorization = `Bearer ${user.token}`;

@@ -40,12 +40,8 @@ export const register = createAsyncThunk(
       const response = await axiosPublic.postForm(AUTH_ROUTES.register, formData);
       
       console.log(response);
-      
-      // const response = await axiosPublic.post<User>(AUTH_ROUTES.register, { ...values, code });
-      // return response.data;
+      return response.data;
     } catch (e: any) {
-	    console.log(e);
-			
       return rejectWithValue(e?.response?.data?.message);
     }
   },

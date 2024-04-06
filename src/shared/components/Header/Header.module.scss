@@ -14,6 +14,21 @@
   z-index: 10;
 }
 
+.LogoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.LogoText {
+  font-weight: 700;
+  display: none;
+
+  @include for-tablet {
+    display: block;
+  }
+}
+
 .HeaderLogo {
   display: none;
   width: 44px;

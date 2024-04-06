@@ -1,50 +1,56 @@
 {
   "extends": ["airbnb", "plugin:@typescript-eslint/recommended"],
   "plugins": [
-    "jest",
-    "react-hooks"
-  ],
+  "jest",
+  "react-hooks"
+],
   "env": {
-    "jest": true,
+  "jest": true,
     "es6": true,
     "browser": true
-  },
+},
   "rules": {
-    "react/prefer-stateless-function": "off",
+  "react/prefer-stateless-function": "off",
     "indent": ["error", 2],
     "no-tabs": 0,
     "react/jsx-indent": [
-      "off",
-      2
-    ],
+    "off",
+    2
+  ],
     "react/jsx-indent-props": [
-      "off",
-      2
-    ],
+    "off",
+    2
+  ],
     "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".tsx"
-        ]
-      }
-    ],
+    1,
+    {
+      "extensions": [
+        ".js",
+        ".jsx",
+        ".tsx"
+      ]
+    }
+  ],
     "jsx-a11y/label-has-associated-control": ["error", {
-      "required": {
-        "some": ["nesting", "id"]
-      }
-    }],
+    "required": {
+      "some": ["nesting", "id"]
+    }
+  }],
     "jsx-a11y/label-has-for": ["error", {
-      "required": {
-        "some": ["nesting", "id"]
-      }
-    }],
+    "required": {
+      "some": ["nesting", "id"]
+    }
+  }],
     "jsx-quotes": "off",
     "quotes": [
-      "error",
-      "single"
+    "error",
+    "single"
+  ],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
     ],
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
@@ -94,34 +100,36 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
+    "useUnknownInCatchVariables": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
     "react/jsx-no-bind": [
-      2,
-      {
-        "ignoreDOMComponents": true,
-        "ignoreRefs": true,
-        "allowArrowFunctions": true,
-        "allowFunctions": false,
-        "allowBind": true
-      }
-    ],
+    2,
+    {
+      "ignoreDOMComponents": true,
+      "ignoreRefs": true,
+      "allowArrowFunctions": true,
+      "allowFunctions": false,
+      "allowBind": true
+    }
+  ],
     "class-methods-use-this": "off",
     "max-len": [
-      "error",
-      {
-        "code": 140,
-        "ignoreStrings": true,
-        "ignoreTemplateLiterals": true,
-        "ignoreRegExpLiterals": true,
-        "ignoreComments": true
-      }
-    ],
+    "error",
+    {
+      "code": 140,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreRegExpLiterals": true,
+      "ignoreComments": true
+    }
+  ],
     "no-nested-ternary": "off",
     "no-useless-escape": "off"
-  },
+},
   "globals": {
-    "window": true,
+  "window": true,
     "document": true,
     "localStorage": true
-  },
+},
   "parser": "@typescript-eslint/parser"
 }

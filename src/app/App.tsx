@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import LoginPage from '@modules/auth/pages/LoginPage/LoginPage';
-import AuthLayout from '@src/layouts/AuthLayout/AuthLayout';
-import RegisterPage from '@modules/auth/pages/RegisterPage/RegisterPage';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
-import { appFirstLoad } from '@shared/redux/core/thunks';
 import RequiredAuthLayout from '@src/layouts/RequiredAuthLayout/RequiredAuthLayout';
-import Loader from '@components/Loader/Loader';
-import ApplicationsPage from '@modules/members/pages/ApplicationsPage/ApplicationsPage';
-import styles from './App.module.scss';
+import DashboardPage from '@modules/dashboard/pages/DashboardPage/DashboardPage';
 import MembersPage from '@modules/members/pages/MembersPage/MembersPage';
 import OwnerLayout from '@src/layouts/OwnerLayout/OwnerLayout';
-import DashboardPage from '@modules/dashboard/pages/DashboardPage/DashboardPage';
+import ApplicationsPage from '@modules/members/pages/ApplicationsPage/ApplicationsPage';
+import AuthLayout from '@src/layouts/AuthLayout/AuthLayout';
+import LoginPage from '@modules/auth/pages/LoginPage/LoginPage';
+import RegisterPage from '@modules/auth/pages/RegisterPage/RegisterPage';
+import Loader from '@components/Loader/Loader';
+import { appFirstLoad } from '@shared/redux/core/thunks';
+import styles from './App.module.scss';
 
 export const App: React.FC = () => {
   const isLoading = useAppSelector((state) => state.core.isLoading);
