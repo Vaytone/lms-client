@@ -19,7 +19,7 @@ const LoginForm: React.FC = () => {
   } = useForm<SignInForm>({
     mode: 'all',
     defaultValues: {
-      login: '',
+      email: '',
       password: '',
     },
     resolver: yupResolver(loginSchema),
@@ -43,15 +43,15 @@ const LoginForm: React.FC = () => {
         <h2>{t('auth.signIn')}</h2>
         <form onSubmit={handleSubmit(handleSubmitEvent)}>
           <Controller
-            name="login"
+            name="email"
             control={control}
             render={({ field }) => (
               <Input
                 {...field}
-                label={t('auth.login')}
-                placeholder={t('auth.enterLogin')}
-                isInvalid={Boolean(errors.login)}
-                error={errors?.login?.message}
+                label={t('auth.email')}
+                placeholder={t('auth.enterEmail')}
+                isInvalid={Boolean(errors.email)}
+                error={errors?.email?.message}
               />
             )}
           />

@@ -13,7 +13,7 @@ export interface AuthState {
 }
 
 export interface SignInForm {
-  login: string,
+  email: string,
   password: string,
 }
 

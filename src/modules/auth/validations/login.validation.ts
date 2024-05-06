@@ -6,8 +6,9 @@ YupPassword(yup);
 import { t } from 'i18next';
 
 export const loginSchema = yup.object({
-  login: yup.string()
-    .required(t('errors.requiredFiled')),
+  email: yup.string()
+    .required(t('errors.requiredFiled'))
+    .email(t('auth.enterValidEmail')),
   password: yup.string()
     .required(t('errors.requiredFiled')),
 });

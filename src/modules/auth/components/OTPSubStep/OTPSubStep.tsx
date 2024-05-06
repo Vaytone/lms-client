@@ -4,7 +4,7 @@ import { Controller } from 'react-hook-form';
 import Input from '@components/ui/Input/Input';
 import cn from 'classnames';
 import { OTPSubStepProps } from '@modules/auth/components/OTPSubStep/types';
-import { verifyOTP } from '@modules/auth/redux/thunks';
+import { verifyEmail, verifyOTP } from '@modules/auth/redux/thunks';
 import { RegisterStepEnum } from '@modules/auth/types/auth.types';
 import { authErrorManager } from '@modules/auth/helper/authErrorManager';
 import { useAppDispatch } from '@shared/hooks/redux';
@@ -54,8 +54,18 @@ const OTPSubStep: React.FC<OTPSubStepProps> = ({ setStep, control, errors, code,
   };
   
   const handleResendClick = () => {
-    getNotification('Verification code resend');
     setTimer(120);
+    dispatch(verifyEmail({ code, email: getValues().email }))
+      .unwrap()
+      .then(() => {
+        getNotification('Verification code resend');
+      })
+      .catch((e) => {
+        authErrorManager(e);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
   
   return (
