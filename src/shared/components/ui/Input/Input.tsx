@@ -1,8 +1,8 @@
 import React, { ChangeEvent, forwardRef, memo, useCallback, useId, useState } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { InputProps } from './types';
 import ErrorMessage from '@components/ui/ErrorMessage/ErrorMessage';
+import { InputProps } from './types';
 import styles from './Input.module.scss';
 
 const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
@@ -14,9 +14,9 @@ const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>((pr
     onChange,
     placeholder,
     value,
-    // refValue,
     error,
     isInvalid,
+    withoutError,
   } = props;
   const [show, setShow] = useState(false);
   const [touched, setTouched] = useState(true);
@@ -70,9 +70,11 @@ const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>((pr
           />
         )}
       </div>
-      <div className={styles.ErrorMessageWrapper}>
-        {showError && <ErrorMessage text={error}/>}
-      </div>
+      {withoutError ? null : (
+        <div className={styles.ErrorMessageWrapper}>
+          {showError && <ErrorMessage text={error}/>}
+        </div>
+      )}
     </div>
   );
 });

@@ -17,6 +17,7 @@
   align-items: center;
   letter-spacing: 0.5px;
   text-align: center;
+  white-space: nowrap;
 
   &:not([disabled]):hover {
     cursor: pointer;

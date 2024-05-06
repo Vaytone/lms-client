@@ -3,11 +3,12 @@ import { ConfirmFormStepProps } from '@modules/auth/components/ConfirmFormStep/t
 import { useTranslation } from 'react-i18next';
 import Button from '@components/ui/Button/Button';
 import { RegisterStepEnum } from '@modules/auth/types/auth.types';
-import AvatarFiller from '@components/ui/AvatarFillter/AvatarFiller';
+import { Controller } from 'react-hook-form';
+import TextArea from '@components/ui/TextArea/Input';
+import BackButton from '@components/ui/BackButton/BackButton';
 import styles from './ConfirmFormStep.module.scss';
 
-const ConfirmFormStep: React.FC<ConfirmFormStepProps> = ({ getValues, setStep, errors, isLoading, isDirty }) => {
-  const values = getValues();
+const ConfirmFormStep: React.FC<ConfirmFormStepProps> = ({ setStep, errors, isLoading, isDirty, control }) => {
   const { t } = useTranslation();
   
   const handleBack = () => {
@@ -15,31 +16,43 @@ const ConfirmFormStep: React.FC<ConfirmFormStepProps> = ({ getValues, setStep, e
   };
   
   return (
-    <div className={styles.ConfirmStepWrapper}>
-      <h3 className={styles.StepTitle}>{t('auth.confirm')}</h3>
-      <div className={styles.ConfirmInfoWrapper}>
-        {values.avatar ? <img className={styles.ConfirmAvatar} src={URL.createObjectURL(values.avatar as File)} alt='avatar'/> : (
-          <div className={styles.ConfirmAvatarFiller}>
-            <AvatarFiller text={values.firstName}/>
-          </div>
-        )}
-        
-        <div className={styles.ConfirmTextWrapper}>
-          <h3>{`${values.firstName} ${values.lastName}`}</h3>
-          <p>{values.login}</p>
-        </div>
+    <div style={{
+      display: 'flex',
+      flex: 1,
+      flexDirection: 'column',
+    }}
+    >
+      <div style={{ height: '40px' }}>
+        <BackButton onBack={handleBack}/>
       </div>
-      <div className={styles.ButtonWrapper}>
-        <Button
-          text={t('core.back')}
-          onClick={handleBack}
-          styleType='transparent'
-        />
-        <Button
-          text={t('auth.createAccount')}
-          type='submit'
-          disabled={Boolean(Object.keys(errors).length) || !isDirty || isLoading}
-        />
+      <div className={styles.ConfirmStepWrapper}>
+        <h3 className={styles.StepTitle}>{t('auth.confirmTitle')}</h3>
+        <p className={styles.StepDescription}>
+          {t('auth.confirmDescription')}
+        </p>
+        <div className={styles.ConfirmInfoWrapper}>
+          <Controller
+            name="greetingMessage"
+            control={control}
+            render={({ field }) => (
+              <TextArea
+                {...field}
+                label={t('auth.greetingMessage')}
+                placeholder={t('auth.enterMessage')}
+                isInvalid={Boolean(errors.lastName)}
+                error={errors?.lastName?.message}
+              />
+            )}
+          />
+        </div>
+        
+        <div className={styles.ButtonWrapper}>
+          <Button
+            text={t('auth.createAccount')}
+            type='submit'
+            disabled={Boolean(Object.keys(errors).length) || !isDirty || isLoading}
+          />
+        </div>
       </div>
     </div>
   );

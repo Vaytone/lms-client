@@ -11,6 +11,7 @@
   padding: 0;
   margin: 0;
   display: flex;
+  flex-direction: column;
   width: 100%;
   flex-grow: 1;
 }
@@ -18,11 +19,52 @@
 .RegisterProgressItem {
   display: flex;
   flex-direction: row;
-  flex-grow: 1;
-  align-items: center;
+  align-items: flex-start;
 
   &:first-child {
     flex-grow: 0;
+  }
+}
+
+.StepText {
+  margin-left: 10px;
+}
+
+.StepTitle {
+  font-size: 0.8em;
+  font-weight: 500;
+  margin: 3px 0 2px;
+  color: $light-text-color;
+}
+
+.StepDescription {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: $secondary-color;
+}
+
+.StepStatus {
+  margin: 0;
+  font-size: 0.65em;
+  height: 0.65em;
+  font-weight: 800;
+  color: $primary-active;
+  transition: all 0.2s;
+
+  &--completed {
+    color: $success-hover;
+  }
+}
+
+.RegisterProgressIconWrapper {
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &--completed {
+    background-color: $primary-color;
   }
 }
 
@@ -30,16 +72,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid $bright-text-color;
-  width: 45px;
-  height: 45px;
-  border-radius: 10px;
-  color: $bright-text-color;
-  font-size: 18px;
+  border: 1px solid #9398a2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #9398a2;
+  font-size: 16px;
+  transition: all 0.2s;
 
   &--prev {
-    color: $primary-color;
-    border-color: $primary-color;
+    color: $reverse-text-color;
+    border-color: $success-hover;
+    background-color: $success-hover;
   }
 
   &--active {
@@ -55,10 +99,10 @@
 }
 
 .RegisterProgressDivider {
-  min-width: 10px;
-  flex-grow: 1;
-  height: 1px;
-  background-color: $bright-text-color;
+  height: 25px;
+  width: 1px;
+  background-color: #9398a2;
+  margin: 10px 0;
   position: relative;
 
   &:before {
@@ -69,9 +113,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 0;
-    height: 1px;
-    background-color: $primary-hover;
+    width: 1px;
+    height: 0;
+    background-color: $success-hover;
 
     @include for-laptop {
       transition: all 0.2s;
@@ -81,7 +125,7 @@
   &--active {
 
     &:before {
-      width: 100%;
+      height: 100%;
     }
   }
 }

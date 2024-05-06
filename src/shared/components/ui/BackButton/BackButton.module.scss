@@ -1,0 +1,34 @@
+@import "@styles/variables";
+
+.BackButtonWrapper {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: background-color 0.4s;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $body-color;
+    background-color: $body-color;
+  }
+}
+
+.BackButtonContent {
+  display: flex;
+  align-items: center;
+}
+
+.BackButtonIcon {
+  margin-right: 7px;
+  font-size: 12px;
+}
+
+.BackButtonText {
+  margin: 4px 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: $secondary-light;
+}

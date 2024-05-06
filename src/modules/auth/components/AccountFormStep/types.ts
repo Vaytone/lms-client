@@ -6,4 +6,5 @@ export interface AccountFormStepProps {
   errors: FieldErrors<SignUpForm>,
   setStep: (val: RegisterStepEnum) => void,
   trigger: UseFormTrigger<SignUpForm>,
+  reset: () => void,
 }

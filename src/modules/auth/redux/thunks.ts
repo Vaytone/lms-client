@@ -4,6 +4,7 @@ import { axiosPublic } from '@shared/api/api';
 import { AUTH_ROUTES } from '@modules/auth/constants/routes';
 import { User } from '@type/user.types';
 import { getSignUpFormData } from '@modules/auth/helper/register';
+import { RootState } from '@src/store';
 
 const MODULE_NAME = 'auth';
 
@@ -12,6 +13,33 @@ export const login = createAsyncThunk(
   async (values: SignInForm, { rejectWithValue }) => {
     try {
       const response = await axiosPublic.post<User>(AUTH_ROUTES.login, values);
+      return response.data;
+    } catch (e: any) {
+      return rejectWithValue(e?.response?.data?.message);
+    }
+  },
+);
+
+export const verifyEmail = createAsyncThunk(
+  `${MODULE_NAME}/verifyEmail`,
+  async (values: {code: string, email: string}, { rejectWithValue, getState }) => {
+    try {
+      const store: RootState = await getState() as RootState;
+      const lng = store.core.lng;
+      const response = await axiosPublic.get(`${AUTH_ROUTES.validateEmail}/${values.code}?email=${values.email}&lng=${lng}`);
+      return response.data;
+    } catch (e: any) {
+      return rejectWithValue(e?.response?.data?.message);
+    }
+  },
+);
+
+export const verifyOTP = createAsyncThunk(
+  `${MODULE_NAME}/verifyOTP`,
+  async (values: {code: string, email: string, otp: string}, { rejectWithValue }) => {
+    try {
+      const { otp, email } = values;
+      const response = await axiosPublic.post(`${AUTH_ROUTES.validateOTP}/${values.code}`, { otp, email });
       return response.data;
     } catch (e: any) {
       return rejectWithValue(e?.response?.data?.message);
@@ -46,7 +74,6 @@ export const register = createAsyncThunk(
     }
   },
 );
-
 export const refresh = createAsyncThunk(
   `${MODULE_NAME}/refresh`,
   async (_, { rejectWithValue }): Promise<ValidateLinkResponse | any> => {

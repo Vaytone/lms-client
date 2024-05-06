@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { RegisterStepEnum, SignUpForm } from '@modules/auth/types/auth.types';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,6 +14,8 @@ import AccountFormStep from '@modules/auth/components/AccountFormStep/AccountFor
 import PersonalFormStep from '@modules/auth/components/PersonalFormStep/PersonalFormStep';
 import AvatarFormStep from '@modules/auth/components/AvatarFormStep/AvatarFormStep';
 import ConfirmFormStep from '@modules/auth/components/ConfirmFormStep/ConfirmFormStep';
+import EmailVerificationStep from '@modules/auth/components/EmailVerificationStep/EmailVerificationStep';
+import { STATIC_HREF } from '@shared/constants/core';
 import styles from './RegisterForm.module.scss';
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ code }) => {
@@ -22,17 +24,20 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ code }) => {
     control,
     handleSubmit,
     trigger,
-    formState: { errors, isDirty },
+    formState: { errors, isDirty, dirtyFields },
     setValue,
     getValues,
+    reset,
   } = useForm<SignUpForm>({
     mode: 'all',
     defaultValues: {
-      login: '',
+      email: '',
       password: '',
+      otp: '',
       lastName: '',
       firstName: '',
       confirmPassword: '',
+      greetingMessage: '',
       avatar: '',
     },
     resolver: yupResolver(registerSchema),
@@ -41,7 +46,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ code }) => {
     photo: null,
     isEditOpen: false,
   });
-  const [step, setStep] = useState<RegisterStepEnum>(RegisterStepEnum.Account);
+  const [step, setStep] = useState<RegisterStepEnum>(RegisterStepEnum.EmailVerification);
   const isLoading = useAppSelector((state) => state.auth.isLoading);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -58,56 +63,78 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ code }) => {
         authErrorManager(e);
       });
   };
+  
+  useEffect(() => {
+    return () => {
+      reset();
+    };
+  }, []);
 
   return (
     <div className={styles.RegisterFormWrapper}>
-
       <div className={styles.RegisterContentWrapper}>
-        <div className={styles.RegisterTitleWrapper}>
-          <h2>{t('auth.signUp')}</h2>
+        <div className={styles.RegisterStepWrapper}>
+          <div className={styles.RegisterLogo}>
+            <img className={styles.RegisterLogoImg} src={`${STATIC_HREF}/logo.svg`} alt="logo"/>
+            <div className={styles.RegisterText}>
+              <span className={styles.RegisterTitleText}>{t(`core.${registerData.role}`)}</span>
+              <p className={styles.RegisterSubTitle}>LMS</p>
+            </div>
+          </div>
+          <h3 className={styles.RegisterOrganisationName}>{`${registerData.organisation_name}`}</h3>
+          <RegisterProgressBar step={step}/>
         </div>
-        <h3 className={styles.RegisterOrganisationName}>
-          <span>{t(`core.${registerData.role}`)}</span>
-          <span>{` ${t('auth.at')} ${registerData.organisation_name}`}</span>
-        </h3>
-        <RegisterProgressBar step={step}/>
-        <form className={styles.RegisterFormElem} onSubmit={handleSubmit(handleSubmitEvent)}>
-          {step === RegisterStepEnum.Account && (
-            <AccountFormStep
-              control={control}
-              errors={errors}
-              setStep={setStep}
-              trigger={trigger}
-            />
-          )}
-          {step === RegisterStepEnum.Personal && (
-            <PersonalFormStep
-              control={control}
-              errors={errors}
-              setStep={setStep}
-              trigger={trigger}
-            />
-          )}
-          {step === RegisterStepEnum.Avatar && (
-            <AvatarFormStep
-              control={control}
-              setStep={setStep}
-              setValue={setValue}
-              getValues={getValues}
-              photoState={photoState}
-              setPhotoState={setPhotoState}
-            />
-          )}
-          {step === RegisterStepEnum.Confirm && (
-            <ConfirmFormStep
-              getValues={getValues}
-              setStep={setStep}
-              isDirty={isDirty}
-              errors={errors}
-              isLoading={isLoading}
-            />
-          )}
-        </form>
+        <div className={styles.RegisterFormElem}>
+          <form className={styles.RegisterForm} onSubmit={handleSubmit(handleSubmitEvent)}>
+            {step === RegisterStepEnum.EmailVerification && (
+              <EmailVerificationStep
+                control={control}
+                errors={errors}
+                setStep={setStep}
+                trigger={trigger}
+                getValues={getValues}
+                code={code}
+                dirtyFields={dirtyFields}
+              />
+            )}
+            {step === RegisterStepEnum.Account && (
+              <AccountFormStep
+                control={control}
+                errors={errors}
+                setStep={setStep}
+                trigger={trigger}
+                reset={reset}
+              />
+            )}
+            {step === RegisterStepEnum.Personal && (
+              <PersonalFormStep
+                control={control}
+                errors={errors}
+                setStep={setStep}
+                trigger={trigger}
+              />
+            )}
+            {step === RegisterStepEnum.Avatar && (
+              <AvatarFormStep
+                control={control}
+                setStep={setStep}
+                setValue={setValue}
+                getValues={getValues}
+                photoState={photoState}
+                setPhotoState={setPhotoState}
+              />
+            )}
+            {step === RegisterStepEnum.Confirm && (
+              <ConfirmFormStep
+                setStep={setStep}
+                control={control}
+                isDirty={isDirty}
+                errors={errors}
+                isLoading={isLoading}
+              />
+            )}
+          </form>
+        </div>
       </div>
     </div>
   );

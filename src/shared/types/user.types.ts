@@ -6,7 +6,7 @@ export interface User {
   firstName: string;
   lastName: string;
   login: string;
-  active: boolean;
+  status: UserStatus,
   closed: boolean;
   role: RoleEnum;
   token: string;
@@ -14,4 +14,10 @@ export interface User {
 		name: string,
 		short_name: string,
 	}
+}
+
+export enum UserStatus {
+  Pending = 'pending',
+  Rejected = 'rejected',
+  Active = 'active',
 }

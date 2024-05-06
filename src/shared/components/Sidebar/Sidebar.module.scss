@@ -91,7 +91,7 @@
   padding: 0;
 
   @include for-tablet {
-    padding: 10px 20px 10px 0;
+    padding: 0 20px;
   }
 }
 
@@ -137,30 +137,29 @@
 
   @include for-tablet {
     align-items: center;
-    color: $light-text-color;
+    color: $secondary-light;
     transition: all 0.2s;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 10px 17px;
+    margin-bottom: 10px;
     border-bottom: unset;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 7px;
 
     &:hover {
       color: $secondary-color;
-      background-color: $primary-brightest;
+      background-color: $focus-color;
     }
 
     &--active {
       color: $secondary-color;
       font-weight: 700;
-      background-color: $primary-bright;
+      background-color: $focus-color;
 
       &:after {
-        background-color: $primary-color;
+        background-color: $focus-color;
       }
 
       &:hover {
-        background-color: $primary-bright;
+        background-color: $focus-color;
 
         &:after {
           background-color: $primary-color;
@@ -194,7 +193,7 @@
 
   @include for-tablet {
     word-break: break-all;
-    //text-align: center;
+    color: $secondary-light;
     padding: 0 4px;
     font-weight: 600;
     font-size: 0.9em;

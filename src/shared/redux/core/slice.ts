@@ -5,6 +5,7 @@ import { PageEnum } from '@type/page.types';
 
 const initialState: CoreState = {
   isLoading: true,
+  lng: 'uk',
   currentPage: PageEnum.Dashboard,
 };
 
@@ -15,7 +16,7 @@ export const coreSlice = createSlice({
     setCurrentPage: (state, { payload }) => {
       state.isLoading = false;
       state.currentPage = payload;
-    }, 
+    },
   },
   extraReducers: (builder) => {
     builder
