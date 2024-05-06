@@ -21,6 +21,12 @@ export function authErrorManager(message: string): void {
     case AuthErrorsEnum.WrongLoginPassword:
       getNotification(t('auth.wrongLoginPassword'), NotificationTypeEnum.error);
       break;
+    case AuthErrorsEnum.OtpInvalid:
+      getNotification(t('auth.otpInvalidError'), NotificationTypeEnum.error);
+      break;
+    case AuthErrorsEnum.OTPExpired:
+      getNotification(t('auth.otpExpiredError'), NotificationTypeEnum.error);
+      break;
     default:
       getNotification(t('error.somethingWentWrong'), NotificationTypeEnum.error);
       break;

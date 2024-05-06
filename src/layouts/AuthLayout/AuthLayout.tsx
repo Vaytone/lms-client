@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { STATIC_HREF } from '@shared/constants/core';
 import { useAppSelector } from '@shared/hooks/redux';
 import UserInactiveBanner from '@src/layouts/AuthLayout/UserInactiveBanner/UserInactiveBanner';
+import { UserStatus } from '@type/user.types';
 import styles from './AuthLayout.module.scss';
 
 const AuthLayout: React.FC = () => {
@@ -10,7 +11,7 @@ const AuthLayout: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user?.active) {
+    if (user && user.status === UserStatus.Active) {
       navigate('/');
     }
   }, [user]);
@@ -27,7 +28,7 @@ const AuthLayout: React.FC = () => {
           </p>
         </div>
       </div>
-      {user && !user.active && <UserInactiveBanner/>}
+      {user && user.status === UserStatus.Pending && <UserInactiveBanner/>}
       {!user && <Outlet/>}
     </div>
   );

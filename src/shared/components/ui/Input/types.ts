@@ -12,4 +12,5 @@ export interface InputProps {
   label?: string | typeof DefaultTFuncReturn,
   ref?: any,
   disabled?: boolean,
+  withoutError?: boolean,
 }

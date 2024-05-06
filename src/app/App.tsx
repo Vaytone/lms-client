@@ -5,12 +5,12 @@ import RequiredAuthLayout from '@src/layouts/RequiredAuthLayout/RequiredAuthLayo
 import DashboardPage from '@modules/dashboard/pages/DashboardPage/DashboardPage';
 import MembersPage from '@modules/members/pages/MembersPage/MembersPage';
 import OwnerLayout from '@src/layouts/OwnerLayout/OwnerLayout';
-import ApplicationsPage from '@modules/members/pages/ApplicationsPage/ApplicationsPage';
 import AuthLayout from '@src/layouts/AuthLayout/AuthLayout';
 import LoginPage from '@modules/auth/pages/LoginPage/LoginPage';
 import RegisterPage from '@modules/auth/pages/RegisterPage/RegisterPage';
 import Loader from '@components/Loader/Loader';
 import { appFirstLoad } from '@shared/redux/core/thunks';
+import ApplicationsPage from '@modules/applications/pages/ApplicationsPage/ApplicationsPage';
 import styles from './App.module.scss';
 
 export const App: React.FC = () => {

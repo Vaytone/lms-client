@@ -5,14 +5,15 @@ YupPassword(yup);
 
 import { t } from 'i18next';
 import { REGISTER_VALIDATION } from '@modules/auth/constants/validation';
-import { LOGIN_REGEX, NAME_REGEX } from '@modules/auth/constants/regex';
+import { NAME_REGEX } from '@modules/auth/constants/regex';
 
 export const registerSchema = yup.object({
-  login: yup.string()
+  email: yup.string()
     .required(t('errors.requiredFiled'))
-    .matches(LOGIN_REGEX, t('auth.invalidValue'))
-    .min(REGISTER_VALIDATION.minLogin, t('auth.minLength', { value: REGISTER_VALIDATION.minLogin }))
-    .max(REGISTER_VALIDATION.maxLogin, t('auth.maxLength', { value: REGISTER_VALIDATION.maxLogin })),
+    .email(t('auth.enterValidEmail')),
+  otp: yup.string()
+    .min(REGISTER_VALIDATION.otpLength)
+    .max(REGISTER_VALIDATION.otpLength),
   password: yup.string()
     .password()
     .required(t('errors.requiredFiled'))
@@ -36,4 +37,6 @@ export const registerSchema = yup.object({
     .min(REGISTER_VALIDATION.minFirstName, t('auth.minLength', { value: REGISTER_VALIDATION.minFirstName }))
     .max(REGISTER_VALIDATION.maxLastName, t('auth.maxLength', { value: REGISTER_VALIDATION.maxLastName })),
   avatar: yup.mixed(),
+  greetingMessage: yup.string()
+    .max(REGISTER_VALIDATION.maxMessage, t('auth.maxLength', { value: REGISTER_VALIDATION.maxMessage })),
 });

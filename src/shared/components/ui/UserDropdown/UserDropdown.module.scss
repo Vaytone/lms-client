@@ -45,7 +45,7 @@
   flex-grow: 1;
 
   &:hover {
-    background-color: $content-color;
+    background-color: $content-color-hover;
   }
 }
 
@@ -56,6 +56,13 @@
   display: flex;
   align-items: center;
   flex-grow: 1;
+}
+
+.UserAvatarFiller {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 .UserControls {
@@ -192,7 +199,7 @@
 
   span:last-child {
     font-size: 14px;
-    color: $bright-text-color;
+    color: $light-text-color;;
   }
 
   &--active {

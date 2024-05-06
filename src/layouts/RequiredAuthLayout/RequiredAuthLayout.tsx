@@ -3,6 +3,7 @@ import { useAppSelector } from '@shared/hooks/redux';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Sidebar from '@components/Sidebar/Sidebar';
 import Header from '@components/Header/Header';
+import { UserStatus } from '@type/user.types';
 import styles from './RequiredAuthLayout.module.scss';
 
 const RequiredAuthLayout: React.FC = () => {
@@ -10,7 +11,7 @@ const RequiredAuthLayout: React.FC = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    if (!user || !user.active) {
+    if (!user || user.status !== UserStatus.Active) {
       navigate('/login');
     }
   }, [user?.id]);

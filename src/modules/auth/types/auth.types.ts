@@ -18,11 +18,13 @@ export interface SignInForm {
 }
 
 export interface SignUpForm {
-  login: string,
+  email: string,
   firstName: string,
   lastName: string,
   password: string,
+  otp: string,
   confirmPassword: string,
+  greetingMessage: string,
   avatar: File | '',
 }
 
@@ -32,6 +34,7 @@ export interface ValidateLinkResponse {
 }
 
 export enum RegisterStepEnum {
+  EmailVerification = 'email',
   Account = 'account',
   Avatar = 'avatar',
   Personal = 'personal',

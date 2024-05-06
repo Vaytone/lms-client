@@ -4,4 +4,6 @@ export enum AuthErrorsEnum {
   PasswordDontMatch = 'PASSWORD_DONT_MATCH',
   UserAlreadyExist = 'USER_ALREADY_EXIST',
   WrongLoginPassword = 'WRONG_LOGIN_PASSWORD',
+  OtpInvalid = 'OTP_INVALID',
+  OTPExpired = 'OTP_EXPIRED',
 }

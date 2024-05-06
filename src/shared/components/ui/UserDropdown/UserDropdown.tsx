@@ -2,11 +2,12 @@ import React, { useRef, useState } from 'react';
 import cn from 'classnames';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import styles from './UserDropdown.module.scss';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
 import { logout } from '@modules/auth/redux/thunks';
 import { useOutsideClick } from '@shared/hooks/useOutsideClick';
 import { BASE_IMG_URI, STATIC_HREF } from '@shared/constants/core';
+import AvatarFiller from '@components/ui/AvatarFillter/AvatarFiller';
+import styles from './UserDropdown.module.scss';
 
 const UserDropdown: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
@@ -40,7 +41,13 @@ const UserDropdown: React.FC = () => {
         ref={ref}
       >
         <div className={styles.UserDropDownButton}>
-          <img className={styles.UserAvatar} src={`${BASE_IMG_URI}/${user?.avatar}`} alt={`${user.firstName} ${user.lastName} avatar`}/>
+          {user.avatar
+            ? <img className={styles.UserAvatar} src={`${BASE_IMG_URI}/${user?.avatar}`} alt={`${user.firstName} ${user.lastName} avatar`}/>
+            : (
+              <div className={styles.UserAvatarFiller}>
+                <AvatarFiller text={user.firstName} fontSize={20}/>
+              </div>
+            )}
           <div className={styles.UserContent}>
             <p className={styles.UserFullName}>
               {`${user.firstName} ${user.lastName}`}
@@ -56,19 +63,19 @@ const UserDropdown: React.FC = () => {
             <li>
               <NavLink className={({ isActive }) => cn(styles.UserDropDownNavLink, isActive && styles.UserDropDownNavLinkActive)} to='/profile'>
                 <span className='icon-profile'/>
-                <span>{t('personalInfo')}</span>
+                <span>{t('core.personalInfo')}</span>
               </NavLink>
             </li>
             <li>
               <NavLink className={({ isActive }) => cn(styles.UserDropDownNavLink, isActive && styles.UserDropDownNavLinkActive)} to='/settings'>
                 <span className='icon-settings'/>
-                <span>{t('settings')}</span>
+                <span>{t('core.settings')}</span>
               </NavLink>
             </li>
             <li>
               <div className={styles.UserDropDownNavLink} onClick={handleLogout}>
                 <span className='icon-logout'/>
-                <span>{t('logout')}</span>
+                <span>{t('core.logout')}</span>
               </div>
             </li>
           </ul>

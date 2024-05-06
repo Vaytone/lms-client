@@ -2,16 +2,25 @@
 @import "@styles/mixins";
 
 .AvatarStepWrapper {
-  height: 100%;
   width: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
+  padding: 0 60px;
 }
 
 .StepTitle {
-  font-size: 16px;
+  font-size: 1.2em;
   text-align: center;
+  font-weight: 800;
   margin: 10px 0 10px;
+}
+
+.StepDescription {
+  color: $light-text-color;
+  text-align: center;
+  font-weight: 500;
+  margin: 0 0 30px;
 }
 
 .ChangeAvatarWrapper {
@@ -158,7 +167,6 @@
   margin-top: 30px;
 
   button {
-    max-width: 150px;
     height: 30px;
   }
 }
