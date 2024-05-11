@@ -5,7 +5,13 @@ export interface UserApplication {
   avatar: string | null,
   first_name: string,
   last_name: string,
-  login: string,
+  email: string,
   role: RoleEnum,
   created_at: Date,
+}
+
+export enum ApplicationSortBy {
+  Name = 'name',
+  Email = 'email',
+  Date = 'date',
 }

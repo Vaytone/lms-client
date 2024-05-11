@@ -1,7 +1,11 @@
 {
   "applications": {
     "accept": "Прийняти запит",
+    "date": "Дата",
+    "email": "Email",
+    "name": "Ім'я",
     "reject": "Відхилити",
+    "roleSortPreTitle": "Роль:",
     "search": "Пошук заявок"
   },
   "auth": {
@@ -75,6 +79,7 @@
   },
   "core": {
     "admin": "Викладач",
+    "allRoles": "Всі",
     "applications": "Заявки",
     "back": "Назад",
     "cancel": "Відмінити",
@@ -85,7 +90,9 @@
     "next": "Далі",
     "personalInfo": "Профіль",
     "savePhoto": "Зберегти фото",
+    "select": "Обрати",
     "settings": "Налаштування",
+    "sortBy": "Сортувати:",
     "step": "Крок",
     "student": "Учень",
     "watcher": "Спостерігач"

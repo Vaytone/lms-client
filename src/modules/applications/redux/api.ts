@@ -4,12 +4,18 @@ import { ApplicationsRoutes } from '@modules/applications/types/routes.types';
 import { axiosBaseQuery } from '@shared/api/baseQuery';
 import { UserApplication } from '@modules/applications/types/application.types';
 
+type GetApplicationsQueryParams = {
+  query: string;
+  role: string;
+  sortBy: string;
+};
+
 export const applicationApi = createApi({
   reducerPath: 'applicationApi',
-  baseQuery: axiosBaseQuery({ baseUrl: `${BASE_URI}/api/${ApplicationsRoutes.Base}` }),
+  baseQuery: axiosBaseQuery({ baseUrl: `${BASE_URI}/api/` }),
   endpoints: (builder) => ({
-    getApplications: builder.query<UserApplication[], void>({
-      query: () => ({ url: '', method: 'GET' }),
+    getApplications: builder.query<UserApplication[], GetApplicationsQueryParams>({
+      query: ({query, sortBy, role}) => ({ url: `${ApplicationsRoutes.Base}?query=${query}&sortBy=${sortBy}&role=${role}`, method: 'GET' }),
     }),
   }),
 });

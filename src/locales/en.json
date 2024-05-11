@@ -1,8 +1,12 @@
 {
   "applications": {
     "accept": "Accept application",
+    "date": "Date",
+    "email": "Email",
+    "name": "Name",
     "reject": "Reject",
-    "search": "Search for applications"
+    "roleSortPreTitle": "Role:",
+    "search": "Search Applications"
   },
   "auth": {
     "account": "Account data",
@@ -75,6 +79,7 @@
   },
   "core": {
     "admin": "Mentor",
+    "allRoles": "All",
     "applications": "Applications",
     "back": "Back",
     "cancel": "Cancel",
@@ -85,7 +90,9 @@
     "next": "Next",
     "personalInfo": "Profile",
     "savePhoto": "Save photo",
+    "select": "Select",
     "settings": "Settings",
+    "sortBy": "Sort by:",
     "step": "Step",
     "student": "Student",
     "watcher": "Watcher"

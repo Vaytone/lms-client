@@ -7,7 +7,7 @@
 .SearchInput {
   width: 100%;
   padding: 10px 20px 10px 10px;
-  border: 1px solid $primary-bright;
+  border: 1px solid $border-color;
   border-radius: 5px;
   font-family: $font-family;
 
@@ -22,5 +22,5 @@
   top: 50%;
   transform: translate(-50%,-50%);
   right: 10px;
-  color: $primary-bright;
+  color: $secondary-bright;
 }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { SearchProps } from '@components/ui/Search/types';
-import styles from './Search.module.scss';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
+import styles from './Search.module.scss';
 
-const Search: React.FC<SearchProps> = ({ onSearch, placeholder }) => {
-  const [inputValue, setInputValue] = useState('');
+const Search: React.FC<SearchProps> = ({ onSearch, placeholder, initialValue }) => {
+  const [inputValue, setInputValue] = useState(initialValue || '');
   const [debouncedValue, setDebouncedValue] = useState(inputValue);
   const { t } = useTranslation();
 
