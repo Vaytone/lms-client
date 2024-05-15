@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import Search from '@components/ui/Search/Search';
 import { useTranslation } from 'react-i18next';
 import ControlsDropdown from '@components/ui/ControlsDropdown/ControlsDropdown';
@@ -6,13 +6,17 @@ import { RoleEnum } from '@type/role.types';
 import { useSearchParams } from 'react-router-dom';
 import { ApplicationSortBy } from '@modules/applications/types/application.types';
 import styles from './ApplicationControls.module.scss';
+import FiltersButton from '@components/ui/FiltersButton/FiltersButton';
 
-const ApplicationControls: React.FC = () => {
-  // const dispatch = useAppDispatch();
+type Props = {
+  setIsParamsLoaded: Dispatch<SetStateAction<boolean>>
+}
+
+const ApplicationControls: React.FC<Props> = ({ setIsParamsLoaded }) => {
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const ROLES_OPTIONS = [{ value: RoleEnum.Admin, label: t('core.admin') }, { value: RoleEnum.Student, label: t('core.student') }, { value: RoleEnum.Watcher, label: t('core.watcher') }, { value: 'all', label: t('core.allRoles') }];
-  const SORT_OPTIONS = [{ value: ApplicationSortBy.Name, label: t('applications.name') }, { value: ApplicationSortBy.Email, label: t('applications.email') }, { value: ApplicationSortBy.Date, label: t('applications.date') }];
+  const SORT_OPTIONS = [{ value: 'full_name', label: t('applications.name') }, { value: 'email', label: t('applications.email') }, { value: 'created_at', label: t('applications.date') }];
   
   useEffect(() => {
     const sortBy = searchParams.get('sortBy');
@@ -37,10 +41,12 @@ const ApplicationControls: React.FC = () => {
     
     if (!sortBy || !sortValues.includes(sortBy as ApplicationSortBy)) {
       setSearchParams((searchParams) => {
-        searchParams.set('sortBy', 'date');
+        searchParams.set('sortBy', 'created_at');
         return searchParams;
       });
     }
+    
+    setIsParamsLoaded(true);
   }, []);
   
   const handleChange = (name: string, value: string) => {
@@ -65,6 +71,9 @@ const ApplicationControls: React.FC = () => {
           placeholder={t('applications.search')}
           initialValue={searchParams.get('query')}
         />
+      </div>
+      <div className={styles.ControlsFiltersButton}>
+        <FiltersButton onClick={() => null}/>
       </div>
       <div className={styles.Dropdowns}>
         <div className={styles.RoleDropdown}>

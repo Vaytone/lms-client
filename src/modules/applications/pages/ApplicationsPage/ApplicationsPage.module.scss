@@ -1,5 +1,12 @@
+@import '@styles/mixins';
+
 .PageWrapper {
-  padding: 32px;
+  padding: 16px;
   display: flex;
+  flex-direction: column;
   gap: 20px;
+
+  @include for-tablet {
+    padding: 32px;
+  }
 }

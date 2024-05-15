@@ -5,7 +5,7 @@
   width: 100%;
   padding: 10px 15px;
 
-  @include for-tablet {
+  @include for-tablet-l {
     width: unset;
     display: unset;
     padding: 0 25px;
@@ -21,7 +21,7 @@
   position: relative;
   width: 100%;
 
-  @include for-tablet {
+  @include for-tablet-l {
     width: unset;
   }
 
@@ -110,7 +110,7 @@
   width: 100%;
   display: none;
 
-  @include for-tablet {
+  @include for-tablet-l {
     display: block;
     width: 230px;
     background-color: $content-color;

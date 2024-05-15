@@ -3,6 +3,7 @@ import { BASE_URI } from '@shared/constants/core';
 import { ApplicationsRoutes } from '@modules/applications/types/routes.types';
 import { axiosBaseQuery } from '@shared/api/baseQuery';
 import { UserApplication } from '@modules/applications/types/application.types';
+import { UserStatus } from '@type/user.types';
 
 type GetApplicationsQueryParams = {
   query: string;
@@ -15,9 +16,60 @@ export const applicationApi = createApi({
   baseQuery: axiosBaseQuery({ baseUrl: `${BASE_URI}/api/` }),
   endpoints: (builder) => ({
     getApplications: builder.query<UserApplication[], GetApplicationsQueryParams>({
-      query: ({query, sortBy, role}) => ({ url: `${ApplicationsRoutes.Base}?query=${query}&sortBy=${sortBy}&role=${role}`, method: 'GET' }),
+      query: ({ query, sortBy, role }) => ({
+        url: `${ApplicationsRoutes.Base}`,
+        method: 'GET',
+        params: {
+          query,
+          sortBy,
+          role,
+        },
+      }),
+      keepUnusedDataFor: 180,
+    }),
+    acceptApplication: builder.mutation<boolean, {id: number, query: GetApplicationsQueryParams}>({
+      query: ({ id }) => ({ url: `${ApplicationsRoutes.Accept}?id=${id}`, method: 'PUT' }),
+      onQueryStarted: async ({ query, id }, { dispatch }) => {
+        dispatch(
+          applicationApi.util.updateQueryData('getApplications', query, (draftApplications) => {
+            return draftApplications.map((item) => {
+              if (item.id === id) {
+                return {
+                  ...item,
+                  user_statuses: {
+                    ...item.user_statuses,
+                    status: UserStatus.Active,
+                  },
+                };
+              }
+              return item;
+            });
+          }),
+        );
+      },
+    }),
+    rejectApplication: builder.mutation<boolean, {id: number, query: GetApplicationsQueryParams}>({
+      query: ({ id }) => ({ url: `${ApplicationsRoutes.Reject}?id=${id}`, method: 'PUT' }),
+      onQueryStarted: async ({ query, id }, { dispatch }) => {
+        dispatch(
+          applicationApi.util.updateQueryData('getApplications', query, (draftApplications) => {
+            return draftApplications.map((item) => {
+              if (item.id === id) {
+                return {
+                  ...item,
+                  user_statuses: {
+                    ...item.user_statuses,
+                    status: UserStatus.Rejected,
+                  },
+                };
+              }
+              return item;
+            });
+          }),
+        );
+      },
     }),
   }),
 });
 
-export const { useGetApplicationsQuery } = applicationApi;
+export const { useGetApplicationsQuery, useAcceptApplicationMutation, useRejectApplicationMutation } = applicationApi;

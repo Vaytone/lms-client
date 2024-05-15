@@ -25,6 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-filters:before {
+  content: "\e902";
+}
+.icon-clock:before {
+  content: "\e91d";
+}
 .icon-roles:before {
   content: "\e900";
 }

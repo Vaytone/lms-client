@@ -11,6 +11,7 @@
 
 .ControlsSearchWrapper {
   width: 100%;
+  margin-right: 10px;
 
   @include for-tablet {
     width: 100%;
@@ -18,9 +19,21 @@
   }
 }
 
+.ControlsFiltersButton {
+  display: block;
+
+  @include for-tablet-l {
+    display: none;
+  }
+}
+
 .Dropdowns {
-  display: flex;
+  display: none;
   gap: 20px;
+
+  @include for-tablet-l {
+    display: flex;
+  }
 }
 
 .RoleDropdown {

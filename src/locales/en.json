@@ -1,9 +1,13 @@
 {
   "applications": {
-    "accept": "Accept application",
+    "accept": "Accept",
+    "applicationAccepted": "Application accepted.",
+    "applicationNotFound": "Application not found",
+    "applicationRejected": "Application rejected.",
     "date": "Date",
     "email": "Email",
     "name": "Name",
+    "noMessage": "Without message",
     "reject": "Reject",
     "roleSortPreTitle": "Role:",
     "search": "Search Applications"

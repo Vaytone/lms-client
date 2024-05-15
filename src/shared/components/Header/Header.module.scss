@@ -24,7 +24,7 @@
   font-weight: 700;
   display: none;
 
-  @include for-tablet {
+  @include for-tablet-l {
     display: block;
   }
 }
@@ -39,7 +39,7 @@
     height: 100%;
   }
 
-  @include for-tablet {
+  @include for-tablet-l {
     display: block;
   }
 }
@@ -50,7 +50,7 @@
   align-items: center;
   flex-grow: 1;
 
-  @include for-tablet {
+  @include for-tablet-l {
     display: flex;
   }
 }

@@ -52,7 +52,13 @@ const ControlsDropdown: React.FC<ControlsDropdownProps> = ({
         <div className={cn(styles.Dropdown, isOpen ? styles.DropdownOpen : '')}>
           {options.map((option) => {
             return (
-              <div className={styles.DropdownItem} onClick={() => handleChange(option.value, option.value === value)}>{option.label}</div>
+              <div
+                key={option.value}
+                className={cn([styles.DropdownItem, option.value === value && styles.DropdownItemDisabled])}
+                onClick={() => handleChange(option.value, option.value === value)}
+              >
+                {option.label}
+              </div>
             );
           })}
         </div>
