@@ -1,16 +1,20 @@
 {
   "applications": {
     "accept": "Accept",
+    "adminLimitExceeded": "Mentor limit exceeded",
     "applicationAccepted": "Application accepted.",
     "applicationNotFound": "Application not found",
     "applicationRejected": "Application rejected.",
+    "applicationWasAccepted": "Application {{ name }}  was accepted",
     "date": "Date",
     "email": "Email",
     "name": "Name",
     "noMessage": "Without message",
     "reject": "Reject",
     "roleSortPreTitle": "Role:",
-    "search": "Search Applications"
+    "search": "Search Applications",
+    "studentLimitExceeded": "Student limit exceeded",
+    "watcherLimitExceeded": "Watcher limit exceeded"
   },
   "auth": {
     "account": "Account data",

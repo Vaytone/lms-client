@@ -18,6 +18,7 @@
   letter-spacing: 0.5px;
   text-align: center;
   white-space: nowrap;
+  position: relative;
 
   &:not([disabled]):hover {
     cursor: pointer;

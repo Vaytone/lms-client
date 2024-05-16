@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useGetApplicationsQuery } from '@modules/applications/redux/api';
 import ApplicationItem from '@modules/applications/components/ApplicationItem/ApplicationItem';

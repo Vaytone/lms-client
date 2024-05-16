@@ -1,16 +1,20 @@
 {
   "applications": {
     "accept": "Прийняти",
+    "adminLimitExceeded": "Ліміт викладачів вичерпано",
     "applicationAccepted": "Заявка прийнята.",
     "applicationNotFound": "Заявка не знайдена",
     "applicationRejected": "Заявка відхилена.",
+    "applicationWasAccepted": "Заявка {{ name }} була прийнята",
     "date": "Дата",
     "email": "Email",
     "name": "Ім'я",
     "noMessage": "Без повідомлення",
     "reject": "Відхилити",
     "roleSortPreTitle": "Роль:",
-    "search": "Пошук заявок"
+    "search": "Пошук заявок",
+    "studentLimitExceeded": "Ліміт студентів вичерпано",
+    "watcherLimitExceeded": "Ліміт спостерігачів вичерпано"
   },
   "auth": {
     "account": "Обліковий запис",

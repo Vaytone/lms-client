@@ -29,7 +29,8 @@ export const applicationApi = createApi({
     }),
     acceptApplication: builder.mutation<boolean, {id: number, query: GetApplicationsQueryParams}>({
       query: ({ id }) => ({ url: `${ApplicationsRoutes.Accept}?id=${id}`, method: 'PUT' }),
-      onQueryStarted: async ({ query, id }, { dispatch }) => {
+      onQueryStarted: async ({ query, id }, { dispatch, queryFulfilled }) => {
+        await queryFulfilled;
         dispatch(
           applicationApi.util.updateQueryData('getApplications', query, (draftApplications) => {
             return draftApplications.map((item) => {
@@ -50,7 +51,8 @@ export const applicationApi = createApi({
     }),
     rejectApplication: builder.mutation<boolean, {id: number, query: GetApplicationsQueryParams}>({
       query: ({ id }) => ({ url: `${ApplicationsRoutes.Reject}?id=${id}`, method: 'PUT' }),
-      onQueryStarted: async ({ query, id }, { dispatch }) => {
+      onQueryStarted: async ({ query, id }, { dispatch, queryFulfilled }) => {
+        await queryFulfilled;
         dispatch(
           applicationApi.util.updateQueryData('getApplications', query, (draftApplications) => {
             return draftApplications.map((item) => {
@@ -69,7 +71,34 @@ export const applicationApi = createApi({
         );
       },
     }),
+    revertApplication: builder.mutation<boolean, {id: number, query: GetApplicationsQueryParams}>({
+      query: ({ id }) => ({ url: `${ApplicationsRoutes.Revert}?id=${id}`, method: 'PUT' }),
+      onQueryStarted: async ({ query, id }, { dispatch, queryFulfilled }) => {
+        const patchResult = dispatch(
+          applicationApi.util.updateQueryData('getApplications', query, (draftApplications) => {
+            return draftApplications.map((item) => {
+              if (item.id === id) {
+                return {
+                  ...item,
+                  user_statuses: {
+                    ...item.user_statuses,
+                    status: UserStatus.Pending,
+                  },
+                };
+              }
+              return item;
+            });
+          }),
+        );
+        
+        try {
+          await queryFulfilled;
+        } catch {
+          patchResult.undo();
+        }
+      },
+    }),
   }),
 });
 
-export const { useGetApplicationsQuery, useAcceptApplicationMutation, useRejectApplicationMutation } = applicationApi;
+export const { useGetApplicationsQuery, useAcceptApplicationMutation, useRejectApplicationMutation, useRevertApplicationMutation } = applicationApi;
