@@ -1,8 +1,20 @@
 {
   "applications": {
-    "accept": "Accept application",
+    "accept": "Accept",
+    "adminLimitExceeded": "Mentor limit exceeded",
+    "applicationAccepted": "Application accepted.",
+    "applicationNotFound": "Application not found",
+    "applicationRejected": "Application rejected.",
+    "applicationWasAccepted": "Application {{ name }}  was accepted",
+    "date": "Date",
+    "email": "Email",
+    "name": "Name",
+    "noMessage": "Without message",
     "reject": "Reject",
-    "search": "Search for applications"
+    "roleSortPreTitle": "Role:",
+    "search": "Search Applications",
+    "studentLimitExceeded": "Student limit exceeded",
+    "watcherLimitExceeded": "Watcher limit exceeded"
   },
   "auth": {
     "account": "Account data",
@@ -75,17 +87,22 @@
   },
   "core": {
     "admin": "Mentor",
+    "allRoles": "All",
     "applications": "Applications",
     "back": "Back",
     "cancel": "Cancel",
+    "close": "Close",
     "courses": "Courses",
     "dashboard": "Dashboard",
+    "filters": "Filters",
     "logout": "Logout",
     "members": "Members",
     "next": "Next",
     "personalInfo": "Profile",
     "savePhoto": "Save photo",
+    "select": "Select",
     "settings": "Settings",
+    "sortBy": "Sort by:",
     "step": "Step",
     "student": "Student",
     "watcher": "Watcher"

@@ -18,6 +18,7 @@
   letter-spacing: 0.5px;
   text-align: center;
   white-space: nowrap;
+  position: relative;
 
   &:not([disabled]):hover {
     cursor: pointer;
@@ -28,6 +29,16 @@
   &--transparent {
     background-color: transparent;
     color: $light-text-color;
+
+    &:not([disabled]):hover {
+      background-color: $bright-text-color !important;
+    }
+  }
+
+  &--bordered {
+    background-color: transparent;
+    border-color: $border-color;
+    color: $secondary-color;
 
     &:not([disabled]):hover {
       background-color: $bright-text-color !important;

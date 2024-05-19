@@ -1,5 +1,23 @@
-.PageWrapper {
-  padding: 32px;
+@import '@styles/mixins';
+
+.Page {
   display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.PageWrapper {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+  flex-grow: 1;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  @include for-tablet {
+    padding: 32px;
+  }
 }

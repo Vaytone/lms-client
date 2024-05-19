@@ -12,14 +12,33 @@
   }
 }
 
+@mixin for-tablet-l {
+  @media screen and (min-width: 900px) {
+    @content;
+  }
+}
+
+
 @mixin for-laptop {
   @media screen and (min-width: 1044px) {
     @content;
   }
 }
 
+@mixin for-laptop-l {
+  @media screen and (min-width: 1144px) {
+    @content;
+  }
+}
+
 @mixin for-desktop {
   @media screen and (min-width: 1260px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-l {
+  @media screen and (min-width: 1460px) {
     @content;
   }
 }

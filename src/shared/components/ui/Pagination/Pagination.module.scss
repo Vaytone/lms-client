@@ -1,0 +1,81 @@
+@import '@styles/variables';
+@import '@styles/mixins';
+
+.Wrapper {
+  list-style: none;
+  padding: 0;
+  gap: 10px;
+  display: flex;
+  margin-top: 30px;
+}
+
+.Item {
+  user-select: none;
+  display: none;
+
+  @include for-tablet() {
+    display: flex;
+  }
+
+  &--active {
+    a {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      color: $reverse-text-color;
+    }
+  }
+}
+
+.DisabledButton {
+  opacity: 0.5;
+  user-select: none;
+  pointer-events: none;
+}
+
+.Break {
+  align-items: center;
+  display: none;
+
+  @include for-tablet() {
+    display: flex;
+  }
+}
+
+.BreakLabel {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $primary-bright;
+  align-self: center;
+  transition: all 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $primary-color;
+  }
+}
+
+.Link {
+  border: 1px solid $border-color;
+  background-color: $content-color;
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    border-color: $primary-color;
+    cursor: pointer;
+  }
+
+}
+
+.Buttons {
+  display: block;
+
+  @include for-tablet() {
+    display: none;
+  }
+}

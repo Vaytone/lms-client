@@ -11,7 +11,7 @@ const DashboardPage: React.FC = () => {
   }, []);
   
   return (
-    <div>
+    <div style={{ flexGrow: 1 }}>
       <p>Dashobard</p>
     </div>
   );

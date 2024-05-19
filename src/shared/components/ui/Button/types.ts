@@ -6,6 +6,7 @@ export interface ButtonProps {
   disabled?: boolean,
   icon?: string,
   isDanger?: boolean,
-  styleType?: 'transparent' | 'default',
+  isLoading?: boolean,
+  styleType?: 'transparent' | 'default' | 'bordered',
   type?: 'submit' | 'button',
 }

@@ -1,8 +1,20 @@
 {
   "applications": {
-    "accept": "Прийняти запит",
+    "accept": "Прийняти",
+    "adminLimitExceeded": "Ліміт викладачів вичерпано",
+    "applicationAccepted": "Заявка прийнята.",
+    "applicationNotFound": "Заявка не знайдена",
+    "applicationRejected": "Заявка відхилена.",
+    "applicationWasAccepted": "Заявка {{ name }} була прийнята",
+    "date": "Дата",
+    "email": "Email",
+    "name": "Ім'я",
+    "noMessage": "Без повідомлення",
     "reject": "Відхилити",
-    "search": "Пошук заявок"
+    "roleSortPreTitle": "Роль:",
+    "search": "Пошук заявок",
+    "studentLimitExceeded": "Ліміт студентів вичерпано",
+    "watcherLimitExceeded": "Ліміт спостерігачів вичерпано"
   },
   "auth": {
     "account": "Обліковий запис",
@@ -75,17 +87,22 @@
   },
   "core": {
     "admin": "Викладач",
+    "allRoles": "Всі",
     "applications": "Заявки",
     "back": "Назад",
     "cancel": "Відмінити",
+    "close": "Закрити",
     "courses": "Курси",
     "dashboard": "Головна",
+    "filters": "Фільтри",
     "logout": "Вийти",
     "members": "Учасники",
     "next": "Далі",
     "personalInfo": "Профіль",
     "savePhoto": "Зберегти фото",
+    "select": "Обрати",
     "settings": "Налаштування",
+    "sortBy": "Сортувати:",
     "step": "Крок",
     "student": "Учень",
     "watcher": "Спостерігач"

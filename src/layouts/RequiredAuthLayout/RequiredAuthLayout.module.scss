@@ -3,18 +3,39 @@
 
 .LayoutWrapper {
   display: flex;
+  width: 100vw;
 }
 
 .ContentWrapper {
   flex-grow: 1;
   background-color: $body-color;
   min-height: 100vh;
+  display: flex;
+  width: 100vw;
+}
+
+.Role {
+  font-weight: 600;
+  color: $secondary-light;
+  align-self: flex-start;
+  margin: 0;
+  position: absolute;
+  top: 15px;
+  font-size: 0.8em;
+  right: 24px;
+
+  @include for-tablet() {
+    font-size: 0.9em;
+  }
 }
 
 .ContentHolder {
   padding: $header-height 0 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
 
-  @include for-tablet {
+  @include for-tablet-l {
     padding-left: $sidebar-width;
   }
 }
