@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { SearchProps } from '@components/ui/Search/types';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -42,4 +42,4 @@ const Search: React.FC<SearchProps> = ({ onSearch, placeholder, initialValue }) 
   );
 };
 
-export default Search;
+export default memo(Search);

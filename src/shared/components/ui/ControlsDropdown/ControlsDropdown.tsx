@@ -45,7 +45,7 @@ const ControlsDropdown: React.FC<ControlsDropdownProps> = ({
       <div className={styles.Content}>
         {icon && <span className={cn([icon, styles.Icon])}/>}
         {value
-          ? <p className={styles.CurrentValue}>{preTitle ? `${preTitle} ${currentValue}` : currentValue}</p>
+          ? <p className={styles.CurrentValue}>{preTitle ? `${preTitle} ${t(currentValue)}` : t(currentValue )}</p>
           : <p>{placeholder || t('core.select')}</p>}
       </div>
       {isOpen && (
@@ -57,7 +57,7 @@ const ControlsDropdown: React.FC<ControlsDropdownProps> = ({
                 className={cn([styles.DropdownItem, option.value === value && styles.DropdownItemDisabled])}
                 onClick={() => handleChange(option.value, option.value === value)}
               >
-                {option.label}
+                {t(option.label)}
               </div>
             );
           })}

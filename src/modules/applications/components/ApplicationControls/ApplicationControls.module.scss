@@ -13,7 +13,7 @@
   width: 100%;
   margin-right: 10px;
 
-  @include for-tablet {
+  @include for-tablet() {
     width: 100%;
     max-width: 320px;
   }
@@ -22,7 +22,7 @@
 .ControlsFiltersButton {
   display: block;
 
-  @include for-tablet-l {
+  @include for-tablet() {
     display: none;
   }
 }
@@ -31,17 +31,65 @@
   display: none;
   gap: 20px;
 
-  @include for-tablet-l {
+  @include for-tablet () {
     display: flex;
   }
 }
 
 .RoleDropdown {
-  max-width: 160px;
-  min-width: 160px;
+  margin: 16px 0;
+
+  @include for-tablet() {
+    max-width: 160px;
+    min-width: 160px;
+    margin: 0;
+  }
 }
 
 .SortDropdown {
-  max-width: 180px;
-  min-width: 180px;
+  margin: 16px 0;
+  @include for-tablet() {
+    max-width: 190px;
+    min-width: 190px;
+    margin: 0;
+  }
+}
+
+.ControlsModal {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -10;
+  padding: 24px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $content-color;
+  opacity: 0;
+  transition: all 0.3s;
+
+  &--active {
+    opacity: 1;
+    display: block;
+    z-index: 100;
+  }
+
+  @include for-tablet() {
+    display: none;
+  }
+}
+
+.ModalContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ModalTitle {
+  font-size: 1.2em;
+}
+
+.ModalDropdowns {
+  flex-grow: 1;
 }

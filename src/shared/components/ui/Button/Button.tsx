@@ -13,6 +13,7 @@ const Button: React.FC<ButtonProps> = (
         styles.ButtonElem,
         isDanger && styles.ButtonElemDanger,
         styleType === 'transparent' && styles.ButtonElemTransparent,
+        styleType === 'bordered' && styles.ButtonElemBordered,
       )}
       disabled={disabled}
       onClick={onClick || null}

@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import { ApplicationItemProps } from '@modules/applications/components/ApplicationItem/types';
 import { BASE_IMG_URI, STATIC_HREF } from '@shared/constants/core';
 import { useTranslation } from 'react-i18next';
-import { format } from 'date-fns';
 import { useAcceptApplicationMutation, useRejectApplicationMutation, useRevertApplicationMutation } from '@modules/applications/redux/api';
 import { applicationsErrorManager } from '@modules/applications/helper/applicationsErrorManager';
 import { useSearchParams } from 'react-router-dom';
@@ -12,18 +11,19 @@ import { getNotification } from '@shared/helper/notification';
 import styles from './ApplicationItem.module.scss';
 
 const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
-  const { full_name, avatar, user_info, email, created_at, message, id, user_statuses } = application;
+  const { full_name, avatar, user_info, email, message, id, user_statuses } = application;
   const [acceptApplication, { isLoading: isAcceptLoading }] = useAcceptApplicationMutation();
   const [rejectApplication, { isLoading: isRejectLoading }] = useRejectApplicationMutation();
   const [revertApplication] = useRevertApplicationMutation();
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
   
-  const handleAccept = () => {
+  const handleAccept = useCallback(() => {
     const sortBy = searchParams.get('sortBy');
     const role = searchParams.get('role');
     const query = searchParams.get('query');
-    acceptApplication({ id, query: { sortBy, role, query } })
+    const page = Number(searchParams.get('page'));
+    acceptApplication({ id, query: { sortBy, role, query, page: page.toString() } })
       .unwrap()
       .then(() => {
         getNotification(t('applications.applicationWasAccepted', { name: full_name }));
@@ -31,29 +31,31 @@ const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
       .catch((e: any) => {
         applicationsErrorManager(e?.data?.message);
       });
-  };
+  }, []);
   
-  const handleReject = () => {
+  const handleReject = useCallback(() => {
     const sortBy = searchParams.get('sortBy');
     const role = searchParams.get('role');
     const query = searchParams.get('query');
-    rejectApplication({ id, query: { sortBy, role, query } })
+    const page = Number(searchParams.get('page'));
+    rejectApplication({ id, query: { sortBy, role, query, page: page.toString() } })
       .unwrap()
       .catch((e: any) => {
         applicationsErrorManager(e?.data?.message);
       });
-  };
+  }, []);
   
-  const handleRevert = () => {
+  const handleRevert = useCallback(() => {
     const sortBy = searchParams.get('sortBy');
     const role = searchParams.get('role');
     const query = searchParams.get('query');
-    revertApplication({ id, query: { sortBy, role, query } })
+    const page = Number(searchParams.get('page'));
+    revertApplication({ id, query: { sortBy, role, query, page: page.toString() } })
       .unwrap()
       .catch((e: any) => {
         applicationsErrorManager(e?.data?.message);
       });
-  };
+  }, []);
   
   return (
     <article>
@@ -72,10 +74,10 @@ const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
         </div>
         <p className={styles.Message}>{message?.text ? message.text : t('applications.noMessage')}</p>
         <div className={styles.BottomInfo}>
-          <div className={styles.Date}>
-            <span className="icon-clock"/>
-            <p>{format(new Date(created_at), 'dd/MM/yyyy')}</p>
-          </div>
+          {/*<div className={styles.Date}>*/}
+          {/*  <span className="icon-clock"/>*/}
+          {/*  <p>{format(new Date(created_at), 'dd/MM/yyyy')}</p>*/}
+          {/*</div>*/}
           {user_statuses.status === UserStatus.Pending && (
             <div className={styles.Buttons}>
               <Button text={t('applications.reject')} styleType='transparent' onClick={handleReject} isLoading={isRejectLoading} disabled={isAcceptLoading || isRejectLoading}/>
@@ -94,4 +96,4 @@ const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
   );
 };
 
-export default ApplicationItem;
+export default memo(ApplicationItem);

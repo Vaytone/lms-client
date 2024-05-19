@@ -35,6 +35,16 @@
     }
   }
 
+  &--bordered {
+    background-color: transparent;
+    border-color: $border-color;
+    color: $secondary-color;
+
+    &:not([disabled]):hover {
+      background-color: $bright-text-color !important;
+    }
+  }
+
   &--danger {
     background-color: $error-color;
     color: $reverse-text-color;

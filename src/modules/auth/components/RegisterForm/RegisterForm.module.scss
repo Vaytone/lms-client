@@ -32,7 +32,7 @@
   width: 100%;
   gap: 20px;
 
-  @include for-tablet {
+  @include for-tablet() {
     order: unset;
   }
 
@@ -42,8 +42,12 @@
 }
 
 .RegisterFormElem {
-  flex-basis: 60%;
+  flex-basis: 100%;
   height: 100%;
+
+  @include for-tablet() {
+    flex-basis: 60%;
+  }
 }
 
 .RegisterForm {
@@ -56,6 +60,11 @@
   border-radius: 10px;
   flex-basis: 40%;
   padding: 25px;
+  display: none;
+
+  @include for-tablet() {
+    display: unset;
+  }
 }
 
 .RegisterLogo {
