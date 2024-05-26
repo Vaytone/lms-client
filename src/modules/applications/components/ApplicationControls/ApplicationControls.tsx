@@ -25,7 +25,7 @@ const ApplicationControls: React.FC = () => {
   const handleSearch = (value: string) => {
     setSearchParams((searchParams) => {
       searchParams.set('query', value);
-      searchParams.set('page', '7');
+      searchParams.set('page', '1');
       return searchParams;
     });
   };
