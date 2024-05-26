@@ -8,10 +8,11 @@ import { useSearchParams } from 'react-router-dom';
 import { UserStatus } from '@type/user.types';
 import Button from '@components/ui/Button/Button';
 import { getNotification } from '@shared/helper/notification';
+import { format } from 'date-fns';
 import styles from './ApplicationItem.module.scss';
 
 const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
-  const { full_name, avatar, user_info, email, message, id, user_statuses } = application;
+  const { full_name, avatar, user_info, email, message, id, user_statuses, created_at } = application;
   const [acceptApplication, { isLoading: isAcceptLoading }] = useAcceptApplicationMutation();
   const [rejectApplication, { isLoading: isRejectLoading }] = useRejectApplicationMutation();
   const [revertApplication] = useRevertApplicationMutation();
@@ -74,10 +75,10 @@ const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
         </div>
         <p className={styles.Message}>{message?.text ? message.text : t('applications.noMessage')}</p>
         <div className={styles.BottomInfo}>
-          {/*<div className={styles.Date}>*/}
-          {/*  <span className="icon-clock"/>*/}
-          {/*  <p>{format(new Date(created_at), 'dd/MM/yyyy')}</p>*/}
-          {/*</div>*/}
+          <div className={styles.Date}>
+            <span className="icon-clock"/>
+            <p>{format(new Date(created_at), 'dd/MM/yyyy')}</p>
+          </div>
           {user_statuses.status === UserStatus.Pending && (
             <div className={styles.Buttons}>
               <Button text={t('applications.reject')} styleType='transparent' onClick={handleReject} isLoading={isRejectLoading} disabled={isAcceptLoading || isRejectLoading}/>
