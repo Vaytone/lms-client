@@ -70,6 +70,13 @@
     max-width: 58px;
     max-height: 58px;
   }
+
+  @include for-desktop() {
+    width: 68px;
+    height: 68px;
+    max-width: 68px;
+    max-height: 68px;
+  }
 }
 
 .Message {

@@ -7,11 +7,19 @@
   margin-top: -1px;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid $border-color;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+
+  @include for-tablet-l() {
+    width: calc(100% - $sidebar-width);
+  }
 }
 
 .ControlsSearchWrapper {
   width: 100%;
-  margin-right: 10px;
+  margin-right: 20px;
 
   @include for-tablet() {
     width: 100%;
@@ -56,23 +64,25 @@
 }
 
 .ControlsModal {
-  height: 100vh;
+  height: calc(100vh - $header-height);
   width: 100vw;
   position: fixed;
-  z-index: -10;
+  z-index: -9;
   padding: 24px;
-  top: 0;
+  top: $header-height;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: $content-color;
   opacity: 0;
   transition: all 0.3s;
+  pointer-events: none;
 
   &--active {
     opacity: 1;
     display: block;
     z-index: 100;
+    pointer-events: unset;
   }
 
   @include for-tablet() {
@@ -84,6 +94,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  z-index: 11;
 }
 
 .ModalTitle {
