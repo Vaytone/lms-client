@@ -24,12 +24,11 @@ const EmailVerificationStep: React.FC<EmailVerificationStepProps> = ({
   const { t } = useTranslation();
   const [isOTPSent, setIsOTPSent] = useState(false);
   const dispatch = useAppDispatch();
-  
   const handleNext = () => {
     trigger(['email'])
       .then((validationResult) => {
-        setLoading(true);
         if (validationResult) {
+          setLoading(true);
           dispatch(verifyEmail({ code, email: getValues().email }))
             .unwrap()
             .then(() => {

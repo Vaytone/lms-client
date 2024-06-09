@@ -29,6 +29,11 @@ export const SIDEBAR_OWNER_LIST: SidebarNavList[] = [
     icon: 'icon-course',
     to: '/courses',
   },
+  {
+    text: 'core.groups',
+    icon: 'icon-group',
+    to: '/all-groups',
+  },
 ];
 
 export const SIDEBAR_STUDENT_LIST: SidebarNavList[] = [

@@ -16,8 +16,7 @@ const ApplicationList: React.FC = () => {
       page: searchParams.get('page'),
     };
   }, [searchParams]);
-  const { data, isLoading } = useGetApplicationsQuery({ ...queryParams });
-  const isFetching = false;
+  const { data, isLoading, isFetching } = useGetApplicationsQuery({ ...queryParams });
   
   const onPageChange = (event) => {
     window.scrollTo(0, 0);

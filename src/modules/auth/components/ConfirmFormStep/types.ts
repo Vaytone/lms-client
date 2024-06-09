@@ -1,4 +1,4 @@
-import { Control, FieldErrors, UseFormGetValues, UseFormSetValue } from 'react-hook-form';
+import { Control, FieldErrors } from 'react-hook-form';
 import { RegisterStepEnum, SignUpForm } from '@modules/auth/types/auth.types';
 
 export interface ConfirmFormStepProps {

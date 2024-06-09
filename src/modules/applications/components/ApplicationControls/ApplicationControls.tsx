@@ -8,6 +8,7 @@ import { ROLES_OPTIONS, SORT_OPTIONS } from '@shared/constants/user';
 import cn from 'classnames';
 import Button from '@components/ui/Button/Button';
 import styles from './ApplicationControls.module.scss';
+import PageControls from '@components/PageControls/PageControls';
 
 const ApplicationControls: React.FC = () => {
   const { t } = useTranslation();
@@ -35,7 +36,7 @@ const ApplicationControls: React.FC = () => {
   };
   
   return (
-    <div className={styles.Controls}>
+    <PageControls>
       <div className={styles.ControlsSearchWrapper}>
         <Search
           onSearch={handleSearch}
@@ -95,7 +96,7 @@ const ApplicationControls: React.FC = () => {
         </div>
       </div>
     
-    </div>
+    </PageControls>
   );
 };
 

@@ -77,7 +77,7 @@ const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
         <div className={styles.BottomInfo}>
           <div className={styles.Date}>
             <span className="icon-clock"/>
-            <p>{format(new Date(created_at), 'dd/MM/yyyy')}</p>
+            <p>{format(new Date(created_at), 'dd/MM/yyyy HH:mm')}</p>
           </div>
           {user_statuses.status === UserStatus.Pending && (
             <div className={styles.Buttons}>

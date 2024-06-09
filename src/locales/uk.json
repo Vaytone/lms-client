@@ -95,6 +95,7 @@
     "courses": "Курси",
     "dashboard": "Головна",
     "filters": "Фільтри",
+    "groups": "Групи",
     "logout": "Вийти",
     "members": "Учасники",
     "next": "Далі",
@@ -113,5 +114,10 @@
   },
   "errors": {
     "requiredFiled": "Обов'язкове поле"
+  },
+  "groups": {
+    "enterName": "Введіть назву",
+    "name": "Назва групи",
+    "search": "Пошук груп"
   }
 }

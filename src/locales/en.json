@@ -95,6 +95,7 @@
     "courses": "Courses",
     "dashboard": "Dashboard",
     "filters": "Filters",
+    "groups": "Groups",
     "logout": "Logout",
     "members": "Members",
     "next": "Next",
@@ -113,5 +114,10 @@
   },
   "errors": {
     "requiredFiled": "Required field"
+  },
+  "groups": {
+    "enterName": "Enter name",
+    "name": "Group name",
+    "search": "Search Group"
   }
 }
