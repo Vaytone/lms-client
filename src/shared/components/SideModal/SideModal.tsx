@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import cn from 'classnames';
-import { hideScrollbar, showScrollbar } from '@shared/helper/visual.helper';
 import { createPortal } from 'react-dom';
+import cn from 'classnames';
 import { useOutsideClick } from '@shared/hooks/useOutsideClick';
-import styles from './Modal.module.scss';
+import { hideScrollbar, showScrollbar } from '@shared/helper/visual.helper';
+import styles from './SideModal.module.scss';
 
 type Props = {
   children?: React.ReactNode
@@ -12,7 +12,7 @@ type Props = {
   withCloseIcon?: boolean,
 }
 
-const Modal: React.FC<Props> = ({ children, outsideHandler, withCloseIcon, closeFunc }) => {
+const SideModal: React.FC<Props> = ({ children, outsideHandler, withCloseIcon, closeFunc }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   useOutsideClick(modalRef, outsideHandler || (() => null));
   
@@ -77,4 +77,4 @@ const Modal: React.FC<Props> = ({ children, outsideHandler, withCloseIcon, close
   );
 };
 
-export default Modal;
+export default SideModal;

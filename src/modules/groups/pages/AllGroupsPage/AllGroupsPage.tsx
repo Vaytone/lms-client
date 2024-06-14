@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SideModal from '@components/SideModal/SideModal';
 import AllGroupsControls from '../../components/AllGroupsControls/AllGroupsControls';
 import styles from './AllGroupsPage.module.scss';
+import CreateGroupModal from '@modules/groups/components/CreateGroupModal/CreateGroupModal';
 
 const AllGroupsPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+  
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+  
   return (
     <div className={styles.Page}>
-      <AllGroupsControls />
+      <AllGroupsControls openModal={handleOpenModal}/>
+      {isModalOpen && (
+        <SideModal
+          closeFunc={handleCloseModal}
+          outsideHandler={handleCloseModal}
+          withCloseIcon
+        >
+          <CreateGroupModal/>
+        </SideModal>
+      )}
     </div>
   );
 };

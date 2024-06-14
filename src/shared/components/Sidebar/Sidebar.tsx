@@ -14,21 +14,21 @@ export const SIDEBAR_ADMIN_LIST: SidebarNavList[] = [
 ];
 
 export const SIDEBAR_OWNER_LIST: SidebarNavList[] = [
-  {
-    text: 'core.members',
-    icon: 'icon-profile',
-    to: '/members',
-  },
+  // {
+  //   text: 'core.members',
+  //   icon: 'icon-profile',
+  //   to: '/members',
+  // },
   {
     text: 'core.applications',
     icon: 'icon-application',
     to: '/applications',
   },
-  {
-    text: 'core.courses',
-    icon: 'icon-course',
-    to: '/courses',
-  },
+  // {
+  //   text: 'core.courses',
+  //   icon: 'icon-course',
+  //   to: '/courses',
+  // },
   {
     text: 'core.groups',
     icon: 'icon-group',

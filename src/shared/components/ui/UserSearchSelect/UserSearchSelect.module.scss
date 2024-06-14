@@ -1,0 +1,13 @@
+@import "@styles/variables";
+
+.Holder {
+  height: 35px;
+  width: 100%;
+  position: relative;
+  border: 1px solid $primary-bright;
+  transition: all 0.3s;
+  padding: 0 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  font-family: $font-family;
+}

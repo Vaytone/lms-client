@@ -4,10 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Button from '@components/ui/Button/Button';
 import { AppRoutes } from '@shared/constants/routes';
-import styles from './AllGroupsControls.module.scss';
 import PageControls from '@components/PageControls/PageControls';
+import styles from './AllGroupsControls.module.scss';
 
-const AllGroupsControls: React.FC = () => {
+type Props = {
+  openModal: () => void,
+}
+
+const AllGroupsControls: React.FC<Props> = ({ openModal }) => {
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -35,8 +39,8 @@ const AllGroupsControls: React.FC = () => {
       <div>
         <Button
           icon="icon-plus-big"
-          text="Створити групу"
-          onClick={handleNavigate}
+          text={t('group.createGroup')}
+          onClick={openModal}
         />
       </div>
     </PageControls>

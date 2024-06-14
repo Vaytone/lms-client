@@ -12,6 +12,13 @@
     border-color: $body-color;
     background-color: $body-color;
   }
+
+  &--reversed {
+    &:hover {
+      border-color: $bright-text-color;
+      background-color: $bright-text-color;
+    }
+  }
 }
 
 .BackButtonContent {

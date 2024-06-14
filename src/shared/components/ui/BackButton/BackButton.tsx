@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { BackButtonProps } from '@components/ui/BackButton/types';
 import styles from './BackButton.module.scss';
 
-const BackButton: React.FC<BackButtonProps> = ({onBack}) => {
+const BackButton: React.FC<BackButtonProps> = ({ onBack, reversed }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   
@@ -18,7 +18,7 @@ const BackButton: React.FC<BackButtonProps> = ({onBack}) => {
   };
   
   return (
-    <div className={styles.BackButtonWrapper} onClick={handleClick}>
+    <div className={cn(styles.BackButtonWrapper, reversed && styles.BackButtonWrapperReversed)} onClick={handleClick}>
       <div className={styles.BackButtonContent}>
         <span className={cn(styles.BackButtonIcon, 'icon-left-big')}/>
         <span className={styles.BackButtonText}>{t('core.back')}</span>

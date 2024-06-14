@@ -115,6 +115,9 @@
   "errors": {
     "requiredFiled": "Required field"
   },
+  "group": {
+    "createGroup": "Create group"
+  },
   "groups": {
     "enterName": "Enter name",
     "name": "Group name",
