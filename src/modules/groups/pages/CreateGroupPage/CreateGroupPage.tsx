@@ -6,9 +6,10 @@ import { createGroupSchema } from '@modules/groups/validations/createGroup.valid
 import Input from '@components/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import Button from '@components/ui/Button/Button';
-import styles from './CreateGroupPage.module.scss';
 import TextArea from '@components/ui/TextArea/Input';
 import BackButton from '@components/ui/BackButton/BackButton';
+import UserSearchSelect from '@components/ui/UserSearchSelect/UserSearchSelect';
+import styles from './CreateGroupPage.module.scss';
 
 const CreateGroupPage: React.FC = () => {
   const {
@@ -36,9 +37,9 @@ const CreateGroupPage: React.FC = () => {
       <div className={styles.FormWrapper}>
         <div className={styles.FormTitleWrapper}>
           <div className={styles.BackWrapper}>
-            <BackButton/>
+            <BackButton reversed/>
           </div>
-          <h3 className={styles.FormTitle}>Створити групу</h3>
+          <h3 className={styles.FormTitle}>{t('group.createGroup')}</h3>
         </div>
         <form onSubmit={handleSubmit(handleSubmitEvent)} className={styles.Form}>
           <Controller
@@ -53,6 +54,16 @@ const CreateGroupPage: React.FC = () => {
                 error={errors?.name?.message}
               />
             )}
+          />
+          <UserSearchSelect
+            selected={[]}
+            label='Оберіть відповідальних адмінів'
+            onChange={() => null}
+            options={[
+              { label: 'text', value: 1 },
+              { label: 'text 2 ', value: 2 },
+              { label: 'text 3', value: 3 },
+            ]}
           />
           <Controller
             name="description"

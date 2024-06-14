@@ -25,6 +25,8 @@
 
 .BackWrapper {
   grid-area: link;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .FormTitle {
