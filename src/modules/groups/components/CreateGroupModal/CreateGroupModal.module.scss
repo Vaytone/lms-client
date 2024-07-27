@@ -1,0 +1,42 @@
+@import '@styles/variables';
+
+.ModalWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.TitleWrapper {
+  padding: 10px 20px;
+}
+
+.Title {
+  font-size: 1.2em;
+  color: $secondary-color;
+  margin: 20px 0 5px;
+}
+
+.Description {
+  font-size: 1em;
+  color: $light-text-color;
+  margin: 5px 0 10px;
+}
+
+.Divider {
+  height: 1px;
+  width: 100%;
+  background-color: $border-color;
+}
+
+.Form {
+  width: 100%;
+  padding: $content-padding-desktop;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.FormContent {
+  flex-grow: 1;
+}

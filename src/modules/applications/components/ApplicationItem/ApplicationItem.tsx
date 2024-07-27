@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { ApplicationItemProps } from '@modules/applications/components/ApplicationItem/types';
-import { BASE_IMG_URI, STATIC_HREF } from '@shared/constants/core';
+import { BASE_IMG_URI, DEFAULT_AVATAR_HREF, STATIC_HREF } from '@shared/constants/core';
 import { useTranslation } from 'react-i18next';
 import { useAcceptApplicationMutation, useRejectApplicationMutation, useRevertApplicationMutation } from '@modules/applications/redux/api';
 import { applicationsErrorManager } from '@modules/applications/helper/applicationsErrorManager';
@@ -65,7 +65,7 @@ const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
           <div className={styles.UserInfo}>
             {avatar
               ? <img className={styles.Avatar} src={`${BASE_IMG_URI}/${avatar}`} alt={`${full_name} avatar`}/>
-              : <img className={styles.Avatar} src={`${STATIC_HREF}/defaultAvatar.svg`} alt="default avatar"/>}
+              : <img className={styles.Avatar} src={DEFAULT_AVATAR_HREF} alt="default avatar"/>}
             <div>
               <h6 className={styles.Name}>{full_name}</h6>
               <p className={styles.Email}>{email}</p>
@@ -77,7 +77,7 @@ const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
         <div className={styles.BottomInfo}>
           <div className={styles.Date}>
             <span className="icon-clock"/>
-            <p>{format(new Date(created_at), 'dd/MM/yyyy')}</p>
+            <p>{format(new Date(created_at), 'dd/MM/yyyy HH:mm')}</p>
           </div>
           {user_statuses.status === UserStatus.Pending && (
             <div className={styles.Buttons}>

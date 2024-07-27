@@ -10,7 +10,7 @@
   color: $reverse-text-color;
   font-weight: 500;
   font-size: 14px;
-  transition: all 0.2s;
+  transition: all 0.4s;
   padding: 0 20px;
   display: flex;
   justify-content: center;
@@ -61,10 +61,11 @@
 }
 
 .ButtonIcon {
-  margin-right: 15px;
-  font-size: 18px;
+  margin-right: 10px;
+  font-size: 12px;
 }
 
 .ButtonText {
   margin: 0;
+  font-weight: 500;
 }

@@ -3,17 +3,11 @@
 
 @keyframes modalAppear {
   0% {
-    margin-top: 0;
-    opacity: 0;
-  }
-
-  0% {
-    opacity: 0;
+    right: -50px;
   }
 
   100% {
-    margin-top: 30px;
-    opacity: 1;
+    right: 20px;
   }
 }
 
@@ -54,6 +48,7 @@
   animation: modalBgAppear 0.2s linear;
   overflow-y: scroll;
   width: 100vw;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar-track {
     background: $modal-bg;
@@ -78,19 +73,23 @@
 
 .ModalContent {
   align-self: flex-start;
-  background-color: #fff;
-  animation: modalAppear 0.2s linear;
-  margin: 30px 10px 0 10px;
+  background-color: $content-color;;
+  animation: modalAppear 0.15s ease-in;
   border-radius: 5px;
   position: relative;
+  max-width: 450px;
+  width: 100%;
+  min-height: calc(100% - 40px);
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-grow: 1;
 
   @include for-tablet {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 60px 0 0 0;
-    animation: modalAppearTablet 0.2s linear;
+    //right: 20px;
+    //transform: translateX(-50%);
+    //margin: 60px 0 0 0;
+    //animation: modalAppearTablet 0.2s linear;
   }
 }
-
-

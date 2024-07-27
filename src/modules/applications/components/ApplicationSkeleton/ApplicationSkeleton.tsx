@@ -1,6 +1,7 @@
 import React, { useId } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { format } from 'date-fns';
 import styles from './ApplicationSkeleton.module.scss';
 
 type Props = {
@@ -30,9 +31,15 @@ const ApplicationSkeleton: React.FC<Props> = ({ count }) => {
           <div className={styles.Message}>
             <Skeleton count={2}/>
           </div>
-          <div className={styles.Buttons}>
-            <Skeleton/>
-            <Skeleton/>
+          <div className={styles.BottomInfo}>
+            <div className={styles.Date}>
+              <span className="icon-clock"/>
+              <Skeleton/>
+            </div>
+            <div className={styles.Buttons}>
+              <Skeleton/>
+              <Skeleton/>
+            </div>
           </div>
         </div>
       ))}

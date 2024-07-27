@@ -7,6 +7,7 @@ import FiltersButton from '@components/ui/FiltersButton/FiltersButton';
 import { ROLES_OPTIONS, SORT_OPTIONS } from '@shared/constants/user';
 import cn from 'classnames';
 import Button from '@components/ui/Button/Button';
+import PageControls from '@components/PageControls/PageControls';
 import styles from './ApplicationControls.module.scss';
 
 const ApplicationControls: React.FC = () => {
@@ -35,7 +36,7 @@ const ApplicationControls: React.FC = () => {
   };
   
   return (
-    <div className={styles.Controls}>
+    <PageControls>
       <div className={styles.ControlsSearchWrapper}>
         <Search
           onSearch={handleSearch}
@@ -95,7 +96,7 @@ const ApplicationControls: React.FC = () => {
         </div>
       </div>
     
-    </div>
+    </PageControls>
   );
 };
 

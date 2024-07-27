@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
 import { logout } from '@modules/auth/redux/thunks';
 import { useOutsideClick } from '@shared/hooks/useOutsideClick';
-import { BASE_IMG_URI, STATIC_HREF } from '@shared/constants/core';
+import { BASE_IMG_URI } from '@shared/constants/core';
 import AvatarFiller from '@components/ui/AvatarFillter/AvatarFiller';
 import styles from './UserDropdown.module.scss';
 

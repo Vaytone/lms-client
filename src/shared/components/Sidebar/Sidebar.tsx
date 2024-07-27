@@ -6,28 +6,33 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { STATIC_HREF } from '@shared/constants/core';
 import cn from 'classnames';
-import styles from './Sidebar.module.scss';
 import UserDropdown from '@components/ui/UserDropdown/UserDropdown';
+import styles from './Sidebar.module.scss';
 
 export const SIDEBAR_ADMIN_LIST: SidebarNavList[] = [
 
 ];
 
 export const SIDEBAR_OWNER_LIST: SidebarNavList[] = [
-  {
-    text: 'core.members',
-    icon: 'icon-profile',
-    to: '/members',
-  },
+  // {
+  //   text: 'core.members',
+  //   icon: 'icon-profile',
+  //   to: '/members',
+  // },
   {
     text: 'core.applications',
     icon: 'icon-application',
     to: '/applications',
   },
+  // {
+  //   text: 'core.courses',
+  //   icon: 'icon-course',
+  //   to: '/courses',
+  // },
   {
-    text: 'core.courses',
-    icon: 'icon-course',
-    to: '/courses',
+    text: 'core.groups',
+    icon: 'icon-group',
+    to: '/all-groups',
   },
 ];
 

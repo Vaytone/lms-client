@@ -6,14 +6,23 @@
   padding: 16px 32px 16px;
   margin-top: -1px;
   display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $border-color;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+
+  @include for-tablet-l() {
+    width: calc(100% - $sidebar-width);
+  }
 }
 
 .ControlsSearchWrapper {
   width: 100%;
+  margin-right: 20px;
 
-  @include for-tablet {
+  @include for-tablet() {
     width: 100%;
     max-width: 320px;
   }
 }
-
