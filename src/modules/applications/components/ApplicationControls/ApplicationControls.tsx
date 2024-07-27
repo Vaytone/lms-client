@@ -7,8 +7,8 @@ import FiltersButton from '@components/ui/FiltersButton/FiltersButton';
 import { ROLES_OPTIONS, SORT_OPTIONS } from '@shared/constants/user';
 import cn from 'classnames';
 import Button from '@components/ui/Button/Button';
-import styles from './ApplicationControls.module.scss';
 import PageControls from '@components/PageControls/PageControls';
+import styles from './ApplicationControls.module.scss';
 
 const ApplicationControls: React.FC = () => {
   const { t } = useTranslation();

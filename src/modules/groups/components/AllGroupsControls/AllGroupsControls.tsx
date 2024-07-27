@@ -23,10 +23,6 @@ const AllGroupsControls: React.FC<Props> = ({ openModal }) => {
     });
   };
   
-  const handleNavigate = () => {
-    navigate(AppRoutes.CreateGroup);
-  };
-  
   return (
     <PageControls>
       <div className={styles.ControlsSearchWrapper}>
@@ -39,7 +35,7 @@ const AllGroupsControls: React.FC<Props> = ({ openModal }) => {
       <div>
         <Button
           icon="icon-plus-big"
-          text={t('group.createGroup')}
+          text={t('groups.createGroup')}
           onClick={openModal}
         />
       </div>

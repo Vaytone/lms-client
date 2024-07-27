@@ -6,8 +6,8 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { STATIC_HREF } from '@shared/constants/core';
 import cn from 'classnames';
-import styles from './Sidebar.module.scss';
 import UserDropdown from '@components/ui/UserDropdown/UserDropdown';
+import styles from './Sidebar.module.scss';
 
 export const SIDEBAR_ADMIN_LIST: SidebarNavList[] = [
 

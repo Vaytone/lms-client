@@ -5,6 +5,8 @@ import ApplicationItem from '@modules/applications/components/ApplicationItem/Ap
 import PaginationElem from '@components/ui/Pagination/Pagination';
 import ApplicationSkeleton from '@modules/applications/components/ApplicationSkeleton/ApplicationSkeleton';
 import styles from './ApplicationList.module.scss';
+import EmptyList from '@components/EmptyList/EmptyList';
+import { useTranslation } from 'react-i18next';
 
 const ApplicationList: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,6 +19,7 @@ const ApplicationList: React.FC = () => {
     };
   }, [searchParams]);
   const { data, isLoading, isFetching } = useGetApplicationsQuery({ ...queryParams });
+  const { t } = useTranslation();
   
   const onPageChange = (event) => {
     window.scrollTo(0, 0);
@@ -60,6 +63,10 @@ const ApplicationList: React.FC = () => {
             page={Number(data?.page) - 1}
           />
         </div>
+      )}
+      
+      {!isLoading && !data?.data?.length && (
+        <EmptyList text={t('applications.noApplications')}/>
       )}
     </div>
   

@@ -9,6 +9,7 @@
     "date": "Date",
     "email": "Email",
     "name": "Name",
+    "noApplications": "No applications yet!",
     "noMessage": "Without message",
     "reject": "Reject",
     "roleSortPreTitle": "Role:",
@@ -93,6 +94,7 @@
     "cancel": "Cancel",
     "close": "Close",
     "courses": "Courses",
+    "create": "Create",
     "dashboard": "Dashboard",
     "filters": "Filters",
     "groups": "Groups",
@@ -106,7 +108,8 @@
     "sortBy": "Sort by:",
     "step": "Step",
     "student": "Student",
-    "watcher": "Watcher"
+    "watcher": "Watcher",
+    "you": "(You)"
   },
   "error": {
     "noAccess": "Access is restricted",
@@ -115,12 +118,13 @@
   "errors": {
     "requiredFiled": "Required field"
   },
-  "group": {
-    "createGroup": "Create group"
-  },
   "groups": {
+    "createDescription": "In our LMS system, groups are a way to organize participants for effective collaboration and the exchange of knowledge, experience, and more.",
+    "createGroup": "Create group",
     "enterName": "Enter name",
+    "mentorLabel": "Mentor",
     "name": "Group name",
-    "search": "Search Group"
+    "search": "Search Group",
+    "selectMentor": "Select Mentor"
   }
 }

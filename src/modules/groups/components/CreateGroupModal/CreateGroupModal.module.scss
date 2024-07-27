@@ -1,5 +1,11 @@
 @import '@styles/variables';
 
+.ModalWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .TitleWrapper {
   padding: 10px 20px;
 }
@@ -20,4 +26,17 @@
   height: 1px;
   width: 100%;
   background-color: $border-color;
+}
+
+.Form {
+  width: 100%;
+  padding: $content-padding-desktop;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.FormContent {
+  flex-grow: 1;
 }

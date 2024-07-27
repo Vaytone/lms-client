@@ -5,5 +5,7 @@ import { t } from 'i18next';
 export const createGroupSchema = yup.object({
   name: yup.string()
     .required(t('errors.requiredFiled')),
-  description: yup.string().optional(),
+  mentor: yup.number()
+    .nullable()
+    .required(t('errors.requiredFiled')),
 });

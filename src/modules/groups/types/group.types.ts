@@ -1,4 +1,4 @@
 export interface CreateGroupForm {
   name: string,
-  description: string,
+  mentor: number | null,
 }
