@@ -1,0 +1,32 @@
+@import "@styles/variables";
+
+.Wrapper {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.IconWrapper {
+  width: 40px;
+  height: 40px;
+  background-color: $bright-text-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Icon {
+  color: $light-text-color;
+}
+
+.Text {
+  font-size: 1em;
+  color: $light-text-color;
+  font-weight: 500;
+}
