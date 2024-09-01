@@ -1,0 +1,51 @@
+@import "@styles/variables";
+
+.Wrapper {
+  width: 100%;
+  background-color: $content-color;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.CoverImage {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.BottomHeader {
+  padding: 16px;
+}
+
+.InfoWrapper {
+  display: flex;
+}
+
+.GroupName {
+  margin: 5px 0;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.GroupDescription {
+  margin: 0;
+  font-weight: 500;
+}
+
+.GroupIconWrapper {
+  width: 65px;
+  height: 65px;
+  min-width: 65px;
+  min-height: 65px;
+  background-color: $body-color;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+
+  span {
+    font-size: 1.3em;
+  }
+}

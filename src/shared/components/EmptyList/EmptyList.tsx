@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './EmptyList.module.scss';
 import cn from 'classnames';
+import styles from './EmptyList.module.scss';
 
 type Props = {
   text: string

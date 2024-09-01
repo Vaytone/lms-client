@@ -60,6 +60,38 @@
   border-radius: 50%;
 }
 
+.List {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.ListItem {
+  background-color: $bright-text-color;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.ListIcon {
+  color: $accent-text-color;
+  margin-left: 8px;
+
+  &:hover {
+    color: $light-text-color;
+    cursor: pointer;
+  }
+}
+
+.ListName {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1em;
+  color: $light-text-color;
+}
+
 .Icon {
   color: $reverse-text-color;
   font-size: 20px;
@@ -74,4 +106,10 @@
 
 .ButtonWrapper {
   padding: $content-padding-desktop;
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }

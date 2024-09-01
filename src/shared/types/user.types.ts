@@ -3,8 +3,9 @@ import { RoleEnum } from '@type/role.types';
 export interface User {
   id: number;
 	avatar: string,
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
+  full_name: string;
   login: string;
   status: UserStatus,
   closed: boolean;

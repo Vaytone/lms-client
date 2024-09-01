@@ -1,0 +1,35 @@
+@import "@styles/variables";
+
+.Wrapper {
+  background-color: $content-color;
+  border-radius: 8px;
+}
+
+.Header {
+  padding: 16px;
+  border-bottom: 1px solid $bright-text-color;
+}
+
+.Title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.Content {
+  padding: 16px;
+}
+
+.InfoItem {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.InfoIcon {
+  font-size: 1.25em;
+  color: $accent-text-color;
+}
+
+.InfoValue {
+  margin: 0;
+}

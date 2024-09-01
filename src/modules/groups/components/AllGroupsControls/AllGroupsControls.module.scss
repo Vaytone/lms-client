@@ -26,3 +26,36 @@
     max-width: 320px;
   }
 }
+
+.ControlButton {
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span:first-child {
+      margin-right: 0;
+    }
+
+    span:last-child {
+      display: none;
+    }
+  }
+
+
+  @include for-tablet() {
+    button {
+      display: unset;
+      align-items: unset;
+      justify-content: unset;
+
+      span:first-child {
+        margin-right: 10px;
+      }
+
+      span:last-child {
+        display: unset;
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ import LoginPage from '@modules/auth/pages/LoginPage/LoginPage';
 import RegisterPage from '@modules/auth/pages/RegisterPage/RegisterPage';
 import { AppRoutes } from '@shared/constants/routes';
 import AllGroupsPage from '@modules/groups/pages/AllGroupsPage/AllGroupsPage';
+import GroupPage from '@modules/groups/pages/GroupPage/GroupPage';
 
 const Navigation: React.FC = () => {
   return (
@@ -21,8 +22,10 @@ const Navigation: React.FC = () => {
         <Route path='/' element={<OwnerLayout/>}>
           <Route path={AppRoutes.Applications} element={<ApplicationsPage/>}/>
           <Route path={AppRoutes.AllGroups} element={<AllGroupsPage/>}/>
+          <Route path={`${AppRoutes.AllGroups}/:groupId`} element={<GroupPage/>}/>
         </Route>
       </Route>
+      
       <Route path='/' element={<AuthLayout/>}>
         <Route path={AppRoutes.Login} element={<LoginPage/>}/>
         <Route path={AppRoutes.Register} element={<RegisterPage/>}/>

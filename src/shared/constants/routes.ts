@@ -1,7 +1,7 @@
 export enum AppRoutes {
   Members = '/members',
   Applications = '/applications',
-  AllGroups = '/all-groups',
+  AllGroups = '/groups',
   
   Login = '/login',
   Register = '/register/:code',
