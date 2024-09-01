@@ -87,6 +87,7 @@
     "wrongLoginPassword": "Wrong login or password"
   },
   "core": {
+    "add": "Add",
     "admin": "Mentor",
     "allRoles": "All",
     "applications": "Applications",
@@ -97,8 +98,10 @@
     "create": "Create",
     "dashboard": "Dashboard",
     "filters": "Filters",
+    "group": "Group",
     "groups": "Groups",
     "logout": "Logout",
+    "member": "member",
     "members": "Members",
     "next": "Next",
     "personalInfo": "Profile",
@@ -108,6 +111,7 @@
     "sortBy": "Sort by:",
     "step": "Step",
     "student": "Student",
+    "students": "Students",
     "watcher": "Watcher",
     "you": "(You)"
   },
@@ -119,12 +123,24 @@
     "requiredFiled": "Required field"
   },
   "groups": {
+    "addStudent": "Add students",
+    "addStudentDescription": "You can add an unlimited number of students to the group to simplify communication and the learning process.",
+    "addStudentLabel": "Find a student",
+    "changeMentor": "Change mentor",
     "createDescription": "In our LMS system, groups are a way to organize participants for effective collaboration and the exchange of knowledge, experience, and more.",
     "createGroup": "Create group",
+    "created": "Group \"\" has been created",
+    "details": "More",
     "enterName": "Enter name",
+    "information": "Information",
     "mentorLabel": "Mentor",
     "name": "Group name",
+    "noGroups": "No groups yet!",
+    "noMentor": "No mentor",
+    "noStudents": "No students",
     "search": "Search Group",
-    "selectMentor": "Select Mentor"
+    "selectMentor": "Select Mentor",
+    "selectStudent": "Select student",
+    "studentsAdded": "{{ value }} student(-s) has been added"
   }
 }

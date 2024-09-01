@@ -5,3 +5,9 @@ export enum RoleEnum {
   Student = 'student',
   Watcher = 'watcher',
 }
+
+export enum GroupRoleEnum {
+  Member = 'member',
+  Admin = 'admin',
+  Moderator = 'moderator'
+}

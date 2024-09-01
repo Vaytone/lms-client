@@ -40,3 +40,38 @@
 .FormContent {
   flex-grow: 1;
 }
+
+.SuccessWrapper {
+  padding: $content-padding-desktop;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.IconWrapper {
+  background-color: $success-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.Icon {
+  color: $reverse-text-color;
+  font-size: 20px;
+}
+
+.SuccessText {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: $secondary-color;
+}
+
+.ButtonWrapper {
+  padding: $content-padding-desktop;
+}

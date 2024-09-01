@@ -1,0 +1,156 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.Wrapper {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  position: relative;
+  max-width: 100%;
+  display: block;
+  text-decoration: none;
+  color: $secondary-color;
+}
+
+.Holder {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.InfoWrapper {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.MainInfo {
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.GroupIconWrapper {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  background-color: $body-color;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+
+  span {
+    font-size: 1.1em;
+    color: $light-text-color;
+  }
+}
+
+.Title {
+  font-size: 1.1em;
+  margin: 5px 40px 5px 0;
+  font-weight: 600;
+}
+
+.MemberText {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: $secondary-light;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.MemberCounter {
+  font-weight: 700;
+}
+
+.Divider {
+  border-bottom: 1px solid $bright-text-color;
+}
+
+.GroupInfo {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 40px;
+}
+
+.MentorWrapper {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.GroupInfoTitle {
+  font-weight: 600;
+  margin: 0;
+}
+
+.MentorName {
+  margin: 5px 0;
+  font-weight: 600;
+  color: $light-text-color;
+  font-size: 0.9em;
+}
+
+.NoUser {
+  margin: 5px 0;
+  font-weight: 500;
+  color: $secondary-bright;
+  font-size: 0.9em;
+}
+
+.MemberAvatar {
+  width: 30px;
+  height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  background-color: $body-color;
+  border: 1px solid $body-color;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.BottomWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.ShowButton {
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    max-height: 25px;
+    width: 100%;
+
+    span {
+      text-decoration: none;
+    }
+
+    &:first-child {
+      order: 2;
+
+      @include for-tablet() {
+        order: -1;
+      }
+    }
+
+    @include for-desktop() {
+      max-height: 30px;
+      min-width: 130px;
+      max-width: 130px;
+      gap: 20px;
+    }
+  }
+}

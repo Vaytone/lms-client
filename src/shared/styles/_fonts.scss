@@ -25,99 +25,105 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-plus-big:before {
-  content: "\e91f";
+.icon-add-user:before {
+  content: "\e921";
 }
-.icon-group:before {
+.icon-mentor:before {
   content: "\e900";
 }
-.icon-roles:before {
+.icon-group:before {
   content: "\e901";
 }
-.icon-email:before {
+.icon-roles:before {
   content: "\e902";
 }
-.icon-filters:before {
+.icon-email:before {
   content: "\e903";
 }
-.icon-delete:before {
+.icon-filters:before {
   content: "\e904";
 }
-.icon-show:before {
+.icon-delete:before {
   content: "\e905";
 }
-.icon-hide:before {
+.icon-show:before {
   content: "\e906";
 }
-.icon-application:before {
+.icon-hide:before {
   content: "\e907";
 }
-.icon-course:before {
+.icon-application:before {
   content: "\e908";
 }
-.icon-check:before {
+.icon-course:before {
   content: "\e909";
 }
-.icon-settings:before {
+.icon-check:before {
   content: "\e90a";
 }
-.icon-cross:before {
+.icon-settings:before {
   content: "\e90b";
 }
-.icon-menu:before {
+.icon-cross:before {
   content: "\e90c";
 }
-.icon-small-cross:before {
+.icon-menu:before {
   content: "\e90d";
 }
-.icon-sort:before {
+.icon-small-cross:before {
   content: "\e90e";
 }
-.icon-search:before {
+.icon-sort:before {
   content: "\e90f";
 }
-.icon-profile:before {
+.icon-search:before {
   content: "\e910";
 }
-.icon-camera:before {
+.icon-profile:before {
   content: "\e911";
 }
-.icon-edit:before {
+.icon-camera:before {
   content: "\e912";
 }
-.icon-top:before {
+.icon-edit:before {
   content: "\e913";
 }
-.icon-right:before {
+.icon-top:before {
   content: "\e914";
 }
-.icon-left:before {
+.icon-right:before {
   content: "\e915";
 }
-.icon-bottom:before {
+.icon-left:before {
   content: "\e916";
 }
-.icon-logout:before {
+.icon-bottom:before {
   content: "\e917";
 }
-.icon-right-big:before {
+.icon-logout:before {
   content: "\e918";
 }
-.icon-top-big:before {
+.icon-right-big:before {
   content: "\e919";
 }
-.icon-bottom-big:before {
+.icon-top-big:before {
   content: "\e91a";
 }
-.icon-left-big:before {
+.icon-bottom-big:before {
   content: "\e91b";
 }
-.icon-lock:before {
+.icon-left-big:before {
   content: "\e91c";
 }
-.icon-avatar:before {
+.icon-lock:before {
   content: "\e91d";
 }
-.icon-clock:before {
+.icon-avatar:before {
   content: "\e91e";
+}
+.icon-clock:before {
+  content: "\e91f";
+}
+.icon-plus-big:before {
+  content: "\e920";
 }

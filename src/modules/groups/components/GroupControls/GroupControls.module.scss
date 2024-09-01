@@ -1,0 +1,32 @@
+@import "@styles/variables";
+
+.Wrapper {
+  background-color: $content-color;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+
+.Item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px;
+  color: $secondary-light-text;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+    color: $secondary-light;
+  }
+}
+
+.Icon {
+  color: inherit;
+}
+
+.Text {
+  color: inherit;
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: 500;
+}

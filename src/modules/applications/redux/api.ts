@@ -61,6 +61,9 @@ export const applicationApi = createApi({
         await queryFulfilled;
         dispatch(
           applicationApi.util.updateQueryData('getApplications', query, (draftApplications) => {
+            
+            console.log(draftApplications);
+            
             return {
               ...draftApplications,
               data: draftApplications.data.map((item: UserApplication) => {

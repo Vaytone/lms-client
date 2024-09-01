@@ -32,7 +32,7 @@ export const SIDEBAR_OWNER_LIST: SidebarNavList[] = [
   {
     text: 'core.groups',
     icon: 'icon-group',
-    to: '/all-groups',
+    to: '/groups',
   },
 ];
 

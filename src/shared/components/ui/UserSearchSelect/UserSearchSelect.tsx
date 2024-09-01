@@ -4,8 +4,8 @@ import cn from 'classnames';
 import Loader from '@components/Loader/Loader';
 import { BASE_IMG_URI, DEFAULT_AVATAR_HREF } from '@shared/constants/core';
 import { useTranslation } from 'react-i18next';
-import styles from './UserSearchSelect.module.scss';
 import ErrorMessage from '@components/ui/ErrorMessage/ErrorMessage';
+import styles from './UserSearchSelect.module.scss';
 
 type SelectItemProps = {
   item: Option,
@@ -13,9 +13,10 @@ type SelectItemProps = {
   options: Option[],
   onChangeValue: (val: Option) => void,
   isSelected: boolean,
+  withEmail?: boolean,
 }
 
-const SelectItem: React.FC<SelectItemProps> = ({ item, onChangeValue, index, options, isSelected }) => {
+const SelectItem: React.FC<SelectItemProps> = ({ item, onChangeValue, index, options, isSelected, withEmail }) => {
   const handleChange = () => {
     onChangeValue(item);
   };
@@ -26,7 +27,12 @@ const SelectItem: React.FC<SelectItemProps> = ({ item, onChangeValue, index, opt
         {item.avatar
           ? <img className={styles.Avatar} src={`${BASE_IMG_URI}/${item.avatar}`} alt={`${item.full_name} avatar`}/>
           : <img className={styles.Avatar} src={DEFAULT_AVATAR_HREF} alt="default avatar"/>}
-        <p className={styles.Name}>{item.full_name}</p>
+        <div>
+          <p className={styles.Name}>{item.full_name}</p>
+          {withEmail ? (
+            <span className={styles.Email}>{item.email}</span>
+          ) : null}
+        </div>
       </div>
     </div>
   );
@@ -35,6 +41,7 @@ const SelectItem: React.FC<SelectItemProps> = ({ item, onChangeValue, index, opt
 type Option = {
   full_name: string,
   avatar?: string,
+  email?: string,
   id: number,
 }
 
@@ -49,6 +56,7 @@ type Props = {
   error?: string,
   isInvalid?: boolean,
   withoutError?: boolean,
+  withEmail?: boolean,
 }
 
 const UserSearchSelect: React.FC<Props> = (props) => {
@@ -63,9 +71,14 @@ const UserSearchSelect: React.FC<Props> = (props) => {
     error,
     isInvalid,
     withoutError,
+    withEmail,
   } = props;
   const [inputValue, setInputValue] = useState('');
   const filtered = useMemo(() => {
+    if (withEmail) {
+      return options.filter((item) => item.full_name.includes(inputValue) || item.email.includes(inputValue));
+    }
+    
     return options.filter((item) => item.full_name.includes(inputValue));
   }, [options, inputValue]);
   const currentSelected = useMemo(() => {
@@ -150,6 +163,7 @@ const UserSearchSelect: React.FC<Props> = (props) => {
                     onChangeValue={handleChangeSelectValue}
                     options={options}
                     isSelected={currentSelected?.id === item.id}
+                    withEmail={withEmail}
                   />
                 );
               })

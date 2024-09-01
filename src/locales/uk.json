@@ -87,6 +87,7 @@
     "wrongLoginPassword": "Невірний логін або пароль"
   },
   "core": {
+    "add": "Додати",
     "admin": "Викладач",
     "allRoles": "Всі",
     "applications": "Заявки",
@@ -97,9 +98,11 @@
     "create": "Створити",
     "dashboard": "Головна",
     "filters": "Фільтри",
+    "group": "Група",
     "groups": "Групи",
     "logout": "Вийти",
-    "members": "Учасники",
+    "member": "учасник",
+    "members": "Учасників",
     "next": "Далі",
     "personalInfo": "Профіль",
     "savePhoto": "Зберегти фото",
@@ -108,6 +111,7 @@
     "sortBy": "Сортувати:",
     "step": "Крок",
     "student": "Учень",
+    "students": "Учні",
     "watcher": "Спостерігач",
     "you": "(ви)"
   },
@@ -119,12 +123,24 @@
     "requiredFiled": "Обов'язкове поле"
   },
   "groups": {
+    "addStudent": "Додати учнів",
+    "addStudentDescription": "Ви можете додати необмежену кількість учнів до групи для спрощення комунікації та навчального процесу.",
+    "addStudentLabel": "Знайти учня",
+    "changeMentor": "Змінити ментора",
     "createDescription": "У нашій системі LMS, групи – це спосіб організації учасників для ефективної співпраці та обміну знаннями, досвідом та іншим. ",
     "createGroup": "Створити групу",
+    "created": "Група {{ name }} успішно створена! ",
+    "details": "Більше",
     "enterName": "Введіть назву",
+    "information": "Інформація",
     "mentorLabel": "Куратор",
     "name": "Назва групи",
+    "noGroups": "Не знайдено жодної групи!",
+    "noMentor": "Немає ментора",
+    "noStudents": "Не знайдено",
     "search": "Пошук груп",
-    "selectMentor": "Оберіть куратора"
+    "selectMentor": "Оберіть куратора",
+    "selectStudent": "Оберіть учня",
+    "studentsAdded": "{{ value }} учнів(-я) було додано"
   }
 }

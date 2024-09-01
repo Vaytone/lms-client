@@ -1,0 +1,115 @@
+@import '@styles/variables';
+
+.ModalWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.TitleWrapper {
+  padding: 10px 20px;
+}
+
+.Title {
+  font-size: 1.2em;
+  color: $secondary-color;
+  margin: 20px 0 5px;
+}
+
+.Description {
+  font-size: 1em;
+  color: $light-text-color;
+  margin: 5px 0 10px;
+}
+
+.Divider {
+  height: 1px;
+  width: 100%;
+  background-color: $border-color;
+}
+
+.Form {
+  width: 100%;
+  padding: $content-padding-desktop;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.FormContent {
+  flex-grow: 1;
+}
+
+.SuccessWrapper {
+  padding: $content-padding-desktop;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.IconWrapper {
+  background-color: $success-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.List {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.ListItem {
+  background-color: $bright-text-color;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.ListIcon {
+  color: $accent-text-color;
+  margin-left: 8px;
+
+  &:hover {
+    color: $light-text-color;
+    cursor: pointer;
+  }
+}
+
+.ListName {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1em;
+  color: $light-text-color;
+}
+
+.Icon {
+  color: $reverse-text-color;
+  font-size: 20px;
+}
+
+.SuccessText {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: $secondary-color;
+}
+
+.ButtonWrapper {
+  padding: $content-padding-desktop;
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
