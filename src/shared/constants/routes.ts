@@ -5,4 +5,5 @@ export enum AppRoutes {
   
   Login = '/login',
   Register = '/register/:code',
+  MyCourses = '/my-courses',
 }

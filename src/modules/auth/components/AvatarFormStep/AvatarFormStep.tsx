@@ -63,6 +63,13 @@ const AvatarFormStep: React.FC<AvatarFormStepProps> = ({ setStep, control, setVa
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files[0]) {
+      const file = e.target.files[0];
+      const allowedTypes = ['image/jpeg', 'image/png'];
+      
+      if (!allowedTypes.includes(file.type)) {
+        return;
+      }
+      
       setPhotoState((prev) => {
         return {
           ...prev,
@@ -103,6 +110,7 @@ const AvatarFormStep: React.FC<AvatarFormStepProps> = ({ setStep, control, setVa
                     value=''
                     className={styles.ChangeAvatarInput}
                     type="file"
+                    accept=".png,.jpg,.jpeg"
                     onChange={handleChange}
                   />
                 </label>

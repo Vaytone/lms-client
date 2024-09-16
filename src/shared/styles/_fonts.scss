@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('@src/assets/fonts/icomoon.eot?1evds1');
-  src:  url('@src/assets/fonts/icomoon.eot?1evds1#iefix') format('embedded-opentype'),
-  url('@src/assets/fonts/icomoon.ttf?1evds1') format('truetype'),
-  url('@src/assets/fonts/icomoon.woff?1evds1') format('woff'),
-  url('@src/assets/fonts/icomoon.svg?1evds1#icomoon') format('svg');
+  src:  url('@src/assets/fonts/icomoon.eot?v1rd6m');
+  src:  url('@src/assets/fonts/icomoon.eot?v1rd6m#iefix') format('embedded-opentype'),
+  url('@src/assets/fonts/icomoon.ttf?v1rd6m') format('truetype'),
+  url('@src/assets/fonts/icomoon.woff?v1rd6m') format('woff'),
+  url('@src/assets/fonts/icomoon.svg?v1rd6m#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-drag:before {
+  content: "\e927";
+}
+
+.icon-image-field:before {
+  content: "\e924";
+}
+.icon-text-field:before {
+  content: "\e925";
+}
+.icon-upload:before {
+  content: "\e923";
+}
+.icon-courses:before {
+  content: "\e922";
+}
 .icon-add-user:before {
   content: "\e921";
 }
@@ -126,4 +142,7 @@
 }
 .icon-plus-big:before {
   content: "\e920";
+}
+.icon-redo:before {
+  content: "\e966";
 }

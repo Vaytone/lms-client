@@ -1,0 +1,31 @@
+@import "@styles/variables";
+
+.Item {
+  align-self: start;
+  border: 1px solid $border-color;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    transition: 0.2s;
+    background-color: $content-color-hover;
+  }
+}
+
+.Title {
+  margin: 8px 0 0;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: $light-text-color;
+}
+
+.Icon {
+  font-size: 24px;
+  color: $light-text-color;
+}

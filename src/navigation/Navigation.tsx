@@ -11,6 +11,8 @@ import RegisterPage from '@modules/auth/pages/RegisterPage/RegisterPage';
 import { AppRoutes } from '@shared/constants/routes';
 import AllGroupsPage from '@modules/groups/pages/AllGroupsPage/AllGroupsPage';
 import GroupPage from '@modules/groups/pages/GroupPage/GroupPage';
+import AdminLayout from '@src/layouts/AdminLayout/AdminLayout';
+import CourseBuilderPage from '@modules/courses/pages/CourseBuilderPage/CourseBuilderPage';
 
 const Navigation: React.FC = () => {
   return (
@@ -23,6 +25,10 @@ const Navigation: React.FC = () => {
           <Route path={AppRoutes.Applications} element={<ApplicationsPage/>}/>
           <Route path={AppRoutes.AllGroups} element={<AllGroupsPage/>}/>
           <Route path={`${AppRoutes.AllGroups}/:groupId`} element={<GroupPage/>}/>
+        </Route>
+        
+        <Route path='/' element={<AdminLayout/>}>
+          <Route path={AppRoutes.MyCourses} element={<CourseBuilderPage/>}/>
         </Route>
       </Route>
       

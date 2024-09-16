@@ -1,0 +1,14 @@
+@import '@styles/variables';
+
+.Task {
+  padding: 16px;
+  border: 1px solid $border-color;
+  margin-bottom: 16px;
+  background-color: $content-color-hover;
+  opacity: 0.4;
+  cursor: pointer;
+
+  p {
+    margin: 0;
+  }
+}

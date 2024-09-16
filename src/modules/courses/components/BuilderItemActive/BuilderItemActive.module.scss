@@ -1,0 +1,28 @@
+@import "@styles/variables";
+
+.Item {
+  align-self: start;
+  border: 1px solid $border-color;
+  width: 80px;
+  background-color: $content-color;
+  opacity: 0.8;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.Title {
+  margin: 8px 0 0;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: $light-text-color;
+}
+
+.Icon {
+  font-size: 24px;
+  color: $light-text-color;
+}

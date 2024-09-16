@@ -1,0 +1,35 @@
+@import "@styles/variables";
+
+.Aside {
+  position: fixed;
+  top: calc($header-height + calc(50px - 1px));
+  right: 0;
+  bottom: 0;
+  background-color: $content-color;
+  width: 100%;
+  max-width: 350px;
+  z-index: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+
+.Title {
+  margin: 8px 0;
+  font-weight: 500;
+  color: $light-text-color;
+  font-size: 0.9em;
+}
+
+.Divider {
+  border-bottom: 1px solid $border-color;
+}
+
+.List {
+  flex-grow: 1;
+  display: flex;
+  margin-top: 16px;
+  flex-direction: row;
+  gap: 8px;
+}

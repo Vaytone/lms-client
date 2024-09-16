@@ -1,0 +1,49 @@
+@import '@styles/variables';
+
+.Task {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    opacity: 0;
+    height: 100%;
+    background-color: $secondary-bright;
+    transition: opacity 0.5s;
+  }
+
+  &--active {
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 1;
+      width: 10px;
+      height: 100%;
+      background-color: $secondary-bright;
+    }
+  }
+}
+
+.Content {
+  padding: 16px;
+  border: 1px solid $border-color;
+  background-color: $content-color-hover;
+
+  &--active {
+    opacity: 0;
+  }
+}

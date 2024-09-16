@@ -74,7 +74,7 @@ const RegisterProgressBar: React.FC<RegisterProgressBarProps> = ({ step }) => {
                 <h5 className={styles.StepTitle}>{`${t('core.step')} ${index + 1}`}</h5>
                 <p className={styles.StepDescription}>{t(item.text)}</p>
                 <p className={cn([styles.StepStatus, isPrev ? styles.StepStatusCompleted : ''])}>
-                  {index === currentStepIndex ? 'In progress' : (isPrev ? 'Complete' : '')}
+                  {index === currentStepIndex ? t('auth.inProgress') : (isPrev ? t('auth.done') : '')}
                 </p>
               </div>
             </li>

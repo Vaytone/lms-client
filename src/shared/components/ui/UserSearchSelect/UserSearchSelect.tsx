@@ -94,6 +94,7 @@ const UserSearchSelect: React.FC<Props> = (props) => {
   const [touched, setTouched] = useState(true);
   const showError = error && touched;
   const id = useId();
+  const { t } = useTranslation();
 
   const toggleFocused = () => {
     setFocused((prev) => !prev);
@@ -170,7 +171,7 @@ const UserSearchSelect: React.FC<Props> = (props) => {
             ) : null}
 
             {!isLoading && !filtered.length ? (
-              <p className={styles.NoOptions}>No options</p>
+              <p className={styles.NoOptions}>{t('core.noOptions')}</p>
             ) : null}
           </div>
         )}
