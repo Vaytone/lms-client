@@ -46,7 +46,7 @@
   }
 
   &--danger {
-    background-color: $error-color;
+    background-color: $error-disabled;
     color: $reverse-text-color;
 
     &:not([disabled]):hover {

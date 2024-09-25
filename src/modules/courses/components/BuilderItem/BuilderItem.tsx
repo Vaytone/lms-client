@@ -4,6 +4,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { BuilderBlock } from '@modules/courses/types/builder.types';
 import styles from './BuilderItem.module.scss';
 import cn from 'classnames';
+import { BUILDER_ICONS } from '@modules/courses/constants/builder.icons';
 
 type Props = {
   item: BuilderBlock
@@ -26,7 +27,7 @@ const BuilderItem: React.FC<Props> = ({ item }) => {
       {...attributes}
       {...listeners}
     >
-      <span className={cn(data.icon, styles.Icon)}/>
+      {BUILDER_ICONS[item.data.icon]}
       <p className={styles.Title}>{data.title}</p>
     </div>
   );

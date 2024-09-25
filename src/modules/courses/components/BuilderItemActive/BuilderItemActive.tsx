@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import { BUILDER_BLOCKS } from '@modules/courses/constants/builder.constants';
+import { BUILDER_BLOCKS } from '@modules/courses/constants/builder';
 import { BuilderBlock } from '@modules/courses/types/builder.types';
-import cn from 'classnames';
+import { BUILDER_ICONS } from '@modules/courses/constants/builder.icons';
 import styles from './BuilderItemActive.module.scss';
 
 type Props = {
@@ -15,7 +15,7 @@ const BuilderItemActive: React.FC<Props> = ({ id }) => {
   
   return (
     <div className={styles.Item}>
-      <span className={cn(builderBlock.data.icon, styles.Icon)}/>
+      {BUILDER_ICONS[builderBlock.data.icon]}
       <p className={styles.Title}>{builderBlock.data.title}</p>
     </div>
   );

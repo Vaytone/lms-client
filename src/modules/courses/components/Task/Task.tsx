@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import cn from 'classnames';
+import { DotsSixVertical } from '@phosphor-icons/react';
 import styles from './Task.module.scss';
 
 type Props = {
@@ -20,16 +21,24 @@ const Task: React.FC<Props> = ({ item, isActive }) => {
   return (
     <div
       ref={setNodeRef}
-      style={style}
       className={cn(styles.Task, isActive && styles.TaskActive)}
-      {...attributes}
       {...listeners}
+      {...attributes}
     >
-      <div className={cn(styles.Content, isActive && styles.ContentActive)}>
-        <p>{item.data.text}</p>
+      <div className={cn(styles.ItemWrapper, isActive && styles.ItemWrapperActive)} style={style}>
+        <div
+          className={styles.DragIconWrapper}
+        >
+          <DotsSixVertical size={32} className={styles.DragIcon}/>
+        </div>
+        
+        <div className={styles.Content}>
+          <p>{item.data.text}</p>
+        </div>
       </div>
+    
     </div>
   );
 };
 
-export default Task;
+export default memo(Task);

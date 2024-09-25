@@ -1,26 +1,35 @@
-export const BUILDER_BLOCKS = [
+import { BuilderBlock } from '@modules/courses/types/builder.types';
+
+export const BUILDER_BLOCKS: BuilderBlock[] = [
   {
     id: 'textElemBlock',
     dragId: 'builderBlock',
     type: 'text',
     data: {
       title: 'Text',
-      icon: 'icon-text-field',
+      icon: 'text',
+    },
+    dataToAdd: {
+      type: 'text',
+      text: '',
     },
   },
   {
-    id: 'photoBlock',
+    id: 'headingBlock',
     dragId: 'builderBlock',
-    type: 'photo',
+    type: 'heading',
     data: {
-      dragId: 'builderBlock',
-      title: 'Photo',
-      icon: 'icon-image-field',
+      title: 'Heading',
+      icon: 'heading',
+    },
+    dataToAdd: {
+      type: 'heading',
+      text: '',
     },
   },
 ];
 
-export const BUILDER_IDS = ['textElemBlock', 'photoBlock'];
+export const BUILDER_IDS = BUILDER_BLOCKS.map((item) => item.id);
 
 export const BUILDER_BLOCKS_TO_ADD = [
   {

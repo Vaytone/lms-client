@@ -93,12 +93,14 @@
     "admin": "Mentor",
     "allRoles": "All",
     "applications": "Applications",
+    "areYouSure": "Are you sure?",
     "back": "Back",
     "cancel": "Cancel",
     "close": "Close",
     "courses": "Courses",
     "create": "Create",
     "dashboard": "Dashboard",
+    "delete": "Delete",
     "filters": "Filters",
     "group": "Group",
     "groups": "Groups",
@@ -120,6 +122,18 @@
     "students": "Students",
     "watcher": "Watcher",
     "you": "(You)"
+  },
+  "courses": {
+    "blockN": "Block №{{value}}",
+    "blockTitle": "Block title",
+    "courseDescription": "Сourse Description",
+    "courseTitle": "Course Title",
+    "deleteAlert": "The block will be deleted along with all its content. This action cannot be undone.",
+    "enterCourseDescription": "Enter course description",
+    "enterCourseTitle": "Enter course title",
+    "mainInfoBlock": "A clear course description in the LMS helps teachers prepare students by providing key information about topics and expected outcomes. This helps students better understand course requirements, reducing questions. Ultimately, it simplifies planning and delivering materials.",
+    "mainInfoTitle": "Main information",
+    "newCourse": "New course"
   },
   "error": {
     "noAccess": "Access is restricted",

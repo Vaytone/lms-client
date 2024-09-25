@@ -1,4 +1,5 @@
 import React from 'react';
+import { DotsSixVertical } from '@phosphor-icons/react';
 import styles from './BlockActiveItem.module.scss';
 
 type Props = {
@@ -10,7 +11,17 @@ const BlockActiveItem: React.FC<Props> = ({ item }) => {
     <div
       className={styles.Task}
     >
-      <p>{item.data.text}</p>
+      <div className={styles.ItemWrapper}>
+        <div
+          className={styles.DragIconWrapper}
+        >
+          <DotsSixVertical size={32} className={styles.DragIcon}/>
+        </div>
+        
+        <div className={styles.Content}>
+          <p>{item.data.text}</p>
+        </div>
+      </div>
     </div>
   );
 };

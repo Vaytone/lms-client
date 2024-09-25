@@ -1,0 +1,21 @@
+@import "@styles/variables";
+
+.Wrapper {
+  display: flex;
+  gap: 16px;
+  background-color: $content-color;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.FormContent {
+  flex-grow: 1;
+
+  h3 {
+    font-size: 1.2em;
+  }
+}
+
+.Form {
+  margin-top: 16px;
+}
