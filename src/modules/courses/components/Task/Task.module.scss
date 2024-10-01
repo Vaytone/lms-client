@@ -8,35 +8,9 @@
     margin-bottom: 16px;
   }
 
-  p {
+  & > p {
     margin: 0;
   }
-  //
-  //&:before {
-  //  content: '';
-  //  position: absolute;
-  //  left: 0;
-  //  top: 0;
-  //  width: 10px;
-  //  opacity: 0;
-  //  height: 100%;
-  //  background-color: $secondary-bright;
-  //  transition: opacity 0.5s;
-  //}
-  //
-  //&--active {
-  //
-  //  &:before {
-  //    content: '';
-  //    position: absolute;
-  //    left: 0;
-  //    top: 0;
-  //    opacity: 1;
-  //    width: 10px;
-  //    height: 100%;
-  //    background-color: $secondary-bright;
-  //  }
-  //}
 }
 
 .ItemWrapper {
@@ -46,7 +20,7 @@
   width: 100%;
 
   &--active {
-    opacity: 0;
+    opacity: 0.35;
   }
 
   &:last-child {
@@ -71,5 +45,23 @@
   flex-grow: 1;
   padding: 16px;
   border: 1px solid $border-color;
-  background-color: $content-color-hover;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+
+.Delete {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  user-select: none;
+
+  svg {
+    color: $light-text-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $error-hover;
+    }
+  }
 }

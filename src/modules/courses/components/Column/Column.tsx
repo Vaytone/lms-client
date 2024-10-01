@@ -4,10 +4,9 @@ import Task from '@modules/courses/components/Task/Task';
 import { useDroppable } from '@dnd-kit/core';
 import cn from 'classnames';
 import { BuilderContext } from '@modules/courses/contexts/BuilderContext';
-import TextArea from '@components/ui/TextArea/Input';
 import { useTranslation } from 'react-i18next';
 import Input from '@components/ui/Input/Input';
-import { Trash, TrashSimple } from '@phosphor-icons/react';
+import { ArrowsIn, Trash } from '@phosphor-icons/react';
 import Modal from '@components/Modal/Modal';
 import DeleteBlockModal from '@modules/courses/components/DeleteBlockModal/DeleteBlockModal';
 import styles from './Column.module.scss';
@@ -16,10 +15,11 @@ type Props = {
   items: any[]
   id: string,
   activeId: string | null,
+  isBuilderActive: boolean,
   isOverMe: boolean,
 }
 
-const Column: React.FC<Props> = ({ items, id, activeId, isOverMe }) => {
+const Column: React.FC<Props> = ({ items, id, activeId, isBuilderActive, isOverMe }) => {
   const [isDeleteOpen, setDeleteOpen] = useState(false);
   const { blocksData, removeBlock, handleChangeBlockData } = useContext(BuilderContext);
   const blockInfo = useMemo(() => {
@@ -31,7 +31,7 @@ const Column: React.FC<Props> = ({ items, id, activeId, isOverMe }) => {
       indx,
     };
   }, [blocksData]);
-  const { setNodeRef } = useDroppable({
+  const { setNodeRef, isOver } = useDroppable({
     id,
   });
   const { t } = useTranslation();
@@ -78,13 +78,27 @@ const Column: React.FC<Props> = ({ items, id, activeId, isOverMe }) => {
         </Modal>
       )}
       
-      <h4 className={styles.ContentTitle}>Контент</h4>
+      <h4 className={styles.ContentTitle}>{t('core.content')}</h4>
       
       <div className={styles.Delete}>
         <Trash size={20} onClick={handleOpenModal}/>
       </div>
       
-      <div className={styles.Content}>
+      <div className={cn(
+        styles.Content,
+        items.length && styles.BlockContent,
+        isBuilderActive && styles.BlockContentActive,
+        isOverMe && styles.BlockContentOver)}
+      >
+        
+        {isBuilderActive && items.length ? (
+          <div className={styles.BuilderActiveOverflow}>
+            <ArrowsIn size={24} />
+            <p className={styles.EmptyText}>
+              {t('courses.releaseHere')}
+            </p>
+          </div>
+        ) : null}
         
         <SortableContext
           id={id}
@@ -93,23 +107,22 @@ const Column: React.FC<Props> = ({ items, id, activeId, isOverMe }) => {
         >
           <div ref={setNodeRef}>
             {items.length ? (
-              <div className={styles.Wrapper}>
-                <div className={cn(styles.Container, isOverMe && styles.ContainerIsOver)}>
+              <div>
+                <div className={cn(styles.Container)}>
                   {items.map((item) => (
                     <Task isActive={activeId === item.id} key={item.id} item={item}/>
                   ))}
                 </div>
-                
-                {isOverMe && (
-                  <div className={styles.ContainerOver}>
-                    <span className='icon-drag'/>
-                    <p>Drop here</p>
-                  </div>
-                )}
+
               </div>
             ) : (
-              <div>
-                <p>перенесите блок сюда</p>
+              <div className={cn(
+                styles.EmptyContainer,
+                isBuilderActive && styles.EmptyContainerActive,
+                isOverMe && styles.EmptyContainerOver)}
+              >
+                <ArrowsIn size={24} />
+                <p className={styles.EmptyText}>{t('courses.selectAndDrop')}</p>
               </div>
             )}
           </div>

@@ -1,4 +1,7 @@
-import { BuilderBlock } from '@modules/courses/types/builder.types';
+import { BuilderBlock, BuilderBlockType } from '@modules/courses/types/builder.types';
+import i18n from 'i18next';
+
+const { t } = i18n;
 
 export const BUILDER_BLOCKS: BuilderBlock[] = [
   {
@@ -6,11 +9,11 @@ export const BUILDER_BLOCKS: BuilderBlock[] = [
     dragId: 'builderBlock',
     type: 'text',
     data: {
-      title: 'Text',
+      title: t('courses.text'),
       icon: 'text',
     },
     dataToAdd: {
-      type: 'text',
+      type: BuilderBlockType.Text,
       text: '',
     },
   },
@@ -19,31 +22,47 @@ export const BUILDER_BLOCKS: BuilderBlock[] = [
     dragId: 'builderBlock',
     type: 'heading',
     data: {
-      title: 'Heading',
+      title: t('courses.heading'),
       icon: 'heading',
     },
     dataToAdd: {
-      type: 'heading',
+      type: BuilderBlockType.Heading,
       text: '',
+    },
+  },
+  {
+    id: 'commentBlock',
+    dragId: 'builderBlock',
+    type: 'comment',
+    data: {
+      title: t('courses.comment'),
+      icon: 'comment',
+    },
+    dataToAdd: {
+      type: BuilderBlockType.Comment,
+      text: '',
+      author: '',
+    },
+  },
+  {
+    id: 'dividerBlock',
+    dragId: 'builderBlock',
+    type: 'divider',
+    data: {
+      title: t('courses.divider'),
+      icon: 'divider',
+    },
+    dataToAdd: {
+      type: BuilderBlockType.Divider,
     },
   },
 ];
 
 export const BUILDER_IDS = BUILDER_BLOCKS.map((item) => item.id);
 
-export const BUILDER_BLOCKS_TO_ADD = [
-  {
-    id: 'textElemBlock',
-    data: {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-  },
-  {
-    id: 'photoBlock',
-    data: {
-      uri: 'https://dummyimage.com/600x400/000/fff',
-    },
-  },
-];
+export enum BuilderAreasEnum {
+  ComponentList = 'componentList',
+  AddButton = 'addButton'
+}
 
-export const COMPONENTS_LIST = 'componentList';
+export const BUILDER_SAVE_DATA_KEY = 'VAYTONE_BUILDER_SAVE_DATA';

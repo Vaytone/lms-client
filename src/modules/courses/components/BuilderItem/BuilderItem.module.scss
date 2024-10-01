@@ -3,8 +3,8 @@
 .Item {
   align-self: start;
   border: 1px solid $border-color;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +20,7 @@
 
 .Title {
   margin: 8px 0 0;
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: 600;
   color: $light-text-color;
 }

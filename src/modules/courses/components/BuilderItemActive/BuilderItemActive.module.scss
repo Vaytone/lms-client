@@ -2,17 +2,18 @@
 
 .Item {
   align-self: start;
-  border: 1px solid $border-color;
-  width: 80px;
-  background-color: $content-color;
+  border: 1px solid $secondary-light;
+  background-color: $content-color-hover;
   opacity: 0.8;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   border-radius: 8px;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .Title {

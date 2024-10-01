@@ -1,7 +1,7 @@
 @import "@styles/variables";
 
 .Aside {
-  position: fixed;
+  position: absolute;
   top: calc($header-height + calc(50px - 1px));
   right: 0;
   bottom: 0;
@@ -9,17 +9,27 @@
   width: 100%;
   max-width: 350px;
   z-index: 0;
-  padding: 16px;
   display: flex;
   flex-direction: column;
   transition: all 0.3s;
 }
 
+.Content {
+  position: fixed;
+  width: 100%;
+}
+
+.TitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
 .Title {
   margin: 8px 0;
-  font-weight: 500;
-  color: $light-text-color;
-  font-size: 0.9em;
+  font-weight: 600;
+  font-size: 1em;
 }
 
 .Divider {
@@ -27,9 +37,10 @@
 }
 
 .List {
-  flex-grow: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 350px;
+  grid-gap: 8px; /* Space between the grid items */
   margin-top: 16px;
-  flex-direction: row;
-  gap: 8px;
+  padding: 16px;
 }

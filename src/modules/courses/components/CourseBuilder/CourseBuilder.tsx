@@ -4,42 +4,19 @@ import {
   DragOverlay,
   KeyboardSensor,
   PointerSensor,
-  rectIntersection,
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
-import styles from '@modules/courses/components/BuilderTemplate/BuilderTemplate.module.scss';
 import Column from '@modules/courses/components/Column/Column';
 import ComponentsList from '@modules/courses/components/ComponentsList/ComponentsList';
-import { BUILDER_BLOCKS, BUILDER_IDS, COMPONENTS_LIST } from '@modules/courses/constants/builder';
+import { BUILDER_BLOCKS, BUILDER_IDS, BuilderAreasEnum } from '@modules/courses/constants/builder';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { v4 } from 'uuid';
 import BuilderItemActive from '@modules/courses/components/BuilderItemActive/BuilderItemActive';
 import BlockActiveItem from '@modules/courses/components/BlockActiveItem/BlockActiveItem';
 import { BuilderContext } from '@modules/courses/contexts/BuilderContext';
-
-function getRandomElement(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-function generateRandomText() {
-  const subjects = ['Кіт', 'Людина', 'Птах', 'Робот', 'Дерево'];
-  const verbs = ['біжить', 'стрибає', 'літає', 'думає', 'грається'];
-  const objects = ['по полю', 'на даху', 'в лісі', 'під водою', 'на вулиці'];
-  const phrases = [];
-  
-  const sentenceCount = Math.floor(Math.random() * 2) + 3; // 3-4 речення
-  
-  for (let i = 0; i < sentenceCount; i++) {
-    const subject = getRandomElement(subjects);
-    const verb = getRandomElement(verbs);
-    const object = getRandomElement(objects);
-    const sentence = `${subject} ${verb} ${object}.`;
-    phrases.push(sentence);
-  }
-  
-  return phrases.join(' ');
-}
+import AddBlockButton from '@modules/courses/components/AddBlockButton/AddBlockButton';
+import { BuilderItem } from '@modules/courses/types/builder.types';
 
 const initOverData = {
   containerId: null,
@@ -59,7 +36,7 @@ const CourseBuilder: React.FC = () => {
     }),
   );
   
-  function findContainer(id) {
+  const findContainer = (id: string) => {
     if (id in items) {
       return id;
     }
@@ -73,30 +50,40 @@ const CourseBuilder: React.FC = () => {
         return item.id;
       }).includes(id);
     });
-  }
+  };
   
   const handleDragStart = (event) => {
     const { active } = event;
     const { id } = active;
-    
-    const itemWithContent = Object.keys(items).find((key) => {
-      if (!items[key]) {
-        return undefined;
-      }
+
+    if (active?.data?.current?.sortable?.containerId === BuilderAreasEnum.ComponentList) {
+      const activeBlock = BUILDER_BLOCKS.find((item) => item.id === id);
+      setActiveBlock(activeBlock);
       
-      return items[key].map((item) => item.id).includes(id);
-    });
-    
-    const activeBlock = items[itemWithContent].find((item) => item.id === id);
-    setActiveBlock(activeBlock);
-    
-    if (active) {
-      setActiveId(id);
+      if (active) {
+        setActiveId(id);
+      }
+    } else {
+      const itemWithContent = Object.keys(items).find((key) => {
+        if (!items[key]) {
+          return undefined;
+        }
+
+        return items[key].map((item) => item.id).includes(id);
+      });
+
+      const activeBlock = items[itemWithContent].find((item) => item.id === id);
+      setActiveBlock(activeBlock);
+
+      if (active) {
+        setActiveId(id);
+      }
     }
   };
   
   const handleDragOver = (event) => {
     const { active, over, draggingRect } = event;
+    
     const { id } = active;
     
     if (!over) {
@@ -104,9 +91,12 @@ const CourseBuilder: React.FC = () => {
     }
     
     const { id: overId } = over;
+    
     if (over) {
       const activeContainer = findContainer(id);
       const overContainer = findContainer(overId);
+      
+      setOverData((prev) => ({ ...prev, containerId: overContainer }));
       
       if (
         !activeContainer
@@ -120,8 +110,6 @@ const CourseBuilder: React.FC = () => {
       
       if (!isBuilderBlock) {
         setItems((prev) => {
-          // console.log('IS Over:', overId);
-          
           const activeItems = prev[activeContainer];
           const overItems = prev[overContainer];
           
@@ -153,14 +141,14 @@ const CourseBuilder: React.FC = () => {
               ...prev[overContainer].slice(0, newIndex),
               items[activeContainer][activeIndex],
               ...prev[overContainer].slice(newIndex, prev[overContainer].length),
-            ] : [...overContainer],
+            ] : [...prev[overContainer]],
           };
           
           return res;
         });
       } else if (
         Object.keys(items).includes(over.id)
-        && over.id !== COMPONENTS_LIST && over.id !== active.data?.current?.sortable?.containerId
+        && over.id !== BuilderAreasEnum.ComponentList && over.id !== active.data?.current?.sortable?.containerId
       ) {
         setOverData((prev) => {
           return {
@@ -171,7 +159,7 @@ const CourseBuilder: React.FC = () => {
       } else if (
         !Object.keys(items).includes(over.id)
         && over?.data?.current?.sortable?.containerId
-        && over.id !== COMPONENTS_LIST
+        && over.id !== BuilderAreasEnum.ComponentList
         && over?.data?.current?.sortable?.containerId !== active.data?.current?.sortable?.containerId
       ) {
         setOverData((prev) => {
@@ -217,15 +205,40 @@ const CourseBuilder: React.FC = () => {
     const overContainer = findContainer(overId);
     const isBuilderBlock = BUILDER_IDS.includes(id);
     
-    if (
-      !activeContainer
-      || !overContainer
-    ) {
+    if (isBuilderBlock && overId === BuilderAreasEnum.AddButton) {
+      const data = BUILDER_BLOCKS.find((item) => item.id === id).dataToAdd;
+      const blockToAdd = {
+        id: v4(),
+        data,
+      } as BuilderItem;
+      addBlock(blockToAdd);
+      
       resetDragData();
+    }
+    
+    if (!isBuilderBlock && overId === BuilderAreasEnum.AddButton) {
+      resetDragData();
+      
       return;
     }
     
-    if (!isBuilderBlock && overContainer === 'componentList') {
+    if (!isBuilderBlock && !overContainer) {
+      resetDragData();
+      
+      return;
+    }
+    
+    if (!isBuilderBlock) {
+      if (
+        !activeContainer
+        || !overContainer
+      ) {
+        resetDragData();
+        return;
+      }
+    }
+    
+    if (!isBuilderBlock && overContainer === BuilderAreasEnum.ComponentList) {
       resetDragData();
       return;
     }
@@ -235,16 +248,12 @@ const CourseBuilder: React.FC = () => {
       return;
     }
     
-    const activeIndex = items[activeContainer].map((item) => item.id).indexOf(active.id);
-    const overIndex = items[overContainer].map((item) => item.id).indexOf(overId);
-    
     if (isBuilderBlock) {
+      const data = BUILDER_BLOCKS.find((item) => item.id === id).dataToAdd;
       const blockToAdd = {
         id: v4(),
-        data: {
-          text: generateRandomText(),
-        },
-      };
+        data,
+      } as BuilderItem;
       
       setItems((items) => (
         {
@@ -252,19 +261,24 @@ const CourseBuilder: React.FC = () => {
           [overContainer]: [...items[overContainer], blockToAdd],
         }
       ));
-    } else if (activeIndex !== overIndex) {
-      setItems((items) => {
-        const result = {
-          ...items,
-          [overContainer]: arrayMove(
-            items[overContainer],
-            activeIndex,
-            overIndex,
-          ),
-        };
-        
-        return result;
-      });
+    } else {
+      const activeIndex = items[activeContainer].map((item) => item.id).indexOf(active.id);
+      const overIndex = items[overContainer].map((item) => item.id).indexOf(overId);
+      
+      if (activeIndex !== overIndex) {
+        setItems((items) => {
+          const result = {
+            ...items,
+            [overContainer]: arrayMove(
+              items[overContainer],
+              activeIndex,
+              overIndex,
+            ),
+          };
+          
+          return result;
+        });
+      }
     }
     
     resetDragData();
@@ -286,34 +300,28 @@ const CourseBuilder: React.FC = () => {
     <DndContext
       // announcements={defaultAnnouncements}
       sensors={sensors}
-      collisionDetection={rectIntersection}
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      {Object.keys(items).filter((key) => key !== 'componentList').map((item) => {
+      {Object.keys(items).filter((key) => key !== BuilderAreasEnum.ComponentList).map((item) => {
         return (
           <Column
             key={item}
             id={item}
             items={items[item]}
-            isOverMe={overData.containerId === item}
             activeId={activeId}
+            isOverMe={overData.containerId === item}
+            isBuilderActive={BUILDER_IDS.includes(activeId)}
           />
         );
       })}
-      <div
-        onClick={addBlock}
-        style={{
-          height: '50px',
-          width: '50px',
-          backgroundColor: 'red',
-        }}
-      />
+      
+      <AddBlockButton isBuilderActive={BUILDER_IDS.includes(activeId)} />
+      
       <DragOverlay>
         {activeId ? getDragOverlayItem() : null}
       </DragOverlay>
-
       
       <ComponentsList items={BUILDER_BLOCKS}/>
     </DndContext>

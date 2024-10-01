@@ -41,5 +41,7 @@
   flex-grow: 1;
   padding: 16px;
   border: 1px solid $border-color;
-  background-color: $content-color-hover;
+  background-color: $content-color;
+  opacity: 0.48;
+  width: 100%;
 }

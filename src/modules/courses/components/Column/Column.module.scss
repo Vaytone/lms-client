@@ -1,5 +1,19 @@
 @import '@styles/variables';
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .Column {
   width: 100%;
   display: flex;
@@ -32,20 +46,55 @@
 }
 
 .Content {
-  border: 1px dashed $border-color;
   flex-grow: 1;
+  overflow: hidden;
+}
+
+.BlockContent {
+  border: 1px dashed transparent;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+
+  &--active {
+    border-color: $secondary-bright;
+  }
+
+  &--over {
+    border-color: $secondary-light;
+  }
+}
+
+.BuilderActiveOverflow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(254, 254, 254, 0.5);
+  z-index: 7;
+
+  animation: appear 0.1s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+
+  svg {
+    color: $light-text-color;
+  }
 }
 
 .Container {
   flex-grow: 1;
-  //padding: 16px;
   flex-direction: column;
   transition: all 0.2s;
 
-  &--isOver {
-    transition: all 0.2s;
-    border-color: $secondary-color;
-  }
 }
 
 .Wrapper {
@@ -53,30 +102,34 @@
   flex-grow: 1;
 }
 
-.ContainerOver {
-  background-color: $content-color-hover;
-  position: absolute;
-  //height: 100%;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  opacity: 0.7;
+.EmptyContainer {
+  border: 1px dashed transparent;
+  background-color: #f9f9f9;
+  padding: 16px;
   display: flex;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.5s;
-  flex-direction: column;
+  gap: 8px;
 
-  span {
-    font-size: 2.5em;
+  &--active {
+    border-color: $secondary-bright;
   }
 
-  p {
-    margin: 10px 0 0;
-    font-size: 1.2em;
-    font-weight: 600;
+  svg {
+    color: $light-text-color;
   }
+
+
+  &--over {
+    border-color: $secondary-light;
+  }
+}
+
+.EmptyText {
+  font-weight: 500;
+  margin: 0;
+  color: $light-text-color;
 }
 
 

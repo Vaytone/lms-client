@@ -1,39 +1,49 @@
-import React from 'react';
-import { CSS } from '@dnd-kit/utilities';
+import React, { useEffect, useState } from 'react';
 import { SortableContext, verticalListSortingStrategy, useSortable } from '@dnd-kit/sortable';
 import BuilderItem from '@modules/courses/components/BuilderItem/BuilderItem';
 import { BuilderBlock } from '@modules/courses/types/builder.types';
+import { BuilderAreasEnum } from '@modules/courses/constants/builder';
 import styles from './ComponentsList.module.scss';
+import Modal from '@components/Modal/Modal';
+import { useTranslation } from 'react-i18next';
+import { Info } from '@phosphor-icons/react';
 
 type Props = {
   items: BuilderBlock[]
 }
 
 const ComponentsList: React.FC<Props> = ({ items }) => {
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
-    id: 2323,
+  const { setNodeRef } = useSortable({
+    id: BuilderAreasEnum.ComponentList,
   });
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  };
+  const { t } = useTranslation();
   
   return (
-    <aside className={styles.Aside}>
-      <p className={styles.Title}>Drag and drop elements</p>
-      <div className={styles.Divider}/>
-      
-      <SortableContext
-        id='componentList'
-        items={items}
-        strategy={verticalListSortingStrategy}
-      >
-        <div ref={setNodeRef} className={styles.List}>
-          {items.map((item) => (
-            <BuilderItem item={item} key={item.id}/>
-          ))}
+    <aside
+      className={styles.Aside}
+      // style={{
+      //   width: scrollbarWidth > 0 ? '350px' : `${scrollbarWidth + 350}px`,
+      // }}
+    >
+      <div className={styles.Content}>
+        <div className={styles.TitleWrapper}>
+          <Info size={18}/>
+          <p className={styles.Title}>{t('courses.dragTitle')}</p>
         </div>
-      </SortableContext>
+        <div className={styles.Divider}/>
+        
+        <SortableContext
+          id={BuilderAreasEnum.ComponentList}
+          items={items}
+          strategy={verticalListSortingStrategy}
+        >
+          <div ref={setNodeRef} className={styles.List}>
+            {items.map((item) => (
+              <BuilderItem item={item} key={item.id}/>
+            ))}
+          </div>
+        </SortableContext>
+      </div>
     </aside>
   );
 };

@@ -13,6 +13,8 @@ import AllGroupsPage from '@modules/groups/pages/AllGroupsPage/AllGroupsPage';
 import GroupPage from '@modules/groups/pages/GroupPage/GroupPage';
 import AdminLayout from '@src/layouts/AdminLayout/AdminLayout';
 import CourseBuilderPage from '@modules/courses/pages/CourseBuilderPage/CourseBuilderPage';
+import CoursePreviewPage from '@modules/courses/pages/CoursePreviewPage/CoursePreviewPage';
+import { BuilderContextProvider } from '@modules/courses/contexts/BuilderContext';
 
 const Navigation: React.FC = () => {
   return (
@@ -28,7 +30,10 @@ const Navigation: React.FC = () => {
         </Route>
         
         <Route path='/' element={<AdminLayout/>}>
-          <Route path={AppRoutes.MyCourses} element={<CourseBuilderPage/>}/>
+          <Route path='/' element={<BuilderContextProvider/>}>
+            <Route path={AppRoutes.MyCourses} element={<CourseBuilderPage/>}/>
+            <Route path={AppRoutes.CoursePreview} element={<CoursePreviewPage/>}/>
+          </Route>
         </Route>
       </Route>
       

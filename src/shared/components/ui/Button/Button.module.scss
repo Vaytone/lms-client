@@ -20,6 +20,10 @@
   white-space: nowrap;
   position: relative;
 
+  svg {
+    margin-right: 10px;
+  }
+
   &:not([disabled]):hover {
     cursor: pointer;
     background-color: $primary-hover;

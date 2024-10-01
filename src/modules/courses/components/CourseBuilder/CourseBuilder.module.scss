@@ -1,0 +1,35 @@
+@import "@styles/variables";
+
+.AddBlockButton {
+  background-color: $content-color;
+  padding: 16px 32px;
+  border-radius: 10px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 1px solid transparent;
+  margin-bottom: 24px;
+
+  &:hover {
+    cursor: pointer;
+    transition: all 0.2s;
+    border-color: $secondary-light;
+
+    p, svg {
+      color: unset;
+    }
+  }
+
+  svg {
+    color: $light-text-color;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: $light-text-color;
+  }
+}

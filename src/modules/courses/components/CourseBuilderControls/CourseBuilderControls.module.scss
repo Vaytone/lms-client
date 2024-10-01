@@ -3,25 +3,34 @@
 .Wrapper {
   background-color: $content-color;
   padding: 8px 32px 8px;
-  margin-top: -1px;
   display: flex;
   align-items: center;
   height: 50px;
-  justify-content: space-between;
+  justify-content: flex-end;
   border-bottom: 1px solid $border-color;
   position: fixed;
-  width: 100%;
+  width: calc(100vw - 8px);
   z-index: 9;
+
+  @include for-tablet-l() {
+    width: calc(100vw - $sidebar-width - 8px);
+  }
 }
 
 .ControlButton {
   height: 30px;
+  display: flex;
+  gap: 8px;
 
   button {
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    svg:first-child {
+      margin-right: 0;
+    }
 
     span:first-child {
       margin-right: 0;
@@ -35,9 +44,10 @@
 
   @include for-tablet() {
     button {
-      display: unset;
-      align-items: unset;
-      justify-content: unset;
+
+      svg:first-child {
+        margin-right: 10px;
+      }
 
       span:first-child {
         margin-right: 10px;

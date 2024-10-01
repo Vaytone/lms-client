@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
 import { BUILDER_BLOCKS } from '@modules/courses/constants/builder';
-import { BuilderBlock } from '@modules/courses/types/builder.types';
+import { BuilderBlock, BuilderBlockType, TitleBlock } from '@modules/courses/types/builder.types';
 import { BUILDER_ICONS } from '@modules/courses/constants/builder.icons';
+import TextContentBlock from '@modules/courses/components/ContentBlocks/TextContentBlock/TextContentBlock';
+import HeadingContentBlock from '@modules/courses/components/ContentBlocks/HeadingContentBlock/HeadingContentBlock';
 import styles from './BuilderItemActive.module.scss';
 
 type Props = {

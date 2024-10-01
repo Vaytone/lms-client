@@ -16,19 +16,64 @@ export interface CourseForm {
   description: string,
 }
 
-export interface TitleBlock {
-  type: 'titleBlock',
-  title: string,
+interface ContentBlock {
+  id: string;
 }
 
-type BuilderItem = TitleBlock | any;
+export interface TitleBlock extends ContentBlock {
+  data: {
+    type: BuilderBlockType.Text,
+    text: string,
+  }
+}
+
+export interface HeadingBlock extends ContentBlock {
+  data: {
+    type: BuilderBlockType.Heading,
+    text: string,
+  }
+}
+
+export interface CommentBlock extends ContentBlock {
+  data: {
+    type: BuilderBlockType.Comment,
+    text: string,
+    author: string,
+  }
+}
+
+export interface DividerBlock extends ContentBlock {
+  data: {
+    type: BuilderBlockType.Divider,
+  }
+}
+
+export type BuilderItem = TitleBlock | HeadingBlock | CommentBlock | DividerBlock;
 
 export interface BuilderItems {
-  componentList: BuilderBlock[],
   [key: string]: BuilderItem[];
 }
 
 export interface BlocksData {
   id: string,
-  [key: string]: any,
+  title: string,
+}
+
+export enum BuilderBlockType {
+  Text = 'text',
+  Heading = 'heading',
+  Comment = 'comment',
+  Divider = 'divider',
+}
+
+interface ExtendedBlockData extends BlocksData {
+  items: BuilderItem[],
+}
+
+export interface CourseData {
+  form: {
+    title: string,
+    description: string,
+  },
+  blocks: ExtendedBlockData[],
 }

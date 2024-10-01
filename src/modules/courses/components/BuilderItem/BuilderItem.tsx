@@ -2,9 +2,8 @@ import React from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { BuilderBlock } from '@modules/courses/types/builder.types';
-import styles from './BuilderItem.module.scss';
-import cn from 'classnames';
 import { BUILDER_ICONS } from '@modules/courses/constants/builder.icons';
+import styles from './BuilderItem.module.scss';
 
 type Props = {
   item: BuilderBlock

@@ -1,32 +1,10 @@
 @import "@styles/variables";
 @import "@styles/mixins";
 
-
 .Page {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.PageWrapper {
-  padding: 16px 16px 16px 16px;
-  //display: flex;
-  flex-direction: column;
-  gap: 16px;
-  //margin: 0 auto;
-  width: calc(100% - 350px);
-
-
-  h2 {
-    margin-top: 0;
-  }
-
-  @include for-tablet() {
-    padding: 16px 16px 16px 16px;
-  }
-}
-
-.Wrapper {
-  display: flex;
-}
 
