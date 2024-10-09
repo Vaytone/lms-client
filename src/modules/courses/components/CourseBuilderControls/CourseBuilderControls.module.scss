@@ -1,5 +1,19 @@
 @import "@styles/mixins";
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+    top: calc(100% + 5px);
+  }
+
+  100% {
+    top: calc(100% + 15px);
+    opacity: 1;
+    scale: 1;
+  }
+}
+
 .Wrapper {
   background-color: $content-color;
   padding: 8px 32px 8px;
@@ -57,5 +71,96 @@
         display: unset;
       }
     }
+  }
+}
+
+.StructureWrapper {
+  position: relative;
+}
+
+.StructureContent {
+  animation: appear 0.1s linear;
+  position: absolute;
+  top: calc(100% + 15px);
+  width: 350px;
+  right: 50%;
+  border-radius: 8px;
+  background-color: $content-color;
+  overflow: hidden;
+  box-shadow: 0 0 15px $light-box-shadow;
+}
+
+.Structure {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 24px;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    border-top-right-radius: 24px;
+  }
+}
+
+.StructureMainTitle {
+  font-size: 1.1em;
+  color: $primary-color;
+  margin: 0;
+}
+
+.StructureDescription {
+  font-size: 0.8em;
+  color: $light-text-color;
+  margin: 5px 0 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $border-color;
+}
+
+.StructureTitle {
+  font-size: 1em;
+  color: $primary-color;
+  margin: 4px 0;
+  font-weight: 600;
+}
+
+.StructureItems {
+  padding-left: 10px;
+  display: flex;
+  margin: 5px 0;
+  cursor: pointer;
+  width: 100%;
+  flex-basis: 100%;
+
+  & > * {
+    width: 100%;
+  }
+
+  a {
+    display: block;
+    //color: $primary-color;
+    text-decoration: none;
+  }
+}
+
+.LinkWrapper {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  color: $light-text-color;
+
+  &:hover {
+    color: $secondary-color;
+  }
+
+  svg {
+    margin-right: 5px;
+    color: inherit;
+  }
+
+  a {
+    //color: $primary-color;
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
 }

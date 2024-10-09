@@ -6,8 +6,9 @@ import { List, Trash } from '@phosphor-icons/react';
 import {
   BuilderBlockType,
   BuilderItem,
-  CommentBlock, DividerBlock,
-  HeadingBlock,
+  CommentBlock,
+  DividerBlock,
+  HeadingBlock, ImageBlock,
   TitleBlock,
 } from '@modules/courses/types/builder.types';
 import TextContentBlock from '@modules/courses/components/ContentBlocks/TextContentBlock/TextContentBlock';
@@ -15,6 +16,7 @@ import HeadingContentBlock from '@modules/courses/components/ContentBlocks/Headi
 import { BuilderContext } from '@modules/courses/contexts/BuilderContext';
 import CommentContentBlock from '@modules/courses/components/ContentBlocks/CommentContentBlock/CommentContentBlock';
 import DividerContentBlock from '@modules/courses/components/ContentBlocks/DividerContentBlock/DividerContentBlock';
+import ImageContentBlock from '@modules/courses/components/ContentBlocks/ImageContentBlock/ImageContentBlock';
 import styles from './Task.module.scss';
 
 type Props = {
@@ -41,6 +43,8 @@ const Task: React.FC<Props> = ({ item, isActive }) => {
       return <CommentContentBlock item={item as CommentBlock}/>;
     case BuilderBlockType.Divider:
       return <DividerContentBlock item={item as DividerBlock}/>;
+    case BuilderBlockType.Image:
+      return <ImageContentBlock item={item as ImageBlock}/>;
     default:
       return null;
     }
@@ -52,6 +56,7 @@ const Task: React.FC<Props> = ({ item, isActive }) => {
   
   return (
     <div
+      id={item.id}
       className={cn(styles.Task, isActive && styles.TaskActive)}
       {...attributes}
       ref={setNodeRef}

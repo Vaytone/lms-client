@@ -14,4 +14,5 @@ export const BUILDER_ITEM_VALIDATION = {
   maxComment: 300,
   minAuthor: 1,
   maxAuthor: 100,
+  maxImageDescription: 200,
 };

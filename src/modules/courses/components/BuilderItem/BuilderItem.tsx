@@ -4,18 +4,20 @@ import { CSS } from '@dnd-kit/utilities';
 import { BuilderBlock } from '@modules/courses/types/builder.types';
 import { BUILDER_ICONS } from '@modules/courses/constants/builder.icons';
 import styles from './BuilderItem.module.scss';
+import { useDraggable } from '@dnd-kit/core';
 
 type Props = {
   item: BuilderBlock
 }
 
 const BuilderItem: React.FC<Props> = ({ item }) => {
-  const { id, type, data } = item;
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
+  const { id, data } = item;
+  const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
+    id,
+  });
   
   const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
+    // transform: CSS.Transform.toString(transform),
   };
   
   return (

@@ -32,17 +32,11 @@ const ComponentsList: React.FC<Props> = ({ items }) => {
         </div>
         <div className={styles.Divider}/>
         
-        <SortableContext
-          id={BuilderAreasEnum.ComponentList}
-          items={items}
-          strategy={verticalListSortingStrategy}
-        >
-          <div ref={setNodeRef} className={styles.List}>
-            {items.map((item) => (
-              <BuilderItem item={item} key={item.id}/>
-            ))}
-          </div>
-        </SortableContext>
+        <div className={styles.List}>
+          {items.map((item) => (
+            <BuilderItem item={item} key={item.id}/>
+          ))}
+        </div>
       </div>
     </aside>
   );

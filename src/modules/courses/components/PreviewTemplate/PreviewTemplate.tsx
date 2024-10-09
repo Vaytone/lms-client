@@ -3,15 +3,15 @@ import { BuilderContext } from '@modules/courses/contexts/BuilderContext';
 import {
   BuilderBlockType,
   BuilderItem,
-  CommentBlock,
-  HeadingBlock,
-  TitleBlock
+  CommentBlock, ImageBlock,
+  TitleBlock,
 } from '@modules/courses/types/builder.types';
-import TextContentBlock from '@modules/courses/components/ContentBlocks/TextContentBlock/TextContentBlock';
-import HeadingContentBlock from '@modules/courses/components/ContentBlocks/HeadingContentBlock/HeadingContentBlock';
 import CourseHeading from '@modules/courses/components/CouserContent/CourseHeading/CourseHeading';
-import styles from './PreviewTemplate.module.scss';
 import CourseComment from '@modules/courses/components/CouserContent/CourseComment/CourseComment';
+import CourseDivider from '@modules/courses/components/CouserContent/CourseDivider/CourseDivider';
+import SanitizeHTML from '@components/SanitizeHTML/SanitizeHTML';
+import CourseImage from '@modules/courses/components/CouserContent/CourseImage/CourseImage';
+import styles from './PreviewTemplate.module.scss';
 
 const PreviewTemplate: React.FC = () => {
   const { getCourseData } = useContext(BuilderContext);
@@ -22,9 +22,13 @@ const PreviewTemplate: React.FC = () => {
     case BuilderBlockType.Heading:
       return <CourseHeading item={item as TitleBlock}/>;
     case BuilderBlockType.Text:
-      return <p style={{ whiteSpace: 'pre-wrap'}}>{item.data.text}</p>;
+      return <SanitizeHTML html={item.data.text}/>;
     case BuilderBlockType.Comment:
       return <CourseComment item={item as CommentBlock}/>;
+    case BuilderBlockType.Divider:
+      return <CourseDivider/>;
+    case BuilderBlockType.Image:
+      return <CourseImage item={item as ImageBlock}/>;
     default:
       return null;
     }

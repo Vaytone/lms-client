@@ -38,9 +38,9 @@
 
 .List {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   width: 350px;
-  grid-gap: 8px; /* Space between the grid items */
+  grid-gap: 8px;
   margin-top: 16px;
   padding: 16px;
 }

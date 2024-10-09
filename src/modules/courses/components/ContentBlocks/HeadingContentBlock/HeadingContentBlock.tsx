@@ -17,7 +17,7 @@ const textContentSchema = yup.object({
   text: yup.string()
     .required(t('errors.requiredFiled'))
     .min(BUILDER_ITEM_VALIDATION.minHeading, t('errors.minLength', { value: BUILDER_ITEM_VALIDATION.minHeading }))
-    .max(BUILDER_ITEM_VALIDATION.maxHeading, t('auth.maxLength', { value: BUILDER_ITEM_VALIDATION.maxHeading })),
+    .max(BUILDER_ITEM_VALIDATION.maxHeading, t('errors.maxLength', { value: BUILDER_ITEM_VALIDATION.maxHeading })),
 });
 
 type TextContentForm = {

@@ -1,5 +1,6 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 import {
+  defaultDropAnimation, defaultDropAnimationSideEffects,
   DndContext,
   DragOverlay,
   KeyboardSensor,
@@ -17,6 +18,7 @@ import BlockActiveItem from '@modules/courses/components/BlockActiveItem/BlockAc
 import { BuilderContext } from '@modules/courses/contexts/BuilderContext';
 import AddBlockButton from '@modules/courses/components/AddBlockButton/AddBlockButton';
 import { BuilderItem } from '@modules/courses/types/builder.types';
+import { restrictToWindowEdges } from '@dnd-kit/modifiers';
 
 const initOverData = {
   containerId: null,
@@ -28,7 +30,10 @@ const CourseBuilder: React.FC = () => {
   const [activeId, setActiveId] = useState();
   const [activeBlock, setActiveBlock] = useState(null);
   const [overData, setOverData] = useState(initOverData);
-  
+  const isBuilderDragging = useMemo(() => {
+    return BUILDER_IDS.includes(activeId);
+  }, [activeId]);
+
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -55,8 +60,10 @@ const CourseBuilder: React.FC = () => {
   const handleDragStart = (event) => {
     const { active } = event;
     const { id } = active;
+    
+    console.log(active, id);
 
-    if (active?.data?.current?.sortable?.containerId === BuilderAreasEnum.ComponentList) {
+    if (BUILDER_IDS.includes(id)) {
       const activeBlock = BUILDER_BLOCKS.find((item) => item.id === id);
       setActiveBlock(activeBlock);
       
@@ -303,6 +310,7 @@ const CourseBuilder: React.FC = () => {
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
+      modifiers={[restrictToWindowEdges]}
     >
       {Object.keys(items).filter((key) => key !== BuilderAreasEnum.ComponentList).map((item) => {
         return (
@@ -319,7 +327,22 @@ const CourseBuilder: React.FC = () => {
       
       <AddBlockButton isBuilderActive={BUILDER_IDS.includes(activeId)} />
       
-      <DragOverlay>
+      {/*<DragOverlay dropAnimation={isBuilderDragging ? null : { duration: 250, easing: 'ease' }}>*/}
+      {/*  {activeId ? getDragOverlayItem() : null}*/}
+      {/*</DragOverlay>*/}
+      
+      <DragOverlay
+        dropAnimation={{
+          ...defaultDropAnimation,
+          sideEffects: defaultDropAnimationSideEffects({
+            styles: {
+              active: {
+                opacity: '1',
+              },
+            },
+          }),
+        }}
+      >
         {activeId ? getDragOverlayItem() : null}
       </DragOverlay>
       

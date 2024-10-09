@@ -14,11 +14,15 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
+
+  svg {
+    font-size: 2em;
+  }
 }
 
 .Title {
   margin: 8px 0 0;
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: 600;
   color: $light-text-color;
 }

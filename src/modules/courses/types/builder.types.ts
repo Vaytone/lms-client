@@ -48,7 +48,15 @@ export interface DividerBlock extends ContentBlock {
   }
 }
 
-export type BuilderItem = TitleBlock | HeadingBlock | CommentBlock | DividerBlock;
+export interface ImageBlock extends ContentBlock {
+  data: {
+    type: BuilderBlockType.Image,
+    fileId: string,
+    description: string,
+  }
+}
+
+export type BuilderItem = TitleBlock | HeadingBlock | CommentBlock | DividerBlock | ImageBlock;
 
 export interface BuilderItems {
   [key: string]: BuilderItem[];
@@ -64,6 +72,13 @@ export enum BuilderBlockType {
   Heading = 'heading',
   Comment = 'comment',
   Divider = 'divider',
+  Image = 'image',
+}
+
+export type BuilderFile = {
+  id: string,
+  itemId: string,
+  file: File,
 }
 
 interface ExtendedBlockData extends BlocksData {

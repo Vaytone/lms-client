@@ -9,18 +9,28 @@ import React, {
   useState,
 } from 'react';
 import { FieldErrors, useForm, UseFormRegister } from 'react-hook-form';
-import { BlocksData, BuilderItem, BuilderItems, CourseData, CourseForm } from '@modules/courses/types/builder.types';
+import {
+  BlocksData, BuilderBlockType,
+  BuilderFile,
+  BuilderItem,
+  BuilderItems,
+  CourseData,
+  CourseForm,
+} from '@modules/courses/types/builder.types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { courseBaseSchema } from '@modules/courses/validation/course.validation';
 import { v4 } from 'uuid';
-import { BUILDER_SAVE_DATA_KEY } from '@modules/courses/constants/builder';
+import { BUILDER_IMAGES_KEY, BUILDER_SAVE_DATA_KEY } from '@modules/courses/constants/builder';
 import { Outlet } from 'react-router-dom';
+import { deleteFilesByItemIds, openBuilderDatabase } from '@modules/courses/helper/builder.helper';
 
 interface BuilderContextType {
   addBlock: (blockToAdd?: BuilderItem) => void,
   removeBlock: (id: string) => void,
   items: BuilderItems,
   setItems: Dispatch<SetStateAction<BuilderItems>>,
+  setFiles: Dispatch<SetStateAction<BuilderFile[]>>
+  files: BuilderFile[],
   blocksData: BlocksData[],
   handleChangeBlockData: (id: string, key: string, value: string) => void,
   handleChangeItemsData: (id: string, key: string, value: string) => void,
@@ -31,6 +41,7 @@ interface BuilderContextType {
   validationTrigger: number,
   handleItemsError: (id: string, validationResult: boolean) => void,
   getCourseData: () => CourseData,
+  iDb: IDBDatabase,
 }
 export const BuilderContext = createContext<BuilderContextType | null>(null);
 
@@ -57,22 +68,38 @@ export const BuilderContextProvider: React.FC<BuilderContextProviderProps> = () 
   const [itemsError, setItemsError] = useState({});
   const [blocksData, setBlocksData] = useState<BlocksData[]>([]);
   const [isSaved, setSaved] = useState(false);
+  const [validationTrigger, setValidationTrigger] = useState(0);
+  const [files, setFiles] = useState<BuilderFile[]>([]);
+  const [iDb, setIDb] = useState<IDBDatabase | null>(null);
   const formTitle = watch('title');
   const isFirstRender = useRef(true);
   const formDescription = watch('description');
-  const [validationTrigger, setValidationTrigger] = useState(0);
   
   useEffect(() => {
-    const saveData = localStorage.getItem(BUILDER_SAVE_DATA_KEY);
-    if (saveData) {
-      const data = JSON.parse(saveData);
-      
-      setValue('title', data.form.title);
-      setValue('description', data.form.description);
-      setItems(() => data.items);
-      setBlocksData(() => data.blocksData);
-    }
-    setSaved(true);
+    openBuilderDatabase().then((db) => {
+      const transaction = db.transaction(BUILDER_IMAGES_KEY, 'readonly');
+      const store = transaction.objectStore(BUILDER_IMAGES_KEY);
+      const request = store.getAll();
+
+      request.onsuccess = () => {
+        setFiles(request.result as BuilderFile[]);
+      };
+
+      setIDb(db);
+    }).catch(() => {
+      // console.error('IndexedDB error:', error);
+    })
+      .finally(() => {
+        const saveData = localStorage.getItem(BUILDER_SAVE_DATA_KEY);
+        if (saveData) {
+          const data = JSON.parse(saveData);
+          setValue('title', data.form.title);
+          setValue('description', data.form.description);
+          setItems(() => data.items);
+          setBlocksData(() => data.blocksData);
+        }
+        setSaved(true);
+      });
   }, []);
   
   const initValidationTrigger = () => {
@@ -90,7 +117,10 @@ export const BuilderContextProvider: React.FC<BuilderContextProviderProps> = () 
         blocksData,
       };
       
-      localStorage.setItem(BUILDER_SAVE_DATA_KEY, JSON.stringify(dataToSave));
+      const prevSavedData = localStorage.getItem(BUILDER_SAVE_DATA_KEY);
+      if (prevSavedData !== JSON.stringify(dataToSave)) {
+        localStorage.setItem(BUILDER_SAVE_DATA_KEY, JSON.stringify(dataToSave));
+      }
     } else {
       isFirstRender.current = false;
     }
@@ -124,10 +154,6 @@ export const BuilderContextProvider: React.FC<BuilderContextProviderProps> = () 
       };
     });
   };
-  
-  useEffect(() => {
-    console.log(itemsError, 'ITEMS ERROR');
-  }, [itemsError]);
   
   const onSubmit = (data: CourseForm) => {
     let isErrorInItems = false;
@@ -194,7 +220,15 @@ export const BuilderContextProvider: React.FC<BuilderContextProviderProps> = () 
     });
   };
   
-  const removeBlock = (id: string) => {
+  const removeBlock = async (id: string) => {
+    const itemsWithImagesInBlock = items[id]
+      .filter((item) => item.data.type === BuilderBlockType.Image && item.data.fileId)
+      .map((item) => item.id);
+    
+    if (itemsWithImagesInBlock && iDb) {
+      await deleteFilesByItemIds(itemsWithImagesInBlock, iDb);
+    }
+    
     setItems((prev) => {
       delete prev[id];
       
@@ -214,12 +248,35 @@ export const BuilderContextProvider: React.FC<BuilderContextProviderProps> = () 
     const containerId = findContainer(id);
     
     if (containerId) {
+      const itemToDelete = items[containerId].find((item) => item.id === id);
+      
+      if (itemToDelete.data.type === BuilderBlockType.Image && itemToDelete.data.fileId) {
+        if (iDb) {
+          const transaction = iDb.transaction(BUILDER_IMAGES_KEY, 'readwrite');
+          const store = transaction.objectStore(BUILDER_IMAGES_KEY);
+          
+          const deleteRequest = store.index('itemId').openCursor(IDBKeyRange.only(id));
+          
+          deleteRequest.onsuccess = (event: Event) => {
+            const cursor = (event.target as IDBRequest<IDBCursorWithValue>).result;
+            if (cursor) {
+              store.delete(cursor.primaryKey);
+              cursor.continue();
+            }
+          };
+        }
+      }
+      
       setItemsError((prev) => {
         const newState = { ...prev };
-        delete newState[containerId][id];
+       
+        if (newState?.[containerId]?.[id]) {
+          delete newState[containerId][id];
+        }
+        
         return newState;
       });
-      
+
       setItems((prev) => ({
         ...prev,
         [containerId]: prev[containerId].filter((item) => item.id !== id),
@@ -285,10 +342,12 @@ export const BuilderContextProvider: React.FC<BuilderContextProviderProps> = () 
       validationTrigger,
       handleItemsError,
       getCourseData,
+      setFiles,
+      files,
+      iDb,
     };
   }, [
-    removeBlock,
-    addBlock,
+    iDb,
     items,
     setItems,
     blocksData,
@@ -301,6 +360,8 @@ export const BuilderContextProvider: React.FC<BuilderContextProviderProps> = () 
     validationTrigger,
     handleItemsError,
     getCourseData,
+    setFiles,
+    files,
   ]);
   
   return (

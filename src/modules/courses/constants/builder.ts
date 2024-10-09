@@ -56,6 +56,20 @@ export const BUILDER_BLOCKS: BuilderBlock[] = [
       type: BuilderBlockType.Divider,
     },
   },
+  {
+    id: 'imageBlock',
+    dragId: 'imageBlock',
+    type: 'image',
+    data: {
+      title: t('courses.image'),
+      icon: 'image',
+    },
+    dataToAdd: {
+      type: BuilderBlockType.Image,
+      fileId: null,
+      description: '',
+    },
+  },
 ];
 
 export const BUILDER_IDS = BUILDER_BLOCKS.map((item) => item.id);
@@ -66,3 +80,6 @@ export enum BuilderAreasEnum {
 }
 
 export const BUILDER_SAVE_DATA_KEY = 'VAYTONE_BUILDER_SAVE_DATA';
+
+export const BUILDER_IMAGES_INDEXED_DB_KEY = 'vaytoneBuilderImages';
+export const BUILDER_IMAGES_KEY = 'vaytoneCourseImages';
