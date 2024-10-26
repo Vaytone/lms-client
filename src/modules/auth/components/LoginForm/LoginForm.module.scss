@@ -3,9 +3,8 @@
 
 .LoginFormWrapper {
   padding: 5px;
-
   border-radius: 5px;
-  background-color: #f5f6fa;
+  background-color: var(--light-border-color);
   margin: 30px 15px 0;
 
   @include for-tablet {
@@ -23,7 +22,7 @@
   align-items: center;
   flex-basis: 100%;
   max-width: 450px;
-  background-color: $content-color;
+  background-color: var(--content-color);
   padding: 30px 20px;
   border-radius: 5px;
 
@@ -38,10 +37,10 @@
 }
 
 .LoginText {
-  border-top: 1px solid $bright-text-color;
+  border-top: 1px solid var(--bright-text-color);
   padding-top: 20px;
   text-align: center;
-  color: $light-text-color;
+  color: var(--light-text-color);
   font-size: 14px;
   margin: 20px 0 0;
 }

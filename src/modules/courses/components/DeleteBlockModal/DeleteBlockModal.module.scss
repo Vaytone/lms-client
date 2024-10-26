@@ -1,0 +1,26 @@
+@import "@styles/variables";
+
+.Wrapper {
+  max-width: 500px;
+  width: 100%;
+  min-width: 500px;
+  padding: 16px;
+}
+
+.Buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.Title {
+  font-size: 1.4em;
+  text-align: center;
+  margin: 8px 0 16px;
+}
+
+.Description {
+  color: var(--light-text-color);
+  font-size: 1.1em;
+  text-align: center;
+}

@@ -1,0 +1,166 @@
+@import "@styles/mixins";
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+    top: calc(100% + 5px);
+  }
+
+  100% {
+    top: calc(100% + 15px);
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.Wrapper {
+  background-color: var(--content-color);
+  padding: 8px 32px 8px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  justify-content: flex-end;
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  width: calc(100vw - 8px);
+  z-index: 9;
+
+  @include for-tablet-l() {
+    width: calc(100vw - var(--sidebar-width) - 8px);
+  }
+}
+
+.ControlButton {
+  height: 30px;
+  display: flex;
+  gap: 8px;
+
+  button {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg:first-child {
+      margin-right: 0;
+    }
+
+    span:first-child {
+      margin-right: 0;
+    }
+
+    span:last-child {
+      display: none;
+    }
+  }
+
+
+  @include for-tablet() {
+    button {
+
+      svg:first-child {
+        margin-right: 10px;
+      }
+
+      span:first-child {
+        margin-right: 10px;
+      }
+
+      span:last-child {
+        display: unset;
+      }
+    }
+  }
+}
+
+.StructureWrapper {
+  position: relative;
+}
+
+.StructureContent {
+  animation: appear 0.1s linear;
+  position: absolute;
+  top: calc(100% + 15px);
+  width: 350px;
+  right: 50%;
+  border-radius: 8px;
+  background-color: var(--content-color);
+  overflow: hidden;
+  box-shadow: 0 0 15px var(--light-box-shadow);
+}
+
+.Structure {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 24px;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    border-top-right-radius: 24px;
+  }
+}
+
+.StructureMainTitle {
+  font-size: 1.1em;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.StructureDescription {
+  font-size: 0.8em;
+  color: var(--light-text-color);
+  margin: 5px 0 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.StructureTitle {
+  font-size: 1em;
+  color: var(--primary-color);
+  margin: 4px 0;
+  font-weight: 600;
+}
+
+.StructureItems {
+  padding-left: 10px;
+  display: flex;
+  margin: 5px 0;
+  cursor: pointer;
+  width: 100%;
+  flex-basis: 100%;
+
+  & > * {
+    width: 100%;
+  }
+
+  a {
+    display: block;
+    //color: var(--primary-color);
+    text-decoration: none;
+  }
+}
+
+.LinkWrapper {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  color: var(--light-text-color);
+
+  &:hover {
+    color: var(--secondary-color);
+  }
+
+  svg {
+    margin-right: 5px;
+    color: inherit;
+  }
+
+  a {
+    //color: var(--primary-color);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+}

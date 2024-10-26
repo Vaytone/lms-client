@@ -1,7 +1,6 @@
 import React, { useId } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { format } from 'date-fns';
 import styles from './ApplicationSkeleton.module.scss';
 
 type Props = {

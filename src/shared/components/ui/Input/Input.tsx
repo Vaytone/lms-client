@@ -17,6 +17,7 @@ const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>((pr
     error,
     isInvalid,
     withoutError,
+    description,
   } = props;
   const [show, setShow] = useState(false);
   const [touched, setTouched] = useState(true);
@@ -43,6 +44,7 @@ const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>((pr
       {label && (
         <label htmlFor={id} className={styles.InputLabel}>{label as string}</label>
       )}
+      {description && <p className={styles.InputDescription}>{description}</p>}
       <div className={styles.InputHolder}>
         <input
           id={id}

@@ -2,9 +2,9 @@
 @import "@styles/mixins";
 
 .HeaderWrapper {
-  height: $header-height;
-  background-color: $content-color;
-  border-bottom: 1px solid $border-color;
+  height: var(--header-height);
+  background-color: var(--content-color);
+  border-bottom: 1px solid var(--border-color);
   position: fixed;
   top: 0;
   width: 100vw;

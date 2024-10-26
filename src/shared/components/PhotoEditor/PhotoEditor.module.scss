@@ -21,7 +21,7 @@
   top: 15px;
   right: 15px;
   font-size: 25px;
-  color: $light-text-color;
+  color: var(--light-text-color);
   z-index: 100;
 }
 
@@ -35,7 +35,7 @@
   //position: relative;
   //overflow: unset !important;
   ////padding: 0 0 10px;
-  ////background-color: $content-color;
+  ////background-color: var(--content-color);
   ////position: relative;
   ////min-width: 320px;
   ////border-radius: 5px;
@@ -55,7 +55,7 @@
 .PhotoCropperWrapper {
   box-shadow: unset !important;
   color: rgba(0, 0, 0, 0.05) !important;
-  border: 2px solid $reverse-text-color !important;
+  border: 2px solid var(--reverse-text-color) !important;
   //max-width: 600px;
   //max-height: 600px;
 }
@@ -78,10 +78,10 @@
   }
 
   span:last-child {
-    color: $primary-disabled;
+    color: var(--bright-text-color);
 
     &:hover {
-      color: $primary-color;
+      color: var(--accent-text-color);
     }
   }
 }

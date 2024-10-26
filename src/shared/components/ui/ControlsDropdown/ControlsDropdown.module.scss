@@ -2,9 +2,9 @@
 
 .Wrapper {
   padding: 0 16px;
-  border: 1px solid $border-color;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
-  background-color: $content-color;
+  background-color: var(--content-color);
   height: 40px;
   position: relative;
   user-select: none;
@@ -30,7 +30,7 @@
 
 .CurrentValue {
   margin: 0;
-  color: $secondary-color;
+  color: var(--secondary-color);
   font-weight: 500;
   font-size: 0.9em;
   text-overflow: ellipsis;
@@ -39,18 +39,18 @@
 }
 
 .Icon {
-  color: $secondary-bright;
+  color: var(--secondary-bright);
   margin-right: 8px;
   font-size: 1.2em;
 }
 
 .Dropdown {
   position: absolute;
-  background-color: $content-color;
+  background-color: var(--content-color);
   top: 100%;
   width: calc(100% + 2px);
   left: calc(0% - 1px);
-  border: 1px solid $border-color;
+  border: 1px solid var(--border-color);
   z-index: 8;
 
   &--open {
@@ -64,16 +64,16 @@
   padding: 8px;
 
   &:hover {
-    background-color: $focus-color;
+    background-color: var(--focus-color);
   }
 
   &--disabled {
-    background-color: $content-disabled;
-    color: $light-text-color;
+    background-color: var(--content-disabled);
+    color: var(--light-text-color);
 
     &:hover {
-      background-color: $content-disabled;
-      color: $light-text-color;
+      background-color: var(--content-disabled);
+      color: var(--light-text-color);
       cursor: default;
     }
   }

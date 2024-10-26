@@ -13,4 +13,5 @@ export interface InputProps {
   ref?: any,
   disabled?: boolean,
   withoutError?: boolean,
+  description?: string,
 }

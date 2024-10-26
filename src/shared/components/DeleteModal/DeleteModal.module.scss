@@ -2,7 +2,7 @@
 @import "@styles/mixins";
 
 .ModalWrapper {
-  background-color: $content-color;
+  background-color: var(--content-color);
   padding: 20px 30px;
   position: relative;
   display: flex;
@@ -40,13 +40,13 @@
 
 .ModalTitle {
   font-size: 1.1rem;
-  color: $secondary-color;
+  color: var(--secondary-color);
   text-align: center;
   margin: 5px 0;
 }
 
 .ModalText {
-  color: $light-text-color;
+  color: var(--light-text-color);
   text-align: center;
   margin: 5px 0 15px;
 }

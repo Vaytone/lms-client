@@ -10,7 +10,11 @@ import UserDropdown from '@components/ui/UserDropdown/UserDropdown';
 import styles from './Sidebar.module.scss';
 
 export const SIDEBAR_ADMIN_LIST: SidebarNavList[] = [
-
+  {
+    text: 'core.myCourses',
+    icon: 'icon-courses',
+    to: '/my-courses',
+  },
 ];
 
 export const SIDEBAR_OWNER_LIST: SidebarNavList[] = [
@@ -46,6 +50,8 @@ const getUserNavList = (role: string): SidebarNavList[] => {
   switch (role) {
   case RoleEnum.Owner:
     return SIDEBAR_OWNER_LIST;
+  case RoleEnum.Admin:
+    return SIDEBAR_ADMIN_LIST;
   default:
     return [];
   }

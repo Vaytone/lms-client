@@ -1,0 +1,48 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.PageHolder {
+  flex-grow: 1;
+  display: flex;
+}
+
+.Wrapper {
+  display: flex;
+}
+
+.PageWrapper {
+  padding: 0 16px 16px 16px;
+  flex-direction: column;
+  margin-top: 75px;
+  //align-items: center;
+  //justify-content: flex-start;
+  gap: 16px;
+  width: calc(100% - 350px);
+  max-width: calc(100% - 357px);
+  flex-grow: 1;
+  display: flex;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  //@include for-tablet() {
+  //  padding: 0 16px 16px 16px;
+  //}
+}
+
+.Page {
+  max-width: calc(var(--content-width) - 60px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.Content {
+  margin: 0 auto;
+  width: 100%;
+  flex-grow: 1;
+  border-radius: 10px;
+}

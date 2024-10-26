@@ -22,7 +22,7 @@
 }
 
 .StepDescription {
-  color: $light-text-color;
+  color: var(--light-text-color);
   text-align: center;
   font-weight: 500;
   margin: 0 0 30px;
@@ -33,23 +33,23 @@
 }
 
 .StepOTPText {
-  color: $light-text-color;
+  color: var(--light-text-color);
   font-size: 0.9em;
   text-align: center;
 }
 
 .ResendButton {
   font-size: 0.9em;
-  color: $light-text-color;
+  color: var(--light-text-color);
   display: inline-block;
   margin: 5px 0 0;
 
   &--active {
-    color: $primary-color;
+    color: var(--primary-color);
 
     &:hover {
       cursor: pointer;
-      color: $primary-color;
+      color: var(--primary-color);
     }
   }
 }

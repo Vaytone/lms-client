@@ -1,0 +1,32 @@
+@import "@styles/variables";
+
+.InfoBlock {
+  align-self: flex-start;
+  background-color: #f1f1f1;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  gap: 8px;
+
+  svg {
+    min-width: 32px;
+    color: var(--reverse-text-color);
+  }
+
+  p {
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 16px;
+  }
+}
+
+.IconWrapper {
+  background-color: var(--primary-color);
+  padding: 8px;
+  display: flex;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  align-items: center;
+}

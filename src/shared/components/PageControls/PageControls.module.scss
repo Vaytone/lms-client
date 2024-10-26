@@ -2,17 +2,18 @@
 @import "@styles/mixins";
 
 .Controls {
-  background-color: $content-color;
+  background-color: var(--content-color);
   padding: 16px 32px 16px;
   margin-top: -1px;
   display: flex;
+  height: var(--controls-height);
   justify-content: space-between;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--border-color);
   position: fixed;
   width: 100%;
   z-index: 9;
 
   @include for-tablet-l() {
-    width: calc(100vw - $sidebar-width);
+    width: calc(100vw - var(--sidebar-width));
   }
 }

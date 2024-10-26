@@ -14,6 +14,7 @@ const Button: React.FC<ButtonProps> = (
         isDanger && styles.ButtonElemDanger,
         styleType === 'transparent' && styles.ButtonElemTransparent,
         styleType === 'bordered' && styles.ButtonElemBordered,
+        styleType === 'danger' && styles.ButtonElemDanger,
       )}
       disabled={disabled}
       onClick={onClick || null}
@@ -21,7 +22,8 @@ const Button: React.FC<ButtonProps> = (
     >
       {isLoading ? <Loader size={15} color={styleType === 'transparent' ? '#c1c1c1' : '#ffffff'}/> : (
         <>
-          {icon && <span className={cn(styles.ButtonIcon, icon)}/>}
+          {icon && typeof icon === 'string' ? <span className={cn(styles.ButtonIcon, icon)}/> : null}
+          {icon && typeof icon !== 'string' ? icon : null}
           <span className={styles.ButtonText}>{text}</span>
         </>
       )}

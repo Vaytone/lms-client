@@ -11,7 +11,8 @@
 }
 
 .Wrapper {
-  background-color: #fff;
+  background-color: var(--content-color);
+  border: 1px solid var(--accent-border-color);
   padding: 24px;
   border-radius: 10px;
   max-width: 100%;
@@ -78,7 +79,7 @@
 
 .Role {
   font-weight: 600;
-  color: $secondary-light;
+  color: var(--secondary-light);
   align-self: flex-start;
   margin: 0;
   width: 50px;
@@ -128,7 +129,7 @@
 }
 
 .Date {
-  color: $secondary-bright;
+  color: var(--secondary-bright);
   order: 2;
   display: flex;
   align-items: center;

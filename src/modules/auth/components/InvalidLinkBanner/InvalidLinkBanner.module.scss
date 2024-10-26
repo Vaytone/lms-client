@@ -21,7 +21,7 @@
   flex-direction: column;
   align-items: center;
   flex-basis: 100%;
-  background-color: $content-color;
+  background-color: var(--content-color);
   padding: 30px 20px;
   border-radius: 5px;
   max-width: 500px;
@@ -37,6 +37,6 @@
 }
 
 .BannerText {
-  color: $light-text-color;
+  color: var(--light-text-color);
   text-align: center;
 }

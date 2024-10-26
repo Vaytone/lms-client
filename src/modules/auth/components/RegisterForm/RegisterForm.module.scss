@@ -3,7 +3,7 @@
 .RegisterFormWrapper {
   padding: 5px;
   border-radius: 5px;
-  background-color: #f5f6fa;
+  background-color: var(--light-border-color);
   max-width: 900px;
   width: 100%;
   margin: 30px 15px 0;
@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: $content-color;
+  background-color: var(--content-color);
   padding: 30px 20px;
   border-radius: 5px;
   order: -1;
@@ -56,7 +56,7 @@
 }
 
 .RegisterStepWrapper {
-  background-color: $sub-content-color;
+  background-color: var(--sub-content-color);
   border-radius: 10px;
   flex-basis: 40%;
   padding: 25px;
@@ -99,12 +99,12 @@
   font-size: 0.7em;
   line-height: 0.7em;
   max-height: 0.7em;
-  color: $light-text-color;
+  color: var(--light-text-color);
   font-weight: 800;
 }
 
 .RegisterOrganisationName {
-  color: $light-text-color;
+  color: var(--light-text-color);
   margin: 0 0 40px;
   font-size: 1rem;
   font-weight: 500;

@@ -9,14 +9,14 @@
   cursor: pointer;
 
   &:hover {
-    border-color: $body-color;
-    background-color: $body-color;
+    border-color: var(--body-color);
+    background-color: var(--body-color);
   }
 
   &--reversed {
     &:hover {
-      border-color: $bright-text-color;
-      background-color: $bright-text-color;
+      border-color: var(--bright-text-color);
+      background-color: var(--bright-text-color);
     }
   }
 }
@@ -37,5 +37,5 @@
   font-size: 14px;
   line-height: 1;
   letter-spacing: 1px;
-  color: $secondary-light;
+  color: var(--secondary-light);
 }

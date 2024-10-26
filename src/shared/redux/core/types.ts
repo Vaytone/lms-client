@@ -5,4 +5,5 @@ export interface CoreState {
   isLoading: boolean,
   lng: Languages,
   currentPage: PageEnum,
+  theme: 'light' | 'dark',
 }

@@ -1,9 +1,9 @@
 @import "@styles/variables";
 
 .Wrapper {
-  border: 1px solid $border-color;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
-  background-color: $content-color;
+  background-color: var(--content-color);
   height: 40px;
   width: 40px;
   display: flex;
@@ -11,11 +11,11 @@
   align-items: center;
 
   &:focus, &:active {
-    border-color: $primary-color;
+    border-color: var(--primary-color);
   }
 }
 
 .Icon {
   font-size: 18px;
-  color: $secondary-bright;
+  color: var(--secondary-bright);
 }

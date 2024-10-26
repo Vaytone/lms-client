@@ -8,7 +8,7 @@
 
 .ContentWrapper {
   flex-grow: 1;
-  background-color: $body-color;
+  background-color: var(--body-color);
   min-height: 100vh;
   display: flex;
   width: 100vw;
@@ -16,7 +16,7 @@
 
 .Role {
   font-weight: 600;
-  color: $secondary-light;
+  color: var(--secondary-light);
   align-self: flex-start;
   margin: 0;
   position: absolute;
@@ -30,12 +30,12 @@
 }
 
 .ContentHolder {
-  padding: $header-height 0 0;
+  padding: var(--header-height) 0 0;
   height: 100%;
   width: 100%;
   display: flex;
 
   @include for-tablet-l {
-    padding-left: $sidebar-width;
+    padding-left: var(--sidebar-width);
   }
 }

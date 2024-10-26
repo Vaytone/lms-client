@@ -1,0 +1,10 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.Page {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+

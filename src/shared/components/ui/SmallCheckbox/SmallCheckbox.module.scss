@@ -18,7 +18,7 @@
   height: 20px;
   min-width: 20px;
   min-height: 20px;
-  border: 1px solid $bright-text-color;
+  border: 1px solid var(--bright-text-color);
   border-radius: 4px;
   display: flex;
   justify-content: center;
@@ -31,21 +31,21 @@
     transition: all 0.2s;
     opacity: 0;
     font-size: 12px;
-    color: $reverse-text-color;
+    color: var(--reverse-text-color);
   }
 
   &--checked {
-    background-color: $primary-color;
-    border-color: $primary-color;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 
     span {
       opacity: 1;
-      color: $reverse-text-color;
+      color: var(--reverse-text-color);
     }
   }
 
   &--disabled {
-    background-color: $bright-text-color;
+    background-color: var(--bright-text-color);
   }
 
 }
