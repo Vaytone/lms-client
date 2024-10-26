@@ -1,15 +1,29 @@
-import React, { useContext } from 'react';
-import { SubmitHandler } from 'react-hook-form';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import Input from '@components/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import TextArea from '@components/ui/TextArea/Input';
 import InfoBlock from '@components/ui/InfoBlock/InfoBlock';
-import { BuilderContext } from '@modules/courses/contexts/BuilderContext';
-import { SignInForm } from '@modules/auth/types/auth.types';
+import { CourseForm } from '@modules/courses/types/builder.types';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { courseBaseSchema } from '@modules/courses/validation/course.validation';
 import styles from './CourseBaseForm.module.scss';
 
 const CourseBaseForm: React.FC = () => {
-  const { register, errors } = useContext(BuilderContext);
+  const {
+    handleSubmit,
+    register,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useForm<CourseForm>({
+    mode: 'all',
+    defaultValues: {
+      title: '',
+      description: '',
+    },
+    resolver: yupResolver(courseBaseSchema),
+  });
   const { t } = useTranslation();
   
   return (

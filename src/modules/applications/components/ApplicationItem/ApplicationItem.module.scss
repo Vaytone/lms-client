@@ -2,7 +2,8 @@
 @import '@styles/mixins';
 
 .Wrapper {
-  background-color: #fff;
+  background-color: var(--content-color);
+  border: 1px solid var(--accent-border-color);
   padding: 24px;
   border-radius: 10px;
   max-width: 100%;
@@ -31,7 +32,7 @@
 
 .Email {
   margin: 0;
-  color: $secondary-light;
+  color: var(--secondary-light);
   word-break: break-all;
   font-size: 0.8em;
 
@@ -42,7 +43,7 @@
 
 .Role {
   font-weight: 600;
-  color: $secondary-light;
+  color: var(--secondary-light);
   align-self: flex-start;
   margin: 0;
   position: absolute;
@@ -80,7 +81,7 @@
 }
 
 .Message {
-  color: $secondary-bright;
+  color: var(--secondary-bright);
   font-weight: 500;
   width: 100%;
   margin: 24px 0;
@@ -111,7 +112,7 @@
 }
 
 .Date {
-  color: $secondary-bright;
+  color: var(--secondary-bright);
   order: 2;
   display: flex;
   align-items: center;
@@ -174,17 +175,17 @@
 
   p:first-child {
     margin: 0;
-    color: $secondary-bright;
+    color: var(--secondary-bright);
   }
 }
 
 .StatusCancel {
-  color: $primary-color;
+  color: var(--secondary-light);
   margin: 0 0 0 5px;
   font-weight: 700;
 
   &:hover {
     cursor: pointer;
-    color: $primary-hover;
+    color: var(--secondary-color);
   }
 }

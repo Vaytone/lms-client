@@ -7,26 +7,26 @@
 
   &--admin {
     background-color: #8073e1;
-    color: $reverse-text-color;
+    color: var(--reverse-text-color);
   }
 
   &--guest {
     background-color: #cbcc71;
-    color: $reverse-text-color;
+    color: var(--reverse-text-color);
   }
 
   &--student {
     background-color: #77bcc1;
-    color: $reverse-text-color;
+    color: var(--reverse-text-color);
   }
 
   &--watcher {
     background-color: #cab27e;
-    color: $reverse-text-color;
+    color: var(--reverse-text-color);
   }
 
   &--owner {
-    background-color: $primary-color;
-    color: $reverse-text-color;
+    background-color: var(--primary-color);
+    color: var(--reverse-text-color);
   }
 }

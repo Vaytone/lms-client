@@ -16,9 +16,10 @@ body {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $secondary-color;
+  color: var(--secondary-color);
   overflow-x: hidden;
-  //background-color: $body-color;
+  background-color: var(--body-content-color);
+  //background-color: var(--body-color);
 }
 
 code {
@@ -35,11 +36,11 @@ code {
 }
 
 *::-webkit-scrollbar-track {
-  background: #f8f8f8;
+  background: var(--border-color);
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--focus-color);
 }
 
 *::-webkit-scrollbar-thumb:hover {

@@ -30,10 +30,8 @@ const Navigation: React.FC = () => {
         </Route>
         
         <Route path='/' element={<AdminLayout/>}>
-          <Route path='/' element={<BuilderContextProvider/>}>
-            <Route path={AppRoutes.MyCourses} element={<CourseBuilderPage/>}/>
-            <Route path={AppRoutes.CoursePreview} element={<CoursePreviewPage/>}/>
-          </Route>
+          <Route path={AppRoutes.MyCourses} element={<CourseBuilderPage/>}/>
+          <Route path={AppRoutes.CoursePreview} element={<CoursePreviewPage/>}/>
         </Route>
       </Route>
       

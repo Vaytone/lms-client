@@ -1,7 +1,7 @@
 @import "@styles/variables";
 
 .Wrapper {
-  background-color: #fff;
+  background-color: var(--content-color);
   padding: 16px;
   border-radius: 10px;
   max-width: 100%;
@@ -14,7 +14,7 @@
 .IconWrapper {
   width: 40px;
   height: 40px;
-  background-color: $bright-text-color;
+  background-color: var(--body-content-color);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -22,12 +22,12 @@
 }
 
 .Icon {
-  color: $light-text-color;
+  color: var(--light-text-color);
 }
 
 .Text {
   font-size: 1em;
-  color: $light-text-color;
+  color: var(--light-text-color);
   font-weight: 500;
   margin: 0;
 }

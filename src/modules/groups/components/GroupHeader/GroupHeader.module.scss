@@ -2,7 +2,7 @@
 
 .Wrapper {
   width: 100%;
-  background-color: $content-color;
+  background-color: var(--content-color);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -38,7 +38,7 @@
   height: 65px;
   min-width: 65px;
   min-height: 65px;
-  background-color: $body-color;
+  background-color: var(--body-color);
   border-radius: 50%;
   display: flex;
   align-items: center;

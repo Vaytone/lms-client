@@ -3,8 +3,8 @@
 .AvatarFillerWrapper {
   width: 100%;
   height: 100%;
-  background-color: $primary-color;
-  color: $reverse-text-color;
+  background-color: var(--primary-color);
+  color: var(--reverse-text-color);
   font-size: inherit;
   display: flex;
   justify-content: center;

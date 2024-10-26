@@ -20,7 +20,7 @@
 }
 
 .Description {
-  color: $light-text-color;
+  color: var(--light-text-color);
   font-size: 1.1em;
   text-align: center;
 }

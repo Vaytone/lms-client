@@ -12,25 +12,25 @@
 
 .Title {
   font-size: 1.2em;
-  color: $secondary-color;
+  color: var(--secondary-color);
   margin: 20px 0 5px;
 }
 
 .Description {
   font-size: 1em;
-  color: $light-text-color;
+  color: var(--light-text-color);
   margin: 5px 0 10px;
 }
 
 .Divider {
   height: 1px;
   width: 100%;
-  background-color: $border-color;
+  background-color: var(--border-color);
 }
 
 .Form {
   width: 100%;
-  padding: $content-padding-desktop;
+  padding: var(--content-padding-desktop);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
 }
 
 .SuccessWrapper {
-  padding: $content-padding-desktop;
+  padding: var(--content-padding-desktop);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@
 }
 
 .IconWrapper {
-  background-color: $success-color;
+  background-color: var(--success-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +68,7 @@
 }
 
 .ListItem {
-  background-color: $bright-text-color;
+  background-color: var(--bright-text-color);
   padding: 4px 8px;
   border-radius: 4px;
   display: flex;
@@ -76,11 +76,11 @@
 }
 
 .ListIcon {
-  color: $accent-text-color;
+  color: var(--accent-text-color);
   margin-left: 8px;
 
   &:hover {
-    color: $light-text-color;
+    color: var(--light-text-color);
     cursor: pointer;
   }
 }
@@ -89,11 +89,11 @@
   margin: 0;
   font-size: 1em;
   line-height: 1em;
-  color: $light-text-color;
+  color: var(--light-text-color);
 }
 
 .Icon {
-  color: $reverse-text-color;
+  color: var(--reverse-text-color);
   font-size: 20px;
 }
 
@@ -101,11 +101,11 @@
   text-align: center;
   font-weight: 600;
   font-size: 1.2em;
-  color: $secondary-color;
+  color: var(--secondary-color);
 }
 
 .ButtonWrapper {
-  padding: $content-padding-desktop;
+  padding: var(--content-padding-desktop);
 }
 
 .Buttons {

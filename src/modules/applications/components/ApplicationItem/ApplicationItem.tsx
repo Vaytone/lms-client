@@ -26,9 +26,6 @@ const ApplicationItem: React.FC<ApplicationItemProps> = ({ application }) => {
     const page = Number(searchParams.get('page'));
     acceptApplication({ id, query: { sortBy, role, query, page: page.toString() } })
       .unwrap()
-      .then(() => {
-        getNotification(t('applications.applicationWasAccepted', { name: full_name }));
-      })
       .catch((e: any) => {
         applicationsErrorManager(e?.data?.message);
       });

@@ -39,7 +39,6 @@ const GroupsList: React.FC = () => {
   return (
     <div className={styles.Wrapper}>
       {isFetching ? (
-        // <ApplicationSkeleton count={17}/>
         <div/>
       ) : (
         <div className={styles.ListHolder}>

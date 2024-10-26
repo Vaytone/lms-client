@@ -13,7 +13,7 @@
   min-height: 16px;
   position: relative;
   margin-right: 5px;
-  background-color: $error-disabled;
+  background-color: var(--error-disabled);
   border-radius: 50%;
 
   &:before {
@@ -29,6 +29,6 @@
 
 .ErrorText {
   font-size: 13px;
-  color: $error-disabled;
+  color: var(--error-disabled);
   margin: 0;
 }

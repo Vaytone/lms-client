@@ -1,19 +1,19 @@
 @import "@styles/mixins";
 
 .Wrapper {
-  background-color: $content-color;
+  background-color: var(--content-color);
   padding: 8px 32px 8px;
   display: flex;
   align-items: center;
   height: 50px;
   justify-content: space-between;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--border-color);
   position: fixed;
   width: calc(100vw - 8px);
   z-index: 9;
 
   @include for-tablet-l() {
-    width: calc(100vw - $sidebar-width - 8px);
+    width: calc(100vw - var(--sidebar-width) - 8px);
   }
 }
 

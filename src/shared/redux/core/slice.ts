@@ -7,6 +7,7 @@ const initialState: CoreState = {
   isLoading: true,
   lng: 'uk',
   currentPage: PageEnum.Dashboard,
+  theme: 'light',
 };
 
 export const coreSlice = createSlice({
@@ -17,6 +18,9 @@ export const coreSlice = createSlice({
       state.isLoading = false;
       state.currentPage = payload;
     },
+    setTheme: (state, { payload }) => {
+      state.theme = payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -26,4 +30,4 @@ export const coreSlice = createSlice({
   },
 });
 
-export const { setCurrentPage } = coreSlice.actions;
+export const { setCurrentPage, setTheme } = coreSlice.actions;

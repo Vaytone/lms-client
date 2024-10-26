@@ -1,13 +1,13 @@
 @import "@styles/variables";
 
 .Wrapper {
-  background-color: $content-color;
+  background-color: var(--content-color);
   border-radius: 8px;
 }
 
 .Header {
   padding: 16px;
-  border-bottom: 1px solid $bright-text-color;
+  border-bottom: 1px solid var(--bright-text-color);
 }
 
 .Title {
@@ -27,7 +27,7 @@
 
 .InfoIcon {
   font-size: 1.25em;
-  color: $accent-text-color;
+  color: var(--accent-text-color);
 }
 
 .InfoValue {

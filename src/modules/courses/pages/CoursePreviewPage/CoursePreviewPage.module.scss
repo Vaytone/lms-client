@@ -8,11 +8,11 @@
 }
 
 .PageWrapper {
-  padding: calc($controls-height + 16px) 16px 16px 16px;
+  padding: calc(var(--controls-height) + 16px) 16px 16px 16px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: $small-content-width;
+  max-width: var(--small-content-width);
   width: 100%;
   margin: 0 auto;
   flex-grow: 1;
@@ -22,6 +22,6 @@
   }
 
   @include for-tablet {
-    padding: calc($controls-height + 16px) 32px 32px 32px;
+    padding: calc(var(--controls-height) + 16px) 32px 32px 32px;
   }
 }

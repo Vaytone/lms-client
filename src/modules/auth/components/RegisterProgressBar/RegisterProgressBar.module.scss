@@ -34,14 +34,14 @@
   font-size: 0.8em;
   font-weight: 500;
   margin: 3px 0 2px;
-  color: $light-text-color;
+  color: var(--light-text-color);
 }
 
 .StepDescription {
   margin: 0;
   font-size: 0.9em;
   font-weight: 600;
-  color: $secondary-color;
+  color: var(--secondary-color);
 }
 
 .StepStatus {
@@ -49,11 +49,11 @@
   font-size: 0.65em;
   height: 0.65em;
   font-weight: 800;
-  color: $primary-active;
+  color: var(--light-text-color);
   transition: all 0.2s;
 
   &--completed {
-    color: $success-hover;
+    color: var(--success-hover);
   }
 }
 
@@ -64,7 +64,7 @@
   align-items: center;
 
   &--completed {
-    background-color: $primary-color;
+    background-color: var(--primary-color);
   }
 }
 
@@ -81,15 +81,15 @@
   transition: all 0.2s;
 
   &--prev {
-    color: $reverse-text-color;
-    border-color: $success-hover;
-    background-color: $success-hover;
+    color: var(--reverse-text-color);
+    border-color: var(--success-hover);
+    background-color: var(--success-hover);
   }
 
   &--active {
-    border-color: $primary-hover;
-    color: $primary-hover;
-    background-color: $primary-bright;
+    border-color: var(--primary-hover);
+    color: var(--primary-hover);
+    background-color: var(--primary-bright);
 
     @include for-laptop {
       transition: all 0.2s, background-color 0.3s;
@@ -115,7 +115,7 @@
     bottom: 0;
     width: 1px;
     height: 0;
-    background-color: $success-hover;
+    background-color: var(--success-hover);
 
     @include for-laptop {
       transition: all 0.2s;

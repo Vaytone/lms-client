@@ -15,19 +15,19 @@
 }
 
 .Wrapper {
-  background-color: $content-color;
+  background-color: var(--content-color);
   padding: 8px 32px 8px;
   display: flex;
   align-items: center;
   height: 50px;
   justify-content: flex-end;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--border-color);
   position: fixed;
   width: calc(100vw - 8px);
   z-index: 9;
 
   @include for-tablet-l() {
-    width: calc(100vw - $sidebar-width - 8px);
+    width: calc(100vw - var(--sidebar-width) - 8px);
   }
 }
 
@@ -85,9 +85,9 @@
   width: 350px;
   right: 50%;
   border-radius: 8px;
-  background-color: $content-color;
+  background-color: var(--content-color);
   overflow: hidden;
-  box-shadow: 0 0 15px $light-box-shadow;
+  box-shadow: 0 0 15px var(--light-box-shadow);
 }
 
 .Structure {
@@ -103,21 +103,21 @@
 
 .StructureMainTitle {
   font-size: 1.1em;
-  color: $primary-color;
+  color: var(--primary-color);
   margin: 0;
 }
 
 .StructureDescription {
   font-size: 0.8em;
-  color: $light-text-color;
+  color: var(--light-text-color);
   margin: 5px 0 5px;
   padding-bottom: 10px;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .StructureTitle {
   font-size: 1em;
-  color: $primary-color;
+  color: var(--primary-color);
   margin: 4px 0;
   font-weight: 600;
 }
@@ -136,7 +136,7 @@
 
   a {
     display: block;
-    //color: $primary-color;
+    //color: var(--primary-color);
     text-decoration: none;
   }
 }
@@ -146,10 +146,10 @@
   flex-grow: 1;
   display: flex;
   align-items: center;
-  color: $light-text-color;
+  color: var(--light-text-color);
 
   &:hover {
-    color: $secondary-color;
+    color: var(--secondary-color);
   }
 
   svg {
@@ -158,7 +158,7 @@
   }
 
   a {
-    //color: $primary-color;
+    //color: var(--primary-color);
     text-decoration: none;
     color: inherit;
     display: block;

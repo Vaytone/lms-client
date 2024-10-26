@@ -3,16 +3,16 @@
 
 .SidebarWrapper {
   position: fixed;
-  top: $header-height;
+  top: var(--header-height);
   left: -100%;
   bottom: 0;
-  background-color: $content-color;
+  background-color: var(--content-color);
   width: 100%;
   max-width: 450px;
   padding: 0;
   z-index: 11;
   transition: all 0.3s;
-  border-right: 1px solid $border-color;
+  border-right: 1px solid var(--border-color);
 
   &--active {
     left: 0;
@@ -20,7 +20,7 @@
 
   @include for-tablet-l {
     left: 0;
-    width: $sidebar-width;
+    width: var(--sidebar-width);
     padding: 20px 0;
   }
 
@@ -33,7 +33,7 @@
   top: 0;
   left: 0;
   padding: 0 17px;
-  height: $header-height;
+  height: var(--header-height);
   display: flex;
   z-index: 10;
   justify-content: flex-start;
@@ -71,9 +71,9 @@
   &--active {
     left: 85%;
     font-size: 16px;
-    background-color: $content-color;
-    color: $primary-hover;
-    border-color: $primary-active;
+    background-color: var(--content-color);
+    color: var(--primary-hover);
+    border-color: var(--primary-active);
   }
 
   @include for-tablet-l {
@@ -100,8 +100,8 @@
   width: 100%;
   display: flex;
   padding: 20px 15px;
-  color: $secondary-bright;
-  border-bottom: 1px solid $border-color;
+  color: var(--secondary-bright);
+  border-bottom: 1px solid var(--border-color);
   position: relative;
 
   &:after {
@@ -127,7 +127,7 @@
   &--active {
 
     &:after {
-      background-color: $primary-hover;
+      background-color: var(--primary-hover);
     }
 
     p {
@@ -137,7 +137,7 @@
 
   @include for-tablet {
     align-items: center;
-    color: $secondary-light;
+    color: var(--secondary-light);
     transition: all 0.2s;
     padding: 10px 17px;
     margin-bottom: 10px;
@@ -145,24 +145,24 @@
     border-radius: 7px;
 
     &:hover {
-      color: $secondary-color;
-      background-color: $focus-color;
+      color: var(--secondary-color);
+      background-color: var(--light-action);
     }
 
     &--active {
-      color: $secondary-color;
+      color: var(--secondary-color);
       font-weight: 700;
-      background-color: $focus-color;
+      background-color: var(--light-action);
 
       &:after {
-        background-color: $focus-color;
+        background-color: var(--focus-color);
       }
 
       &:hover {
-        background-color: $focus-color;
+        background-color: var(--light-action);
 
         &:after {
-          background-color: $primary-color;
+          background-color: var(--primary-color);
         }
       }
     }
@@ -193,7 +193,6 @@
 
   @include for-tablet-l {
     word-break: break-all;
-    color: $secondary-light;
     padding: 0 4px;
     font-weight: 600;
     font-size: 0.9em;

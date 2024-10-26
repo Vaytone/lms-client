@@ -11,19 +11,19 @@
 
   svg {
     min-width: 32px;
-    color: $reverse-text-color;
+    color: var(--reverse-text-color);
   }
 
   p {
     margin: 0;
-    color: $primary-color;
+    color: var(--primary-color);
     font-weight: 600;
     padding: 16px;
   }
 }
 
 .IconWrapper {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   padding: 8px;
   display: flex;
   border-top-left-radius: 5px;
