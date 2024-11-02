@@ -27,6 +27,7 @@
   --reverse-text-color: #ffffff;
   --body-color: #EDEEF0;
   --body-content-color: #fff;
+  --body-accent-color: #f3f3f3;
   --content-color: #FFFFFF;
   --content-disabled: #ededed;
   --sub-content-color: #FAFAFA;
@@ -62,6 +63,8 @@
 
   --light-action: #ededed;
 
+  --content-over: rgba(254, 254, 254, 0.5);
+
   --font-family: 'Manrope', sans-serif;
 }
 
@@ -94,6 +97,7 @@
   --reverse-text-color: #ffffff;
   --body-color: #17171c;
   --body-content-color: #191a1f;
+  --body-accent-color: #191921;
   --content-color: #202227;         /* Content area background */
   --content-disabled: #1c1d24;      /* Disabled content */
   --sub-content-color: #1f2028;     /* Subtle sub-content background */
@@ -128,6 +132,8 @@
   --action-hover: #4e68f1;
 
   --light-action: #505050;
+
+  --content-over: rgba(68, 68, 68, 0.8);
 
   --font-family: 'Manrope', sans-serif;
 }

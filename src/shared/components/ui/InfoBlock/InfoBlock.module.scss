@@ -2,7 +2,8 @@
 
 .InfoBlock {
   align-self: flex-start;
-  background-color: #f1f1f1;
+  background-color: var(--body-accent-color);
+  border: 1px solid var(--accent-border-color);
   margin-top: 16px;
   display: flex;
   flex-direction: row;
@@ -16,7 +17,7 @@
 
   p {
     margin: 0;
-    color: var(--primary-color);
+    color: var(--secondary-light);
     font-weight: 600;
     padding: 16px;
   }
@@ -24,6 +25,7 @@
 
 .IconWrapper {
   background-color: var(--primary-color);
+  border-right: 1px solid var(--accent-border-color);
   padding: 8px;
   display: flex;
   border-top-left-radius: 5px;

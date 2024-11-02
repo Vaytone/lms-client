@@ -1,0 +1,24 @@
+@import "@styles/mixins";
+
+.TemplateAside {
+  background-color: var(--content-color);
+  position: fixed;
+  top: calc(50px + var(--header-height));
+  height: calc(100vh - 50px - var(--header-height));
+  border-left: 1px solid var(--border-color);
+  right: 0;
+  width: 250px;
+  padding: 16px;
+
+  @include for-desktop-xl {
+    width: 350px;
+  }
+}
+
+.Title {
+  font-weight: 500;
+  font-size: 0.9em;
+  margin: 8px 0 16px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--border-color);
+}

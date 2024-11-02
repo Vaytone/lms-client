@@ -14,7 +14,6 @@ import GroupPage from '@modules/groups/pages/GroupPage/GroupPage';
 import AdminLayout from '@src/layouts/AdminLayout/AdminLayout';
 import CourseBuilderPage from '@modules/courses/pages/CourseBuilderPage/CourseBuilderPage';
 import CoursePreviewPage from '@modules/courses/pages/CoursePreviewPage/CoursePreviewPage';
-import { BuilderContextProvider } from '@modules/courses/contexts/BuilderContext';
 
 const Navigation: React.FC = () => {
   return (

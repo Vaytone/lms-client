@@ -125,6 +125,7 @@
     "you": "(ви)"
   },
   "courses": {
+    "addNewBlock": "Додати новий блок",
     "author": "Автор",
     "blockN": "Блок №{{value}}",
     "blockTitle": "Назва блоку",

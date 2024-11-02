@@ -125,6 +125,7 @@
     "you": "(You)"
   },
   "courses": {
+    "addNewBlock": "Add new block",
     "author": "Author",
     "blockN": "Block №{{value}}",
     "blockTitle": "Block title",
