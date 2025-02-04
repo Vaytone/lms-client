@@ -1,14 +1,14 @@
 .App {
   position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
+  //overflow-x: hidden;
 }
 
 .Button {
   z-index: 1000;
   position: fixed;
   top: 10px;
-  height: 120px;
+  height: 30px;
   background-color: red;
   color: white;
   right: 10px;

@@ -4,6 +4,7 @@ import { hideScrollbar, showScrollbar } from '@shared/helper/visual.helper';
 import { createPortal } from 'react-dom';
 import { useOutsideClick } from '@shared/hooks/useOutsideClick';
 import styles from './Modal.module.scss';
+import { X } from '@phosphor-icons/react';
 
 type Props = {
   children?: React.ReactNode
@@ -65,8 +66,8 @@ const Modal: React.FC<Props> = ({ children, outsideHandler, withCloseIcon, close
         className={styles.ModalContent}
       >
         {withCloseIcon && (
-          <span
-            className={cn('icon-small-cross', styles.ModalClose)}
+          <X
+            className={styles.ModalClose}
             onClick={handleClose}
           />
         )}

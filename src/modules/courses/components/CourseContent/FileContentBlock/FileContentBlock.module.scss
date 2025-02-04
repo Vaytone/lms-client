@@ -1,0 +1,43 @@
+.FileWrapper {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 8px;
+
+
+  svg:first-child {
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+  }
+}
+
+.FileContent {
+  display: flex;
+  align-items: center;
+}
+
+.FileTextWrapper {
+  flex-grow: 1;
+}
+
+.FileText {
+  margin: 0;
+}
+
+.FileSize {
+  color: var(--secondary-light-text);
+  font-size: 0.8em;
+}
+
+.Download {
+  color: var(--light-text-color);
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--secondary-color);
+  }
+}

@@ -1,14 +1,14 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
 import Loader from '@components/Loader/Loader';
-import { appFirstLoad } from '@shared/redux/core/thunks';
 import Navigation from '@src/navigation/Navigation';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import { SkeletonTheme } from 'react-loading-skeleton';
-import { THEME_LOCAL_STORAGE_KEY } from '@shared/constants/core';
-import { setTheme } from '@shared/redux/core/slice';
 import { ToastContainer } from 'react-toastify';
+import { setTheme } from '@shared/redux/core/slice';
+import { THEME_LOCAL_STORAGE_KEY } from '@shared/constants/core';
+import { appFirstLoad } from '@shared/redux/core/thunks';
 import styles from './App.module.scss';
 
 export const App: React.FC = () => {

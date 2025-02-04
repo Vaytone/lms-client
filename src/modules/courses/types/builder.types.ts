@@ -1,94 +1,84 @@
-import { a } from 'vite/dist/node/types.d-aGj9QkWt';
-
-export interface BuilderBlock {
-  id: string,
-  dragId: string,
-  type: string,
-  data: {
-    title: string,
-    icon: string,
-  },
-  dataToAdd: Record<string, string>
-}
+import { Divide } from '@phosphor-icons/react';
 
 export interface CourseForm {
   title: string,
   description: string,
 }
 
-interface ContentBlock {
-  id: string;
+export enum BuilderTemplateIDSEnum {
+  Heading = 'headingTemplate',
+  Text = 'textTemplate',
+  Comment = 'commentTemplate',
+  Image = 'imageTemplate',
+  Divider = 'dividerTemplate',
+  File = 'fileTemplate',
 }
 
-export interface TitleBlock extends ContentBlock {
-  data: {
-    type: BuilderBlockType.Text,
-    text: string,
-  }
-}
-
-export interface HeadingBlock extends ContentBlock {
-  data: {
-    type: BuilderBlockType.Heading,
-    text: string,
-  }
-}
-
-export interface CommentBlock extends ContentBlock {
-  data: {
-    type: BuilderBlockType.Comment,
-    text: string,
-    author: string,
-  }
-}
-
-export interface DividerBlock extends ContentBlock {
-  data: {
-    type: BuilderBlockType.Divider,
-  }
-}
-
-export interface ImageBlock extends ContentBlock {
-  data: {
-    type: BuilderBlockType.Image,
-    fileId: string,
-    description: string,
-  }
-}
-
-export type BuilderItem = TitleBlock | HeadingBlock | CommentBlock | DividerBlock | ImageBlock;
-
-export interface BuilderItems {
-  [key: string]: BuilderItem[];
-}
-
-export interface BlocksData {
-  id: string,
-  title: string,
-}
-
-export enum BuilderBlockType {
+export enum BuilderBlockTypeEnum {
   Text = 'text',
   Heading = 'heading',
   Comment = 'comment',
   Divider = 'divider',
   Image = 'image',
+  File = 'file',
 }
+
+export interface BuilderTemplate {
+  id: BuilderTemplateIDSEnum,
+  name: string,
+}
+
+export interface BaseCourseItem {
+  id: string,
+}
+
+export interface HeadingCourseItem extends BaseCourseItem {
+  data: {
+    type: BuilderBlockTypeEnum.Heading,
+    text: string,
+  }
+}
+
+export interface DividerCourseItem extends BaseCourseItem {
+  data: {
+    type: BuilderBlockTypeEnum.Divider,
+  }
+}
+
+export interface TextCourseItem extends BaseCourseItem {
+  data: {
+    type: BuilderBlockTypeEnum.Text,
+    text: string,
+  }
+}
+
+export interface ImageCourseItem extends BaseCourseItem {
+  data: {
+    type: BuilderBlockTypeEnum.Image,
+    fileId: string,
+    description: string,
+  }
+}
+
+export interface CommentCourseItem extends BaseCourseItem {
+  data: {
+    type: BuilderBlockTypeEnum.Comment,
+    text: string,
+    author: string,
+  }
+}
+
+export interface FileCourseItem extends BaseCourseItem {
+  data: {
+    type: BuilderBlockTypeEnum.File,
+    fileId: string,
+  }
+}
+
+export type CourseItem = HeadingCourseItem | TextCourseItem | CommentCourseItem | ImageCourseItem | DividerCourseItem | FileCourseItem;
 
 export type BuilderFile = {
   id: string,
   itemId: string,
   file: File,
-}
-
-interface ExtendedBlockData extends BlocksData {
-  items: BuilderItem[],
-}
-
-export interface CourseData {
-  form: {
-    title: string,
-    description: string,
-  },
-  blocks: ExtendedBlockData[],
 }

@@ -17,8 +17,8 @@
   //align-items: center;
   //justify-content: flex-start;
   gap: 16px;
-  width: calc(100% - 350px);
-  max-width: calc(100% - 357px);
+  width: calc(100% - 250px);
+  max-width: calc(100% - 257px);
   flex-grow: 1;
   display: flex;
 
@@ -26,9 +26,10 @@
     margin-top: 0;
   }
 
-  //@include for-tablet() {
-  //  padding: 0 16px 16px 16px;
-  //}
+  @include for-desktop-xl {
+    width: calc(100% - 350px);
+    max-width: calc(100% - 357px);
+  }
 }
 
 .Page {

@@ -1,0 +1,155 @@
+@import '@styles/variables';
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+  }
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.Block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--content-color);
+  padding: 24px 16px;
+  margin-top: 16px;
+  border-radius: 10px;
+  animation: appear 0.2s linear;
+  position: relative;
+}
+
+.ContentTitle {
+  margin: 8px 0;
+}
+
+.Delete {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  user-select: none;
+
+  svg {
+    color: var(--light-text-color);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--error-hover);
+    }
+  }
+}
+
+.Content {
+  flex-grow: 1;
+  position: relative;
+}
+
+.BlockContent {
+  border: 1px dashed transparent;
+  background-color: var(--body-accent-color);
+  border-radius: 10px;
+  position: relative;
+  transition: border-color 0.2s;
+
+  &--active {
+    border-color: var(--secondary-bright);
+  }
+
+  &--over {
+    border-color: var(--secondary-light);
+  }
+}
+
+.OverBackground {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: 0.2s;
+  background-color: var(--secondary-bright);
+
+  &--active {
+    z-index: 5;
+    opacity: 0.2;
+  }
+}
+
+.BuilderActiveOverflow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(254, 254, 254, 0.5);
+  z-index: 7;
+
+  animation: appear 0.1s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+
+  svg {
+    color: var(--light-text-color);
+  }
+}
+
+.Container {
+  flex-grow: 1;
+  flex-direction: column;
+  transition: all 0.2s;
+
+  &:last-child {
+    margin-bottom: 16px;
+  }
+}
+
+.Wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+.EmptyContainer {
+  border: 1px dashed transparent;
+  background-color: var(--bright-content-color);
+  padding: 16px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  &--active {
+    border-color: var(--secondary-bright);
+  }
+
+  svg {
+    color: var(--light-text-color);
+  }
+
+
+  &--over {
+    border-color: var(--secondary-light);
+  }
+}
+
+.EmptyText {
+  font-weight: 500;
+  margin: 0;
+  color: var(--light-text-color);
+}

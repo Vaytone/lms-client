@@ -45,7 +45,7 @@
     color: var(--secondary-color);
 
     &:not([disabled]):hover {
-      background-color: var(--bright-text-color) !important;
+      background-color: var(--light-action) !important;
     }
   }
 

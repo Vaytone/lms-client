@@ -1,0 +1,58 @@
+
+.Content {
+  flex-grow: 1;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  background-color: var(--content-color);
+  border-radius: 10px;
+  position: relative;
+}
+
+.Delete {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  user-select: none;
+
+  svg {
+    color: var(--light-text-color);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--error-hover);
+    }
+  }
+}
+
+.ItemWrapper {
+  display: flex;
+  gap: 16px;
+  //margin: 16px 0 0;
+  width: 100%;
+
+  &:last-child {
+    flex-grow: 1;
+  }
+}
+
+.DragIconWrapper {
+  align-self: flex-start;
+}
+
+.DragIcon {
+  color: var(--light-text-color);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.Content {
+  flex-grow: 1;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  background-color: var(--content-color);
+  opacity: 0.48;
+  width: 100%;
+}

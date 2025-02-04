@@ -1,10 +1,14 @@
-@import "@styles/variables";
 @import "@styles/mixins";
 
 .Content {
-  background-color: var(--content-color);
-  border-radius: 10px;
   padding: 16px;
+}
+
+.CourseHeader {
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  background-color: var(--content-color);
 }
 
 .Title {
@@ -13,9 +17,9 @@
 
 .Description {
   color: var(--light-text-color);
-  font-size: 1.1em;
-  border-left: 3px solid var(--light-text-color);
-  padding-left: 16px;
+  font-size: 1em;
+  //border-left: 3px solid var(--light-text-color);
+  //padding-left: 16px;
 }
 
 .BlockWrapper {
@@ -31,6 +35,11 @@
   border-radius: 10px;
 }
 
+.BlockTitle {
+  font-size: 1.3em;
+  margin: 0 0 16px;
+}
+
 .Divider {
   border-bottom: 1px solid var(--border-color);
   margin: 16px 0;
@@ -38,4 +47,45 @@
 
 .Item {
   margin-top: 16px;
+}
+
+.CourseContent {
+  display: flex;
+  gap: 16px;
+  border-radius: 10px;
+}
+
+.Course {
+  //flex-basis: 80%;
+}
+
+.CourseNavigation {
+  position: sticky;
+  top: calc(var(--controls-height) + 16px + var(--header-height));
+  flex-grow: 1;
+  background-color: var(--content-color);
+  align-self: flex-start;
+  border-radius: 10px;
+  width: 250px;
+  padding: 16px;
+  min-width: 250px;
+
+  @include for-desktop-xl() {
+    width: 350px;
+    min-width: 350px;
+  }
+}
+
+.NavigationItem {
+  margin: 14px 0;
+  position: relative;
+  align-items: center;
+  display: flex;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

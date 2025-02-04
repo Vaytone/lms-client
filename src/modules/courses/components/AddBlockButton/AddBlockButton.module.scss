@@ -1,0 +1,60 @@
+@import "@styles/variables";
+
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.AddBlockButton {
+  background-color: var(--content-color);
+  padding: 16px 32px;
+  border-radius: 10px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 1px dashed transparent;
+  margin-bottom: 24px;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+    transition: all 0.2s;
+    border-color: var(--secondary-light);
+
+    p, svg {
+      color: unset;
+    }
+  }
+
+  svg {
+    color: var(--light-text-color);
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--light-text-color);
+  }
+
+  &--over {
+    border: 1px dashed var(--secondary-bright);
+
+    p, svg {
+      color: unset;
+    }
+  }
+
+}

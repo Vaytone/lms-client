@@ -20,6 +20,17 @@ export default defineConfig({
       ],
     }),
   ],
+  build: {
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
+    },
+  },
   css: {
     modules: {
       generateScopedName: '[local]_[hash:base64:5]',
@@ -32,6 +43,7 @@ export default defineConfig({
     // By default, Vite doesn't include shims for NodeJS/
     // necessary for segment analytics lib to work
     global: {},
+    'window.setImmediate': '(fn, ...args) => setTimeout(fn, 0, ...args)',
   },
   resolve: {
     alias: [
