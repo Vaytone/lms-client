@@ -20,6 +20,7 @@
   --warning-color: #FFC73A;
 
   --secondary-color: #141522;
+  --secondary-semi-light-text: #141522;
   --secondary-light-text: #73768f;
   --secondary-light: #54577A;
   --secondary-bright: #9a9a9a;
@@ -27,6 +28,7 @@
   --reverse-text-color: #ffffff;
   --body-color: #EDEEF0;
   --body-content-color: #fff;
+  --bright-content-color: #f9f9f9;
   --body-accent-color: #f3f3f3;
   --content-color: #FFFFFF;
   --content-disabled: #ededed;
@@ -61,6 +63,8 @@
   --action-color: #383f51;
   --action-hover: #484e5d;
 
+  --action-accent-color: #546fff;
+
   --light-action: #ededed;
 
   --content-over: rgba(254, 254, 254, 0.5);
@@ -89,7 +93,8 @@
 
   --warning-color: #FFCттзь 73A;         /* Retained original */
 
-  --secondary-color: #ffffff;       /* Deep secondary */
+  --secondary-color: #ffffff;
+  --secondary-semi-light-text: #d5d5d5;
   --secondary-light-text: #a0a3b1;  /* Muted secondary text */
   --secondary-light: #aeaeb0;       /* Softer tone for secondary */
   --secondary-bright: #b5b7cb;      /* Bright secondary */
@@ -98,7 +103,8 @@
   --body-color: #17171c;
   --body-content-color: #191a1f;
   --body-accent-color: #191921;
-  --content-color: #202227;         /* Content area background */
+  --content-color: #202227;
+  --bright-content-color: #27292f;
   --content-disabled: #1c1d24;      /* Disabled content */
   --sub-content-color: #1f2028;     /* Subtle sub-content background */
   --content-color-hover: #262830;   /* Hover effect for content */
@@ -130,6 +136,8 @@
 
   --action-color: #546fff;
   --action-hover: #4e68f1;
+
+  --action-accent-color: #546fff;
 
   --light-action: #505050;
 

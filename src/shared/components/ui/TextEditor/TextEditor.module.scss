@@ -1,22 +1,25 @@
 @import "@styles/variables";
 
 .Editor {
-  border: 1px solid var(--primary-bright);
-  min-height: 160px;
-  cursor: text;
-  padding: 8px 16px;
+  border-radius: 5px;
+  color: var(--secondary-color);
+  font-size: 1em;
 
   &--invalid {
-    border-color: var(--error-disabled);
 
-    &:hover {
-      border-color: var(--error-disabled);
+    :global(.ql-container) {
+      border-color: var(--error-disabled) !important;
+
+      &:hover {
+        border-color: var(--error-disabled) !important;
+      }
+
+      &:focus {
+        outline: none !important;
+        border-color: var(--error-active) !important;
+      }
     }
 
-    &:focus {
-      outline: none;
-      border-color: var(--error-active);
-    }
   }
 }
 
@@ -27,4 +30,28 @@
   display: inline-block;
   color: var(--secondary-color);
   font-size: 14px;
+}
+
+.Toolbar {
+  background-color: transparent;
+  border-color: var(--border-color);
+}
+
+.ToolbarButton {
+  width: 30px;
+  height: 30px;
+  background-color: var(--body-content-color);
+  border-color: var(--border-color);
+
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.ErrorMessageWrapper {
+  height: 22px;
+  display: flex;
+  align-items: center;
 }

@@ -3,6 +3,7 @@
 @keyframes appear {
   0% {
     opacity: 0;
+    scale: 0.9;
   }
 
   0% {
@@ -11,6 +12,7 @@
 
   100% {
     opacity: 1;
+    scale: 1;
   }
 }
 
@@ -22,6 +24,7 @@
   padding: 24px 16px;
   margin-top: 16px;
   border-radius: 10px;
+  animation: appear 0.2s linear;
   position: relative;
 }
 
@@ -47,15 +50,14 @@
 
 .Content {
   flex-grow: 1;
-  overflow: hidden;
+  position: relative;
 }
 
 .BlockContent {
   border: 1px dashed transparent;
-  background-color: #f9f9f9;
+  background-color: var(--body-accent-color);
   border-radius: 10px;
   position: relative;
-  overflow: hidden;
   transition: border-color 0.2s;
 
   &--active {
@@ -64,6 +66,23 @@
 
   &--over {
     border-color: var(--secondary-light);
+  }
+}
+
+.OverBackground {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: 0.2s;
+  background-color: var(--secondary-bright);
+
+  &--active {
+    z-index: 5;
+    opacity: 0.2;
   }
 }
 
@@ -95,6 +114,9 @@
   flex-direction: column;
   transition: all 0.2s;
 
+  &:last-child {
+    margin-bottom: 16px;
+  }
 }
 
 .Wrapper {
@@ -104,7 +126,7 @@
 
 .EmptyContainer {
   border: 1px dashed transparent;
-  background-color: #f9f9f9;
+  background-color: var(--bright-content-color);
   padding: 16px;
   display: flex;
   border-radius: 10px;

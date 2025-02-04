@@ -1,76 +1,60 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from '@components/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { BuilderContext } from '@modules/courses/contexts/BuilderContext';
-import { ListMagnifyingGlass, MagnifyingGlass, Link } from '@phosphor-icons/react';
+import { MagnifyingGlass } from '@phosphor-icons/react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '@shared/constants/routes';
-import { HashLink } from 'react-router-hash-link';
+import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
+import { triggerCourseValidation } from '@modules/courses/redux/slice';
+import { validateCourseForm } from '@modules/courses/helper/builder.helper';
+import { BuilderContext } from '@modules/courses/context/BuilderContext';
+import { createCourse } from '@modules/courses/redux/thunks';
+import { BuilderBlockTypeEnum } from '@modules/courses/types/builder.types';
 import styles from './CourseBuilderControls.module.scss';
 
 const CourseBuilderControls: React.FC = () => {
-  // const { handleSubmit, getCourseData } = useContext(BuilderContext);
-  // const courseData = useMemo(() => getCourseData(), [getCourseData()]);
-  const [isStructureOpen, setStructureOpen] = useState(false);
+  const { files } = useContext(BuilderContext);
+  const courseData = useAppSelector((state) => state.courseBuilder);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
   
   const handleNavigateToPreview = () => {
     navigate(AppRoutes.CoursePreview);
   };
   
-  const handleSubmit = () => {};
-  const getCourseData = () => {};
-  
-  const toggleStructure = () => {
-    setStructureOpen((prev) => !prev);
+  const handleSubmit = async () => {
+    const validationResult = await validateCourseForm(courseData);
+    
+    console.log(courseData);
+    
+    dispatch(triggerCourseValidation());
+    
+    const formData = new FormData();
+    
+    const fileMap = new Map(files.map((file) => [file.id, file.file]));
+
+    const updatedItems = Object.values(courseData.items).map((item) => {
+      if (item.data.type === BuilderBlockTypeEnum.Image || item.data.type === BuilderBlockTypeEnum.File && fileMap.has(item.data.fileId)) {
+        const file = fileMap.get(item.data.fileId);
+        
+        const fileKey = `${item.data.fileId}`;
+        formData.append(fileKey, file as File);
+      }
+      return item;
+    });
+    
+    formData.append('items', JSON.stringify(updatedItems));
+    formData.append('blocks', JSON.stringify(courseData.blocks));
+    formData.append('blocksInfo', JSON.stringify(courseData.blocksInfo));
+    formData.append('main', JSON.stringify(courseData.main));
+    
+    dispatch(createCourse(formData));
   };
   
   return (
     <div className={styles.Wrapper}>
       <div className={styles.ControlButton}>
-        
-        {/*<div className={styles.StructureWrapper}>*/}
-        {/*  {isStructureOpen && (*/}
-        {/*    <div className={styles.StructureContent}>*/}
-        {/*      <div className={styles.Structure}>*/}
-        {/*        <h3 className={styles.StructureMainTitle}>Структура курсу</h3>*/}
-        {/*        <p className={styles.StructureDescription}>Це структура вашого курсу, ви можете клікнути по елементу,*/}
-        {/*          щоб перейти до нього</p>*/}
-        {/*        {courseData.blocks.map((item, index) => {*/}
-        {/*          return (*/}
-        {/*            <div className={styles.ItemsWrapper}>*/}
-        {/*              <p className={styles.StructureTitle}>{t('courses.blockN', {value: index + 1})}</p>*/}
-        {/*              {item.items.map((subItem) => {*/}
-        {/*                return (*/}
-        {/*                  <div className={styles.StructureItems}>*/}
-        {/*                    */}
-        {/*                    <HashLink*/}
-        {/*                      to={`#${subItem.id}`}*/}
-        {/*                      scroll={(el) => el.scrollIntoView({behavior: 'smooth', block: 'center'})}*/}
-        {/*                    >*/}
-        {/*                      <div className={styles.LinkWrapper}>*/}
-        {/*                        <Link size={16}/>*/}
-        {/*                        {t(`courses.${subItem.data.type}`)}*/}
-        {/*                      </div>*/}
-        {/*                    </HashLink>*/}
-        {/*                  </div>*/}
-        {/*                );*/}
-        {/*              })}*/}
-        {/*            </div>*/}
-        {/*          );*/}
-        {/*        })}*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-        {/*  )}*/}
-        {/*  */}
-        {/*  <Button*/}
-        {/*    icon={<ListMagnifyingGlass size={16}/>}*/}
-        {/*    text={t('courses.structure')}*/}
-        {/*    onClick={toggleStructure}*/}
-        {/*    styleType="transparent"*/}
-        {/*  />*/}
-        {/*</div>*/}
         <Button
           icon={<MagnifyingGlass size={16}/>}
           text={t('courses.preview')}

@@ -9,10 +9,12 @@ const TemplateList: React.FC = () => {
   
   return (
     <div className={styles.TemplateAside}>
-      <h4 className={styles.Title}>{t('courses.dragTitle')}</h4>
-      {BUILDER_TEMPLATES.map((item) => (
-        <TemplateItem key={item.id} item={item}/>
-      ))}
+      <div className={styles.List}>
+        <h4 className={styles.Title}>{t('courses.dragTitle')}</h4>
+        {BUILDER_TEMPLATES.map((item) => (
+          <TemplateItem key={item.id} item={item}/>
+        ))}
+      </div>
     </div>
   );
 };

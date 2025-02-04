@@ -3,6 +3,7 @@ export const COURSE_VALIDATION = {
   maxTitle: 100,
   minDescription: 50,
   maxDescription: 800,
+  maxBlockTitle: 150,
 };
 
 export const BUILDER_ITEM_VALIDATION = {
@@ -15,4 +16,5 @@ export const BUILDER_ITEM_VALIDATION = {
   minAuthor: 1,
   maxAuthor: 100,
   maxImageDescription: 200,
+  maxFileDescription: 200,
 };

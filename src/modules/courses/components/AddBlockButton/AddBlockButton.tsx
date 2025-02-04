@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StackPlus } from '@phosphor-icons/react';
 import { useDroppable } from '@dnd-kit/core';
 import { useTranslation } from 'react-i18next';
@@ -26,7 +26,7 @@ const AddBlockButton: React.FC<Props> = ({ addBlock }) => {
       className={cn(styles.AddBlockButton, isOver && styles.AddBlockButtonOver)}
     >
       <StackPlus size={24}/>
-
+      
       <p>{isOver ? t('courses.createNewBlockWithElem') : t('courses.addNewBlock')}</p>
     </div>
   );

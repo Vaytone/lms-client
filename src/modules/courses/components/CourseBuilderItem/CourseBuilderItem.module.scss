@@ -1,0 +1,56 @@
+.Wrapper {
+  margin: 16px 16px 0 16px;
+}
+
+.ItemWrapper {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0 0;
+  width: 100%;
+
+  &--active {
+    opacity: 0.35;
+  }
+
+  &:last-child {
+    flex-grow: 1;
+  }
+}
+
+.DragIconWrapper {
+  align-self: flex-start;
+}
+
+.DragIcon {
+  color: var(--accent-text-color);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.Content {
+  flex-grow: 1;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  background-color: var(--content-color);
+  border-radius: 10px;
+  position: relative;
+}
+
+.Delete {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  user-select: none;
+
+  svg {
+    color: var(--light-text-color);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--error-hover);
+    }
+  }
+}

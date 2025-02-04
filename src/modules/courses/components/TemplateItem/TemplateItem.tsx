@@ -13,20 +13,13 @@ const TemplateItem: React.FC<Props> = ({ item }) => {
   const { name, id } = item;
   const { t } = useTranslation();
   
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: id.toString(), // Унікальний ідентифікатор для draggable елемента
+  const { attributes, listeners, setNodeRef } = useDraggable({
+    id: id.toString(),
   });
-  
-  // const style = {
-  //   transform: transform
-  //     ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
-  //     : undefined,
-  // };
   
   return (
     <div
       ref={setNodeRef}
-      // style={style}
       {...listeners}
       {...attributes}
       className={styles.Item}
