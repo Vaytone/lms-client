@@ -57,6 +57,7 @@
 
 .Course {
   //flex-basis: 80%;
+  flex-grow: 1;
 }
 
 .CourseNavigation {
@@ -69,6 +70,7 @@
   width: 250px;
   padding: 16px;
   min-width: 250px;
+  max-width: 250px;
 
   @include for-desktop-xl() {
     width: 350px;
